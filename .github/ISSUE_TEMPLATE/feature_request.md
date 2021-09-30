@@ -10,14 +10,14 @@ assignees: ''
 ## 実装概要
 **項目**
 - [x] xxx
-- [] yyy
+- [ ] yyy
 
 ## 背景
 - [x] xxx
-- [] yyy
+- [ ] yyy
 
 ## やること
 - [x] xxx
-- [] yyy
+- [ ] yyy
 
 ## 参考リンク
