@@ -2,16 +2,20 @@
 ## 環境構築手順
 ---
 ### レポジトリをcloneする
-`~$ git clone git@github.com:one-gift/design-quize.git`
+```$ git clone git@github.com:one-gift/design-quize.git```
 
 ----
 ### docker環境を構築する
-以下のコマンドを順番に叩いていく
+階層を移動すする
 
-1. `design-quize ~$ docker-compose run --rm node npm install -D typescript @types/node`
+```cd design-quiz```
 
-2. `design-quize ~$ docker-compose run --rm node npm install -D ts-node ts-node-dev rimraf npm-run-all`
+階層を移動したら、以下のコマンドを順番に叩いていく
 
-3. `design-quize ~$ docker-compose run --rm node npm run build`
+1. ```$ docker-compose run --rm node npm install -D typescript @types/node```
 
-4. `design-quize ~$ docker-compose up -d`
+2. ```$ docker-compose run --rm node npm install -D ts-node ts-node-dev rimraf npm-run-all```
+
+3. ```$ docker-compose run --rm node npm run build```
+
+4. ```$ docker-compose up -d```
