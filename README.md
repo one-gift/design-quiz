@@ -19,7 +19,8 @@ $ docker-compose run --rm node npm run build
 $ docker-compose up -d
 ```
 
-###　起動&停止&コンパイル
+### 起動&停止&コンパイル
+
 ```
 # 起動(作業開始時に実行)
 $ docker-compose start
