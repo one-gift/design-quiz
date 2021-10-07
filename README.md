@@ -2,7 +2,7 @@
 ## 環境構築手順
 ---
 ### レポジトリをcloneする
-`$ git clone git@github.com:one-gift/design-quize.git`
+`$ git clone git@github.com:one-gift/design-quiz.git`
 
 ----
 ### docker環境を構築する(一回のみ)
