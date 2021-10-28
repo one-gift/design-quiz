@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #jst {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    
+        #result {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <section>
+        <h1>Fetch API Sample1</h1>
+        <div id="text-button" onclick="getQuiz()">
+            <p id="text">スタート</p>
+        </div>
+        
+        <div id="result">
+            1問目の quiz object <span id="jst"></span>
+        </div>
+    </section>
+    <script src="../js/script.js"></script>
+    
     
 </body>
 </html>
