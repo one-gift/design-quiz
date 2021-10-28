@@ -2,35 +2,38 @@
     "items": [
         {
             "quize_id": 1,
-            "quiz": {
-                "image_path": "/aaa",
+            "question": {
+                "correct_img_path": "/aaa1",
+                "wrong_img_path": "/aaa2",
                 "quize_text": "aaa"
             },
             "answer": {
                 "correct_num": 1,
-                "faile_text": "aaa"
+                "explain": "aaa"
             }
         },
         {
             "quize_id": 2,
-            "quiz": {
-                "image_path": "/bbb",
+            "question": {
+                "correct_img_path": "/bbb1",
+                "wrong_img_path": "/bbb2",
                 "quize_text": "bbb"
             },
             "answer": {
                 "correct_num": 2,
-                "faile_text": "bbb"
+                "explain": "bbb"
             }
         },
         {
             "quize_id": 3,
-            "quiz": {
-                "image_path": "/ccc",
+            "question": {
+                "correct_img_path": "/ccc1",
+                "wrong_img_path": "/ccc2",
                 "quize_text": "ccc"
             },
             "answer": {
                 "correct_num": 3,
-                "faile_text": "ccc"
+                "explain": "ccc"
             }
         }
     ]
