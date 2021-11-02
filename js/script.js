@@ -10,7 +10,10 @@ var quizIdx = 0;
  */
 function getQuiz() {
     var quiz = quizList["items"][quizIdx];
-    document.querySelector("#jst").innerHTML = JSON.stringify(quiz);
+    document.querySelector("#idx").innerHTML = JSON.stringify(quiz["quiz_id"]);
+    document.querySelector("#jst").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
+    document.querySelector("#img1").setAttribute('src', JSON.stringify(quiz["question"]["correct_img_path"]));
+    document.querySelector("#img2").setAttribute('src', JSON.stringify(quiz["question"]["wrong_img_path"]));
     document.querySelector("#result").style.display = "block";
     quizIdx++;
 }
@@ -26,4 +29,11 @@ function getJSON() {
     req.send(null);
     quizList = JSON.parse(req.responseText);
     return quizList;
+}
+
+/**
+ * 
+ */
+function checkCorrect(selected, answer){
+
 }

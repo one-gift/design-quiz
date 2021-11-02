@@ -1,11 +1,11 @@
 {
     "items": [
         {
-            "quize_id": 1,
+            "quiz_id": 1,
             "question": {
                 "correct_img_path": "/aaa1",
                 "wrong_img_path": "/aaa2",
-                "quize_text": "aaa"
+                "quiz_text": "aaa"
             },
             "answer": {
                 "correct_num": 1,
@@ -13,11 +13,11 @@
             }
         },
         {
-            "quize_id": 2,
+            "quiz_id": 2,
             "question": {
                 "correct_img_path": "/bbb1",
                 "wrong_img_path": "/bbb2",
-                "quize_text": "bbb"
+                "quiz_text": "bbb"
             },
             "answer": {
                 "correct_num": 2,
@@ -25,11 +25,11 @@
             }
         },
         {
-            "quize_id": 3,
+            "quiz_id": 3,
             "question": {
                 "correct_img_path": "/ccc1",
                 "wrong_img_path": "/ccc2",
-                "quize_text": "ccc"
+                "quiz_text": "ccc"
             },
             "answer": {
                 "correct_num": 3,
