@@ -11,6 +11,10 @@
             font-weight: bold;
         }
     
+        #quiestion {
+            display: none;
+        }
+
         #result {
             display: none;
         }
@@ -18,17 +22,25 @@
 </head>
 <body>
     <section>
-        <h1>Fetch API Sample1</h1>
+        <h1>クイズ</h1>
         <div id="text-button" onclick="getQuiz()">
             <p id="text">スタート</p>
         </div>
         
-        <div id="result">
+        <div id="quiestion">
             <p id="idx"></p>問目のクイズ<span id="jst"></span>
-            <button onclick="checkCorrect()"><img id="img1" src="" alt="aaa"></button>
-            <button onclick="checkCorrect()"><img id="img2" src="" alt="bbb"></button>
-            
+            <div id="choices"></div>
+            <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
+            <button onclick="generateResult(1)"><img id="img2" class="choices-btn" src="" alt="bbb" value="1"></button>
         </div>
+
+        <div id="result">
+            <p id="judged"></p>
+            <img id="correct-img" src="" alt="">
+            <p id="explain"></p>
+            <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
+        </div>
+
     </section>
     <script src="../js/script.js"></script>
     
