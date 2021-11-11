@@ -44,8 +44,8 @@ function getJSON() {
 
 /**
  * 正誤判定機能
- * @param selected int
- * @return 
+ * @param {object} selected
+ * @return {list}
  */
 function checkCorrect(selected) {
     var correct_num = quizList["items"][quizIdx - 1]["answer"]["correct_num"];
@@ -56,7 +56,11 @@ function checkCorrect(selected) {
     }
 }
 
-// 
+/**
+ * 正誤判定画面の生成
+ * @param {object} selected
+ * @return
+ */
 function generateResult(selected) {
     var result_flag = checkCorrect(selected)
     console.log(result_flag);
@@ -83,6 +87,11 @@ function generateResult(selected) {
     }
 }
 
+/**
+ * 次の問題への遷移
+ * @param
+ * @return
+ */
 function goNextQuestion() {
     if (quizIdx < quizList["items"].length) {
         getQuiz();
@@ -91,4 +100,13 @@ function goNextQuestion() {
         console.log("最終結果を見る");
         document.querySelector("#result").style.display = "none";
     }
+}
+
+/**
+ * 最終結果画面の生成
+ * @pram
+ * @return
+ */
+function generateEndResult() {
+    
 }
