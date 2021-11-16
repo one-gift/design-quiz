@@ -18,17 +18,22 @@
         #result {
             display: none;
         }
+
+        #end-result {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <section>
         <h1>クイズ</h1>
-        <div id="text-button" onclick="getQuiz()">
-            <p id="text">スタート</p>
+        <div id="start">
+            <p id="text" onclick="getQuiz()">スタート</p>
         </div>
         
         <div id="quiestion">
-            <p id="idx"></p>問目のクイズ<span id="jst"></span>
+            <span id="idx"></span>問目のクイズ
+            <p id="quiz-text"></p>
             <div id="choices"></div>
             <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
             <button onclick="generateResult(1)"><img id="img2" class="choices-btn" src="" alt="bbb" value="1"></button>
@@ -39,6 +44,16 @@
             <img id="correct-img" src="" alt="">
             <p id="explain"></p>
             <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
+        </div>
+
+        <div id="end-result">
+            <p id="correct-cnt"></p>
+            <p id="thanks"></p>
+            <div id="sns-link">
+                <div>LINE</div>
+                <div>Twitter</div>
+                <div>FaceBook</div>
+            </div>
         </div>
 
     </section>

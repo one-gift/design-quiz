@@ -2,6 +2,8 @@
 
 var quizList = getJSON();
 var quizIdx = 0;
+var levelIdx = 0;
+var userCorrectCnt = 0;
 
 /**
  * json形式でクイズを取得
@@ -9,9 +11,20 @@ var quizIdx = 0;
  * @return
  */
 function getQuiz() {
-    var quiz = quizList["items"][quizIdx];
-    generateQestion(quiz);
+    var quiz = quizList["items"][levelIdx][quizIdx];
     quizIdx++;
+    generateQestion(quiz);
+    document.querySelector("#start").style.display = "none";
+}
+
+/**
+ * レベルの切り替え
+ * @param 
+ * @return
+ */
+function changeLevel() {
+    quizIdx = 0;
+    levelIdx++;
 }
 
 /**
@@ -21,7 +34,7 @@ function getQuiz() {
  */
 function generateQestion(quiz) {
     document.querySelector("#idx").innerHTML = JSON.stringify(quiz["quiz_id"]);
-    document.querySelector("#jst").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
+    document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
 
     document.querySelector("#img1").setAttribute('src', quiz["question"]["img_path"][0]);
     document.querySelector("#img2").setAttribute('src', quiz["question"]["img_path"][1]);
@@ -48,8 +61,10 @@ function getJSON() {
  * @return {list}
  */
 function checkCorrect(selected) {
-    var correct_num = quizList["items"][quizIdx - 1]["answer"]["correct_num"];
+    var correct_num = quizList["items"][levelIdx][quizIdx - 1]["answer"]["correct_num"];
     if (selected == correct_num) {
+        userCorrectCnt++;
+        console.log(userCorrectCnt);
         return [1, correct_num];
     } else {
         return [0, correct_num]
@@ -65,7 +80,7 @@ function generateResult(selected) {
     var result_flag = checkCorrect(selected)
     console.log(result_flag);
     if (result_flag[0] == 1) {
-        if (quizIdx >= quizList["items"].length) {
+        if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
             document.querySelector("#next-btn").value = "最終結果を見る"
         }
         console.log("正解");
@@ -73,9 +88,9 @@ function generateResult(selected) {
         document.querySelector("#result").style.display = "block";
 
         document.querySelector("#judged").innerText = "正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
+        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
     } else {
-        if (quizIdx >= quizList["items"].length) {
+        if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
             document.querySelector("#next-btn").value = "最終結果を見る"
         }
         console.log("不正解");
@@ -83,7 +98,7 @@ function generateResult(selected) {
         document.querySelector("#result").style.display = "block";
 
         document.querySelector("#judged").innerText = "不正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
+        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
     }
 }
 
@@ -93,13 +108,15 @@ function generateResult(selected) {
  * @return
  */
 function goNextQuestion() {
-    if (quizIdx < quizList["items"].length) {
-        getQuiz();
-        document.querySelector("#result").style.display = "none";
-    } else {
-        console.log("最終結果を見る");
-        document.querySelector("#result").style.display = "none";
+    if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
+        generateEndResult(userCorrectCnt)
+        return
     }
+    if (quizIdx >= quizList["items"][levelIdx].length) {
+        changeLevel()
+    }
+    getQuiz();
+    document.querySelector("#result").style.display = "none";
 }
 
 /**
@@ -107,6 +124,19 @@ function goNextQuestion() {
  * @pram
  * @return
  */
-function generateEndResult() {
-    
+function generateEndResult(userCorrectCnt) {
+    document.querySelector("#result").style.display = "none";
+    document.querySelector("#end-result").style.display = "block";
+
+    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "問正解";
+    var thanks = quizList["thanks"];
+    if (userCorrectCnt < 1) {
+        document.querySelector("#thanks").innerText = thanks["0"];
+    } else if (userCorrectCnt > 0 && userCorrectCnt < 2) {
+        document.querySelector("#thanks").innerText = thanks["1"];
+    } else if (userCorrectCnt > 1 && userCorrectCnt < 3) {
+        document.querySelector("#thanks").innerText = thanks["2"];
+    } else {
+        document.querySelector("#thanks").innerText = thanks["3"];
+    }
 }

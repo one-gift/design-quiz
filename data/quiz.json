@@ -1,46 +1,142 @@
 {
     "items": [
-        {
-            "quiz_id": 1,
-            "question": {
-                "img_path": [
-                    "../data/quiz_img/burger.png",
-                    "../data/quiz_img/patty.png"
-                ],
-                "quiz_text": "aaa"
+        [
+            {
+                "quiz_id": 1,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "easy aaa"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "aaa"
+                }
             },
-            "answer": {
-                "correct_num": 0,
-                "explain": "aaa"
-            }
-        },
-        {
-            "quiz_id": 2,
-            "question": {
-                "img_path": [
-                    "../data/quiz_img/burger.png",
-                    "../data/quiz_img/patty.png"
-                ],
-                "quiz_text": "bbb"
+            {
+                "quiz_id": 2,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "easy bbb"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "bbb"
+                }
             },
-            "answer": {
-                "correct_num": 0,
-                "explain": "bbb"
+            {
+                "quiz_id": 3,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "easy ccc"
+                },
+                "answer": {
+                    "correct_num": 1,
+                    "explain": "ccc"
+                }
             }
-        },
-        {
-            "quiz_id": 3,
-            "question": {
-                "img_path": [
-                    "../data/quiz_img/burger.png",
-                    "../data/quiz_img/patty.png"
-                ],
-                "quiz_text": "ccc"
+        ],
+        [
+            {
+                "quiz_id": 1,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "midle aaa"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "aaa"
+                }
             },
-            "answer": {
-                "correct_num": 1,
-                "explain": "ccc"
+            {
+                "quiz_id": 2,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "midle bbb"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "bbb"
+                }
+            },
+            {
+                "quiz_id": 3,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "midle ccc"
+                },
+                "answer": {
+                    "correct_num": 1,
+                    "explain": "ccc"
+                }
             }
-        }
-    ]
+        ],
+        [
+            {
+                "quiz_id": 1,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "high aaa"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "aaa"
+                }
+            },
+            {
+                "quiz_id": 2,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "high bbb"
+                },
+                "answer": {
+                    "correct_num": 0,
+                    "explain": "bbb"
+                }
+            },
+            {
+                "quiz_id": 3,
+                "question": {
+                    "img_path": [
+                        "../data/quiz_img/burger.png",
+                        "../data/quiz_img/patty.png"
+                    ],
+                    "quiz_text": "high ccc"
+                },
+                "answer": {
+                    "correct_num": 1,
+                    "explain": "ccc"
+                }
+            }
+        ]
+    ],
+    "thanks": {
+        "0": "頑張れよ",
+        "1": "まずまず",
+        "2": "惜しい",
+        "3": "じゅげむ"
+    }
 }
