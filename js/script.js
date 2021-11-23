@@ -4,6 +4,7 @@ var quizList = getJSON();
 var quizIdx = 0;
 var levelIdx = 0;
 var userCorrectCnt = 0;
+var selected;
 
 /**
  * json形式でクイズを取得
@@ -73,10 +74,11 @@ function checkCorrect(selected) {
 
 /**
  * 正誤判定画面の生成
- * @param {object} selected
+ * @param {object} select
  * @return
  */
-function generateResult(selected) {
+function generateResult(select) {
+    selected = select
     var result_flag = checkCorrect(selected)
     console.log(result_flag);
     if (result_flag[0] == 1) {
@@ -88,7 +90,7 @@ function generateResult(selected) {
         document.querySelector("#result").style.display = "block";
 
         document.querySelector("#judged").innerText = "正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
+        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
     } else {
         if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
             document.querySelector("#next-btn").value = "最終結果を見る"
@@ -98,8 +100,30 @@ function generateResult(selected) {
         document.querySelector("#result").style.display = "block";
 
         document.querySelector("#judged").innerText = "不正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][result_flag[1]]);
+        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
     }
+}
+
+/**
+ * @params
+ * @return
+ */
+function down() {
+    if (selected == 0) {
+        var value = 1
+    } else {
+        var value = 0
+    }
+    document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][value]);
+}
+
+/**
+ * @params
+ * @return
+ */
+function up() {
+    var value = selected
+    document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][value]);
 }
 
 /**
