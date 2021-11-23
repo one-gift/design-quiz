@@ -1,3 +1,56 @@
 body {
-    background-color: red;
+    background-color: #0097DB;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .btn,
+  a.btn,
+  button.btn {
+    font-family: Noto Sans JP;
+    color:#ffffff;
+    background-color: #FF9900;
+    border-bottom: 5px solid #C56A00;
+
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+}
+
+.btn--start {
+    color: #ffffff;
+    background-color: #FF9900;
+    border-bottom: 5px solid #C56A00;
+}
+
+.btn--start:hover {
+    top: 3px;
+    color: #ffffff;
+    background: #FF9900;
+    border-bottom: 2px solid #C56A00;
 }
