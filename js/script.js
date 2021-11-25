@@ -5,6 +5,9 @@ var quizIdx = 0;
 var levelIdx = 0;
 var userCorrectCnt = 0;
 var selected;
+var progressVal = 0;
+var progressMax = 0;
+
 
 /**
  * json形式でクイズを取得
@@ -15,7 +18,9 @@ function getQuiz() {
     var quiz = quizList["items"][levelIdx][quizIdx];
     quizIdx++;
     generateQestion(quiz);
+    progressMax = quizList["items"][levelIdx].length;
     document.querySelector("#start").style.display = "none";
+    document.querySelector("#progress").style.display = "block";
 }
 
 /**
@@ -41,6 +46,36 @@ function generateQestion(quiz) {
     document.querySelector("#img2").setAttribute('src', quiz["question"]["img_path"][1]);
 
     document.querySelector("#quiestion").style.display = "block";
+
+}
+
+/**
+ * progressValのインクリメント
+ * @param
+ * @returns 
+ */
+function incrementProgress() {
+    progressVal++;
+}
+
+/**
+ * HTMLのprogressのvalue値の変更
+ * @param
+ * @returns 
+ */
+function setProgressVal() {
+    document.getElementById("quiz-progress").value = progressVal;
+    console.log("progressVal", progressVal)
+}
+
+/**
+ * HTMLのprogressのmax値の変更
+ * @param
+ * @returns
+ */
+function setProgressMax() {
+
+    document.querySelector("#quiz-progress").setAttribute('max', progressMax);
 }
 
 /**
@@ -78,6 +113,10 @@ function checkCorrect(selected) {
  * @return
  */
 function generateResult(select) {
+    
+    incrementProgress();
+    setProgressVal();
+
     selected = select
     var result_flag = checkCorrect(selected)
     console.log(result_flag);
@@ -137,7 +176,15 @@ function goNextQuestion() {
         return
     }
     if (quizIdx >= quizList["items"][levelIdx].length) {
-        changeLevel()
+        // progressValの指定
+        progressVal = 0;
+        setProgressVal();
+
+        changeLevel();
+
+        // progressMaxの指定
+        progressMax = quizList["items"][levelIdx].length;
+        setProgressMax();
     }
     getQuiz();
     document.querySelector("#result").style.display = "none";
