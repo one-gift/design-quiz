@@ -68,3 +68,15 @@ html {
     background: #FF9900;
     border-bottom: 2px solid #C56A00;
 }
+
+.quiestion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.contents{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
