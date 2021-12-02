@@ -130,6 +130,7 @@ function generateResult(select) {
 
         document.querySelector("#judged").innerText = "正解";
         document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
+        doConfetti();
     } else {
         if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
             document.querySelector("#next-btn").value = "最終結果を見る"
@@ -206,8 +207,23 @@ function generateEndResult(userCorrectCnt) {
     } else if (userCorrectCnt > 0 && userCorrectCnt < 2) {
         document.querySelector("#thanks").innerText = thanks["1"];
     } else if (userCorrectCnt > 1 && userCorrectCnt < 3) {
+        doConfetti();
         document.querySelector("#thanks").innerText = thanks["2"];
     } else {
+        doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
     }
+}
+
+/**
+ * 紙吹雪機能
+ * @pram
+ * @return
+ */
+function doConfetti(){
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    })
 }
