@@ -1,5 +1,4 @@
 'use strict'
-
 var quizList = getJSON();
 var quizIdx = 0;
 var levelIdx = 0;
@@ -199,8 +198,15 @@ function goNextQuestion() {
 function generateEndResult(userCorrectCnt) {
     document.querySelector("#result").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
+    // circle;
+    var amount = 0;
+    for (var i = 0; i < quizList["items"].length; i++) {
+        amount += quizList["items"][i].length;
+    }
+    var correctRate = userCorrectCnt/amount
+    circle.animate(correctRate);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "問正解";
+    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "/" + amount + "問正解";
     var thanks = quizList["thanks"];
     if (userCorrectCnt < 1) {
         document.querySelector("#thanks").innerText = thanks["0"];
@@ -214,6 +220,15 @@ function generateEndResult(userCorrectCnt) {
         document.querySelector("#thanks").innerText = thanks["3"];
     }
 }
+
+
+var circle = new ProgressBar.Circle('#container', {
+    color: '#FCB03C',
+    duration: 3000,
+    easing: 'easeInOut',
+    trailColor: '#eee',
+    trailWidth: 1,
+});
 
 /**
  * 紙吹雪機能

@@ -27,6 +27,13 @@
         #end-result {
             display: none;
         }
+
+        #container {
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +47,7 @@
             <p id="progress-frac">1/3</p>
             <progress id="quiz-progress" value="" max="3">1</progress>
         </div>
-
+        
         <div id="quiestion">
             <span id="idx"></span>問目のクイズ
             <p id="quiz-text"></p>
@@ -48,7 +55,7 @@
             <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
             <button onclick="generateResult(1)"><img id="img2" class="choices-btn" src="" alt="bbb" value="1"></button>
         </div>
-
+        
         <div id="result">
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
@@ -58,8 +65,9 @@
             </button>
             <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
         </div>
-
+        
         <div id="end-result">
+            <div id="container"></div>
             <p id="correct-cnt"></p>
             <p id="thanks"></p>
             <div id="sns-link">
@@ -68,8 +76,9 @@
                 <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]">FaceBook</a>
             </div>
         </div>
-
+        
     </section>
+    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
     
