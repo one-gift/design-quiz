@@ -16,8 +16,9 @@ var progressMax = 0;
 function getQuiz() {
     var quiz = quizList["items"][levelIdx][quizIdx];
     quizIdx++;
-    generateQestion(quiz);
     progressMax = quizList["items"][levelIdx].length;
+    setProgressMax();
+    generateQestion(quiz);
     document.querySelector("#start").style.display = "none";
     document.querySelector("#progress").style.display = "block";
 }
@@ -38,7 +39,9 @@ function changeLevel() {
  * @retunrn 
  */
 function generateQestion(quiz) {
-    document.querySelector("#idx").innerHTML = JSON.stringify(quiz["quiz_id"]);
+    document.querySelector("#quiz-idx").innerHTML = quizIdx;
+    document.querySelector("#progress-quiz-idx").innerHTML = quizIdx;
+    document.querySelector("#progress-level-quiz-amount").innerHTML = progressMax;
     document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
 
     document.querySelector("#img1").setAttribute('src', quiz["question"]["img_path"][0]);
@@ -64,7 +67,6 @@ function incrementProgress() {
  */
 function setProgressVal() {
     document.getElementById("quiz-progress").value = progressVal;
-    console.log("progressVal", progressVal)
 }
 
 /**
@@ -184,7 +186,6 @@ function goNextQuestion() {
 
         // progressMaxの指定
         progressMax = quizList["items"][levelIdx].length;
-        setProgressMax();
     }
     getQuiz();
     document.querySelector("#result").style.display = "none";
@@ -197,7 +198,9 @@ function goNextQuestion() {
  */
 function generateEndResult(userCorrectCnt) {
     document.querySelector("#result").style.display = "none";
+    document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
+
     // circle;
     var amount = 0;
     for (var i = 0; i < quizList["items"].length; i++) {
