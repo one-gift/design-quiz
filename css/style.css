@@ -1,5 +1,6 @@
 body {
     background-color: #0097DB;
+    font-family: Noto Sans JP;
 }
 
 *,
@@ -14,17 +15,25 @@ body {
 }
 
 .logo_image{
-    width:  80%;
+    width:  50%;
+    margin-bottom: 1.5em;
 }
 
+.top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  height: 100vh;
+}
 .start{
     width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
-    margin-bottom: 1.5em;
 }
 
 html {
@@ -36,18 +45,17 @@ html {
   .btn,
   a.btn,
   button.btn {
-    font-family: Noto Sans JP;
     color:#ffffff;
     background-color: #FF9900;
     border-bottom: 5px solid #C56A00;
-    width: 15%;
+    width: auto;
     height:  100%;
     align-items: center;
 
-    font-size: 1.1rem;
+    font-size: 24px;
     font-weight: bold;
     position: relative;
-    /* display: inline-block;　これを入れるとボタンの文字列がスマホの時に縦になる */
+    display: inline-block;
     padding: 1rem 2rem;
     cursor: pointer;
     -webkit-user-select: none;
@@ -61,25 +69,10 @@ html {
     letter-spacing: 0.1em;
 }
 
-a.btn--red.btn--cubic {
-    border-bottom: 8px solid #C56A00;
-    text-align: center;
-  }
-  
-  a.btn--red.btn--cubic:hover {
-    margin-top: 2px;
-    border-bottom: 5px solid #C56A00;
-  }
-  
-  a.btn--radius {
-    border-radius: 20px;
-  }
-  
-  .fa-position-right {
-    position: absolute;
-    top: calc(50% - .5em);
-    right: 1rem;
-  }
+.btn:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
 
 
 /* ここから2ページ目 */
