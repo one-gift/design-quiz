@@ -44,12 +44,12 @@
         </div>
         
         <div id="progress" class="">
-            <p id="progress-frac">1/3</p>
-            <progress id="quiz-progress" value="" max="3">1</progress>
+            <p id="progress-frac"><span id="progress-quiz-idx"></span>/<span id="progress-level-quiz-amount"></span></p>
+            <progress id="quiz-progress" value="" max=""></progress>
         </div>
         
         <div id="quiestion">
-            <span id="idx"></span>問目のクイズ
+            <span id="quiz-idx"></span>問目のクイズ
             <p id="quiz-text"></p>
             <div id="choices"></div>
             <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
