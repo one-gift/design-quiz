@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- user_agent_styleseetのリセット用CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Google Fontsの読み込み -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+
     <title>Document</title>
     <style>
         #jst {
             text-decoration: underline;
             font-weight: bold;
+        }
+
+        #top {
+            display:none;
         }
     
         #quiestion {
@@ -28,13 +37,12 @@
 </head>
 <body>
     <section>
-        <div class="top">
-            <h1 class="start"><a class="logo_section" href=index.html><img src="../image/logo.png" class="logo_image"></a></h1>
-            <div id="start">
+        <div id="start">
+            <div class="top">
+                <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
                 <p id="text" onclick="getQuiz()" href="">
                     <a class="btn">クイズを始める</a>
                 </p>
-
             </div>
         </div>
         
