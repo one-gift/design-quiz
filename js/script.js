@@ -1,10 +1,12 @@
 'use strict'
-
 var quizList = getJSON();
 var quizIdx = 0;
 var levelIdx = 0;
 var userCorrectCnt = 0;
 var selected;
+var progressVal = 0;
+var progressMax = 0;
+
 
 /**
  * json形式でクイズを取得
@@ -14,8 +16,11 @@ var selected;
 function getQuiz() {
     var quiz = quizList["items"][levelIdx][quizIdx];
     quizIdx++;
+    progressMax = quizList["items"][levelIdx].length;
+    setProgressMax();
     generateQestion(quiz);
     document.querySelector("#start").style.display = "none";
+    document.querySelector("#progress").style.display = "block";
 }
 
 /**
@@ -34,13 +39,44 @@ function changeLevel() {
  * @retunrn 
  */
 function generateQestion(quiz) {
-    document.querySelector("#idx").innerHTML = JSON.stringify(quiz["quiz_id"]);
+    document.querySelector("#quiz-idx").innerHTML = quizIdx;
+    document.querySelector("#progress-quiz-idx").innerHTML = quizIdx;
+    document.querySelector("#progress-level-quiz-amount").innerHTML = progressMax;
     document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
 
     document.querySelector("#img1").setAttribute('src', quiz["question"]["img_path"][0]);
     document.querySelector("#img2").setAttribute('src', quiz["question"]["img_path"][1]);
 
     document.querySelector("#quiestion").style.display = "block";
+
+}
+
+/**
+ * progressValのインクリメント
+ * @param
+ * @returns 
+ */
+function incrementProgress() {
+    progressVal++;
+}
+
+/**
+ * HTMLのprogressのvalue値の変更
+ * @param
+ * @returns 
+ */
+function setProgressVal() {
+    document.getElementById("quiz-progress").value = progressVal;
+}
+
+/**
+ * HTMLのprogressのmax値の変更
+ * @param
+ * @returns
+ */
+function setProgressMax() {
+
+    document.querySelector("#quiz-progress").setAttribute('max', progressMax);
 }
 
 /**
@@ -78,6 +114,10 @@ function checkCorrect(selected) {
  * @return
  */
 function generateResult(select) {
+    
+    incrementProgress();
+    setProgressVal();
+
     selected = select
     var result_flag = checkCorrect(selected)
     console.log(result_flag);
@@ -91,6 +131,7 @@ function generateResult(select) {
 
         document.querySelector("#judged").innerText = "正解";
         document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
+        doConfetti();
     } else {
         if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
             document.querySelector("#next-btn").value = "最終結果を見る"
@@ -137,7 +178,14 @@ function goNextQuestion() {
         return
     }
     if (quizIdx >= quizList["items"][levelIdx].length) {
-        changeLevel()
+        // progressValの指定
+        progressVal = 0;
+        setProgressVal();
+
+        changeLevel();
+
+        // progressMaxの指定
+        progressMax = quizList["items"][levelIdx].length;
     }
     getQuiz();
     document.querySelector("#result").style.display = "none";
@@ -150,17 +198,50 @@ function goNextQuestion() {
  */
 function generateEndResult(userCorrectCnt) {
     document.querySelector("#result").style.display = "none";
+    document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "問正解";
+    // circle;
+    var amount = 0;
+    for (var i = 0; i < quizList["items"].length; i++) {
+        amount += quizList["items"][i].length;
+    }
+    var correctRate = userCorrectCnt/amount
+    circle.animate(correctRate);
+
+    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "/" + amount + "問正解";
     var thanks = quizList["thanks"];
     if (userCorrectCnt < 1) {
         document.querySelector("#thanks").innerText = thanks["0"];
     } else if (userCorrectCnt > 0 && userCorrectCnt < 2) {
         document.querySelector("#thanks").innerText = thanks["1"];
     } else if (userCorrectCnt > 1 && userCorrectCnt < 3) {
+        doConfetti();
         document.querySelector("#thanks").innerText = thanks["2"];
     } else {
+        doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
     }
+}
+
+
+var circle = new ProgressBar.Circle('#container', {
+    color: '#FCB03C',
+    duration: 3000,
+    easing: 'easeInOut',
+    trailColor: '#eee',
+    trailWidth: 1,
+});
+
+/**
+ * 紙吹雪機能
+ * @pram
+ * @return
+ */
+function doConfetti(){
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    })
 }
