@@ -1,4 +1,25 @@
 @charset "UTF-8";
+#jst {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#top {
+  display: none;
+}
+
+#quiestion {
+  display: none;
+}
+
+#result {
+  display: none;
+}
+
+#end-result {
+  display: none;
+}
+
 html {
   box-sizing: border-box;
   text-align: center;
@@ -9,13 +30,13 @@ body {
   font-family: Noto Sans JP;
   height: 100vh;
   justify-content: center;
-  background-image: url(../image/bg_blue_pc.png);
+  background-image: url(../image/bg_white_pc.png);
 }
 
 .logo_image {
   margin-bottom: 100px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1920px) {
   .logo_image {
     width: 500px;
   }
@@ -36,7 +57,8 @@ body {
   height: 100vh;
 }
 
-.start {
+#start {
+  background-image: url(../image/bg_blue_pc.png);
   width: auto;
   display: flex;
   flex-direction: column;
@@ -66,9 +88,71 @@ body {
   transform: translateY(5px);
 }
 
-/* ここから2ページ目 */
+/* ここからquiestion */
 #quiestion {
   justify-content: center;
+}
+
+progress {
+  width: 343px;
+  height: 11px;
+  background-color: #007DB5;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #007DB5;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #006C9D;
+}
+
+progress::-moz-progress-bar {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #006C9D;
+}
+
+progress::-ms-fill {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #006C9D;
+}
+
+@media screen and (max-width: 1920px) {
+  .logo_progress {
+    margin-top: 20px;
+    width: 200px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .logo_progress {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 88px;
+    height: 41px;
+  }
+}
+
+.status {
+  background-color: #0097DB;
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  .status {
+    padding: 16px 16px 10px;
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .status {
+    padding: 20px;
+    border-radius: 0px 0px 40px 40px;
+  }
 }
 
 .contents {

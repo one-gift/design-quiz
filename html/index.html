@@ -12,29 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 
     <title>Document</title>
-    <style>
-        #jst {
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        #top {
-            display:none;
-        }
-    
-        #quiestion {
-            display: none;
-        }
-
-        #result {
-            display: none;
-        }
-
-        #end-result {
-            display: none;
-        }
-    </style>
 </head>
+
 <body>
     <section>
         <div id="start">
@@ -47,8 +26,12 @@
         </div>
         
         <div id="quiestion">
+            <div class="status">
+                <img src="../image/logo.png" class="logo_progress">
+                <div><progress value="30" max="100">30%</progress></div>
+                <p id="quiz-text"></p>
+            </div>
             <span id="idx"></span>問目のクイズ
-            <p id="quiz-text"></p>
             <div id="choices"></div>
             <div class="contents">
                 <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="../correct_img/switch_correct.png" alt="aaa" value="0"></button>
