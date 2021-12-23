@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
     <style>
-        #jst {
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
         #progress{
             display: none;
         }
@@ -28,7 +23,7 @@
             display: none;
         }
 
-        #container {
+        #end-result-circle {
             margin: 20px;
             width: 200px;
             height: 200px;
@@ -44,12 +39,12 @@
         </div>
         
         <div id="progress" class="">
-            <p id="progress-frac"><span id="progress-quiz-idx"></span>/<span id="progress-level-quiz-amount"></span></p>
+            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
             <progress id="quiz-progress" value="" max=""></progress>
         </div>
         
         <div id="quiestion">
-            <span id="quiz-idx"></span>問目のクイズ
+            <span id="quiz-index"></span>問目のクイズ
             <p id="quiz-text"></p>
             <div id="choices"></div>
             <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
@@ -60,14 +55,14 @@
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
             <p id="explain"></p>
-            <button id="compare" value="" src="" onmousedown="down();" onmouseup="up();">
+            <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
                 正誤比較
             </button>
             <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
         </div>
         
         <div id="end-result">
-            <div id="container"></div>
+            <div id="end-result-circle"></div>
             <p id="correct-cnt"></p>
             <p id="thanks"></p>
             <div id="sns-link">
