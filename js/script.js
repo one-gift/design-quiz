@@ -205,7 +205,12 @@ function displayEndResult(userCorrectCount) {
     document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
 
-    displayEndResultCircle();
+    var amount = 0;
+    for (var i = 0; i < quizzes.length; i++) {
+        amount += quizObject["quizzes"][i].length;
+    }
+
+    displayEndResultCircle(userCorrectCount, amount);
 
     document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount + "問正解";
     var thanks = quizObject["thanks"];
@@ -226,7 +231,7 @@ function displayEndResult(userCorrectCount) {
  *@params
  *@return 
  */
-function displayEndResultCircle() {
+function displayEndResultCircle(correctCount, amount) {
     var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
         color: '#FCB03C',
         duration: 3000,
@@ -235,11 +240,7 @@ function displayEndResultCircle() {
         trailWidth: 1,
     });
 
-    var amount = 0;
-    for (var i = 0; i < quizzes.length; i++) {
-        amount += quizObject["quizzes"][i].length;
-    }
-    var correctRate = userCorrectCount / amount;
+    var correctRate = correctCount / amount;
     endResultCircle.animate(correctRate);
 }
 
