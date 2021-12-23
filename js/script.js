@@ -75,9 +75,6 @@ function incrementCount(count) {
     count++;
     return count
 }
-// function incrementProgress() {
-//     progressValue++;
-// }
 
 /**
  * HTMLのprogressのvalue値の変更
@@ -120,7 +117,6 @@ function checkCorrect(selected) {
  * @return
  */
 function generateResult(select) {
-    // ここでいい？
     selected = select
     var result = checkCorrect(selected)
     
@@ -188,13 +184,11 @@ function goNextQuestion() {
         return
     }
     if (quizIndex >= quizzes[levelIndex].length) {
-        // progressValueの指定
         progressValue = 0;
         setProgressValueue();
 
         changeLevel();
 
-        // progressMaxValueの指定
         progressMaxValue = quizzes[levelIndex].length;
     }
     getQuiz();
