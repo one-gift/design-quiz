@@ -5,8 +5,8 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../question_img/正解/ロゴクイズ_easy-1.png",
+                        "../question_img/不正解/ロゴクイズ_easy-1.png"
                     ],
                     "quiz_text": "easy aaa"
                 },
@@ -19,8 +19,8 @@
                 "quiz_id": 2,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../question_img/正解/ロゴクイズ_easy-2.png",
+                        "../question_img/不正解/ロゴクイズ_easy-2.png"
                     ],
                     "quiz_text": "easy bbb"
                 },

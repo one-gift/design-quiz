@@ -4,38 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- user_agent_styleseetのリセット用CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
-    <style>
-        #progress{
-            display: none;
-        }
-    
-        #quiestion {
-            display: none;
-        }
+    <!-- Google Fontsの読み込み -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 
-        #result {
-            display: none;
-        }
-
-        #end-result {
-            display: none;
-        }
-
-        #end-result-circle {
-            margin: 20px;
-            width: 200px;
-            height: 200px;
-            position: relative;
-        }
-    </style>
 </head>
+
 <body>
     <section>
-        <h1>クイズ</h1>
         <div id="start">
-            <p id="text" onclick="getQuiz()">クイズを始める</p>
+            <div class="top">
+                <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
+                <p id="text" onclick="getQuiz()" href="">
+                    <a class="btn">クイズを始める</a>
+                </p>
+            </div>
         </div>
         
         <div id="progress" class="">
@@ -44,11 +31,18 @@
         </div>
         
         <div id="quiestion">
-            <span id="quiz-index"></span>問目のクイズ
-            <p id="quiz-text"></p>
+            <div class="status">
+                <img src="../image/logo.png" class="logo_progress">
+                <div><progress value="30" max="100">30%</progress></div>
+                <p id="quiz-text"></p>
+            </div>
+            <span id="idx"></span>問目のクイズ
+
             <div id="choices"></div>
-            <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
-            <button onclick="generateResult(1)"><img id="img2" class="choices-btn" src="" alt="bbb" value="1"></button>
+            <div class="contents">
+                <img onclick="generateResult(0)" id="img1" src="../correct_img/switch_correct.png" alt="aaa" value="0">
+                <img onclick="generateResult(1)" id="img2" src="../Incorrect_img/switch_incorrect.png" alt="bbb" value="1">
+            </div>
         </div>
         
         <div id="result">
