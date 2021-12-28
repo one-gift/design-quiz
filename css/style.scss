@@ -19,11 +19,6 @@ $breakpoints: (
 ) !default;
 
 // 初期に書いていたもの
-#jst {
-  text-decoration: underline;
-  font-weight: bold;
-}
-
 #progress{
   display: none;
 }
@@ -40,7 +35,7 @@ $breakpoints: (
   display: none;
 }
 
-#container {
+#end-result-circle {
   margin: 20px;
   width: 200px;
   height: 200px;
