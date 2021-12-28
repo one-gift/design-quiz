@@ -40,6 +40,13 @@ $breakpoints: (
   display: none;
 }
 
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
 // ここからスタイルの記述
 html {
   -webkit-box-sizing: border-box;
