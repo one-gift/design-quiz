@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!-- user_agent_styleseetのリセット用CSS -->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Google Fontsの読み込み -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 
-    <title>Document</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
         </div>
         
         <div id="progress" class="">
-            <p id="progress-frac"><span id="progress-quiz-idx"></span>/<span id="progress-level-quiz-amount"></span></p>
+            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
             <progress id="quiz-progress" value="" max=""></progress>
         </div>
         
@@ -37,6 +37,7 @@
                 <p id="quiz-text"></p>
             </div>
             <span id="idx"></span>問目のクイズ
+
             <div id="choices"></div>
             <div class="contents">
                 <img onclick="generateResult(0)" id="img1" src="../correct_img/switch_correct.png" alt="aaa" value="0">
@@ -48,14 +49,14 @@
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
             <p id="explain"></p>
-            <button id="compare" value="" src="" onmousedown="down();" onmouseup="up();">
+            <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
                 正誤比較
             </button>
             <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
         </div>
         
         <div id="end-result">
-            <div id="container"></div>
+            <div id="end-result-circle"></div>
             <p id="correct-cnt"></p>
             <p id="thanks"></p>
             <div id="sns-link">
