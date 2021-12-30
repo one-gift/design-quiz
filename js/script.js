@@ -22,7 +22,6 @@ function getJSON() {
     return object;
 }
 
-
 /**
  * quizObjectからjson形式でクイズを取得
  * @param 
@@ -60,9 +59,9 @@ function displayQestion(quiz) {
     document.querySelector("#progress-level-quiz-amount").innerHTML = progressMaxValue;
 
     document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
-    document.querySelector("#img1").setAttribute('src', quiz["question"]["img_path"][0]);
-    document.querySelector("#img2").setAttribute('src', quiz["question"]["img_path"][1]);
-    
+    document.querySelector("#choices-img1").setAttribute('src', quiz["question"]["img_path"][0]);
+    document.querySelector("#choices-img2").setAttribute('src', quiz["question"]["img_path"][1]);
+
     document.querySelector("#quiestion").style.display = "block"
 }
 
@@ -91,10 +90,8 @@ function setProgressValueue() {
  * @returns
  */
 function setProgressMaxValue(maxValue) {
-    document.querySelector("#quiz-progress").setAttribute('max',maxValue);
+    document.querySelector("#quiz-progress").setAttribute('max', maxValue);
 }
-
-
 
 /**
  * 正誤判定機能
@@ -116,17 +113,20 @@ function checkCorrect(selected) {
  * @param {object} select
  * @return
  */
-function generateResult(select) {
-    selected = select
-    var result = checkCorrect(selected)
-    
+document.getElementById('quiz-choices').onclick = function generateResult(e) {
+    e = e || window.event;
+    e = e.target;
+    selected = e.id == 'choices-img1' ? 0 : 1;
+    console.log(selected);
+    var result = checkCorrect(selected);
+
     progressValue = incrementCount(progressValue);
     setProgressValueue();
     displayResult(result)
 }
 
 /**
- * 正誤判定画面の生成
+ * 正誤判定画面の表示
  * @param {array} result
  * @return
  */
@@ -156,6 +156,7 @@ function displayResult(result) {
 }
 
 /**
+ * 比較機能（ボタン押下時）
  * @params
  * @return
  */
@@ -165,6 +166,7 @@ function displayComparison() {
 }
 
 /**
+ * 比較機能（ボタン非押下時）
  * @params
  * @return
  */
@@ -178,7 +180,7 @@ function undisplayComparison() {
  * @param
  * @return
  */
-function goNextQuestion() {
+document.getElementById('next-btn').onclick = function goNextQuestion() {
     if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
         displayEndResult(userCorrectCount)
         return
@@ -228,8 +230,9 @@ function displayEndResult(userCorrectCount) {
 }
 
 /**
- *@params
- *@return 
+ * 最終結果画面の円グラフ
+ * @params
+ * @return 
  */
 function displayEndResultCircle(correctCount, amount) {
     var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
@@ -244,13 +247,12 @@ function displayEndResultCircle(correctCount, amount) {
     endResultCircle.animate(correctRate);
 }
 
-
 /**
  * 紙吹雪機能
  * @pram
  * @return
  */
-function doConfetti(){
+function doConfetti() {
     confetti({
         particleCount: 100,
         spread: 70,
