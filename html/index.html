@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,17 +20,18 @@
         <div id="start">
             <div class="top">
                 <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
-                <p id="text" onclick="getQuiz()" href="">
+                <p id="quiz-start">
                     <a class="btn">クイズを始める</a>
                 </p>
             </div>
         </div>
-        
+
         <div id="progress" class="">
-            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
+            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span>
+            </p>
             <progress id="quiz-progress" value="" max=""></progress>
         </div>
-        
+
         <div id="quiestion">
             <div class="status">
                 <img src="../image/logo.png" class="logo_progress">
@@ -38,12 +40,12 @@
             <span id="quiz-index"></span>問目のクイズ
 
             <div id="choices"></div>
-            <div class="contents">
-                <img onclick="generateResult(0)" id="img1" src="../correct_img/switch_correct.png" alt="aaa" value="0">
-                <img onclick="generateResult(1)" id="img2" src="../Incorrect_img/switch_incorrect.png" alt="bbb" value="1">
+            <div class="contents" id="quiz-choices">
+                <img id="choices-img1" src="">
+                <img id="choices-img2" src="">
             </div>
         </div>
-        
+
         <div id="result">
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
@@ -51,9 +53,9 @@
             <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
                 正誤比較
             </button>
-            <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
+            <input type="button" name="" id="next-btn" value="次へ">
         </div>
-        
+
         <div id="end-result">
             <div id="end-result-circle"></div>
             <p id="correct-cnt"></p>
@@ -64,12 +66,13 @@
                 <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]">FaceBook</a>
             </div>
         </div>
-        
+
     </section>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
-    
-    
+
+
 </body>
+
 </html>

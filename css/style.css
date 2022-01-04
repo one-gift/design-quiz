@@ -215,20 +215,20 @@ progress::-ms-fill {
   }
 }
 
-#img1, #img2 {
+#choices-img1, #choices-img2 {
   border-radius: 20px;
   border: 2px solid #DADADA;
 }
 
 @media screen and (max-width: 480px) {
-  #img1, #img2 {
+  #choices-img1, #choices-img2 {
     display: block;
     text-align: center;
   }
 }
 
 @media screen and (max-width: 1920px) {
-  #img1, #img2 {
+  #choices-img1, #choices-img2 {
     width: 80%;
   }
 }
