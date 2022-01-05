@@ -177,9 +177,6 @@ body {
 
 .contents{
     display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
     align-items: center;
 
     @include mq(sm){
@@ -189,14 +186,14 @@ body {
 }
 
 #img1,#img2{
-  width: 80%;
   border-radius: 20px;
   border: 2px solid #DADADA;
-  // margin-left: 10px;
+  margin:0px;
 
   @include mq(sm){
     display: block;
-    text-align: center;
+    margin-right: auto;
+    width: 80%;
   }
 
   @include mq(lg){
@@ -204,6 +201,4 @@ body {
   }
 }
 
-#button{
-  text-align: center;
-}
+// resultのページ

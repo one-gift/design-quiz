@@ -160,9 +160,6 @@ body {
 
 .contents {
   display: flex;
-  margin-right: auto;
-  margin-left: auto;
-  justify-content: center;
   align-items: center;
 }
 @media screen and (max-width: 480px) {
@@ -173,22 +170,19 @@ body {
 }
 
 #img1, #img2 {
-  width: 80%;
   border-radius: 20px;
   border: 2px solid #DADADA;
+  margin: 0px;
 }
 @media screen and (max-width: 480px) {
   #img1, #img2 {
     display: block;
-    text-align: center;
+    margin-right: auto;
+    width: 80%;
   }
 }
 @media screen and (max-width: 1920px) {
   #img1, #img2 {
     width: 40%;
   }
-}
-
-#button {
-  text-align: center;
 }/*# sourceMappingURL=style.css.map */
