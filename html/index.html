@@ -25,22 +25,33 @@
             </div>
         </div>
         
-        <div id="progress" class="">
+        <!-- <div id="progress" class="">
+            <img src="../image/logo.png" class="logo_progress">
             <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
             <progress id="quiz-progress" value="" max=""></progress>
-        </div>
+        </div> -->
         
         <div id="quiestion">
-            <div class="status">
+
+            <div id="progress" class="">
                 <img src="../image/logo.png" class="logo_progress">
+
+                <div class="level">
+                    <progress id="quiz-progress" value="" max=""></progress>
+                    <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
+                </div>
+                
+            </div>
+            
+            <div class="status">
                 <p id="quiz-text"></p>
             </div>
             <span id="quiz-index"></span>問目のクイズ
 
             <div id="choices"></div>
             <div class="contents">
-                <img onclick="generateResult(0)" id="img1" src="../correct_img/switch_correct.png" alt="aaa" value="0">
-                <img onclick="generateResult(1)" id="img2" src="../Incorrect_img/switch_incorrect.png" alt="bbb" value="1">
+                <img onclick="generateResult(0)" id="img1" src="" alt="aaa" value="0">
+                <img onclick="generateResult(1)" id="img2" src="" alt="bbb" value="1">
             </div>
         </div>
         

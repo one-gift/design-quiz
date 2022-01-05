@@ -23,7 +23,6 @@
 }
 
 html {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
   background-color: #0097DB;
@@ -32,22 +31,18 @@ html {
 body {
   font-family: Noto Sans JP;
   height: 100vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   background-image: url(../image/bg_white_pc.png);
 }
 
 .logo_image {
   margin-bottom: 100px;
 }
-
 @media screen and (max-width: 1920px) {
   .logo_image {
     width: 500px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .logo_image {
     width: 200px;
@@ -55,19 +50,10 @@ body {
 }
 
 .top {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0px;
   width: 100%;
   height: 100vh;
@@ -76,19 +62,10 @@ body {
 #start {
   background-image: url(../image/bg_blue_pc.png);
   width: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
@@ -96,8 +73,7 @@ body {
   padding: 16px 32px;
   background-color: #FF9F2E;
   /* 背景色 */
-  -webkit-box-shadow: 0px 5px 0px #C56A00;
-          box-shadow: 0px 5px 0px #C56A00;
+  box-shadow: 0px 5px 0px #C56A00;
   /* 影の太さ・色 */
   border-radius: 10px;
   color: #fff;
@@ -110,45 +86,40 @@ body {
 }
 
 .btn:active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transform: translateY(5px);
-          transform: translateY(5px);
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 /* ここからquiestion */
 #quiestion {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
-progress {
-  width: 343px;
-  height: 11px;
+#progress {
+  align-items: center;
+  background-color: #0097DB;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+#quiz-progress::-webkit-progress-bar {
   background-color: #007DB5;
   border-radius: 10px;
 }
 
-progress::-webkit-progress-bar {
-  background-color: #007DB5;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
-  background-color: white;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 2px #006C9D;
-          box-shadow: 0px 0px 2px #006C9D;
-}
-
-progress::-moz-progress-bar {
+#quiz-progress::-webkit-progress-value {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-progress::-ms-fill {
+#quiz-progress::-moz-progress-bar {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #006C9D;
+}
+
+#quiz-progress::-ms-fill {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
@@ -157,13 +128,11 @@ progress::-ms-fill {
 .logo_progress {
   margin: 20px 0px 30px 0px;
 }
-
 @media screen and (max-width: 1920px) {
   .logo_progress {
     width: 200px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .logo_progress {
     margin-top: 15px;
@@ -174,17 +143,14 @@ progress::-ms-fill {
 }
 
 .status {
-  background-color: #0097DB;
   width: 100%;
 }
-
 @media screen and (max-width: 480px) {
   .status {
     padding: 16px 16px 10px;
     border-radius: 0px 0px 20px 20px;
   }
 }
-
 @media screen and (max-width: 1920px) {
   .status {
     padding: 20px;
@@ -193,47 +159,36 @@ progress::-ms-fill {
 }
 
 .contents {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-right: auto;
   margin-left: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 @media screen and (max-width: 480px) {
   .contents {
     display: block;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
 #img1, #img2 {
+  width: 80%;
   border-radius: 20px;
   border: 2px solid #DADADA;
 }
-
 @media screen and (max-width: 480px) {
   #img1, #img2 {
     display: block;
     text-align: center;
   }
 }
-
 @media screen and (max-width: 1920px) {
   #img1, #img2 {
-    width: 80%;
+    width: 40%;
   }
 }
 
 #button {
   text-align: center;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

@@ -115,31 +115,31 @@ body {
   justify-content: center;
 }
 
-progress {
-  width: 343px;
-  height: 11px;
+#progress {
+  align-items: center;
+  background-color:$bg_color;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+#quiz-progress::-webkit-progress-bar {
   background-color:$progress_bg;
   border-radius: 10px;
 }
 
-progress::-webkit-progress-bar {
-  background-color:$progress_bg;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
+#quiz-progress::-webkit-progress-value {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-progress::-moz-progress-bar {
+#quiz-progress::-moz-progress-bar {
   background-color:white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-progress::-ms-fill {
+#quiz-progress::-ms-fill {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
@@ -162,7 +162,6 @@ progress::-ms-fill {
 
 
 .status{
-  background-color: $bg_color;
   width: 100%;
 
   @include mq(sm){
@@ -190,6 +189,7 @@ progress::-ms-fill {
 }
 
 #img1,#img2{
+  width: 80%;
   border-radius: 20px;
   border: 2px solid #DADADA;
   // margin-left: 10px;
@@ -200,7 +200,7 @@ progress::-ms-fill {
   }
 
   @include mq(lg){
-    width: 80%;
+    width: 40%;
   }
 }
 
