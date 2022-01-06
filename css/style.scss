@@ -4,8 +4,9 @@ $white:#fff;
 $btn_shadow: 0px 5px 0px #C56A00;
 $question_text:#fff,20px;
 $progress_bg:#007DB5;
+$btn_gray: #DADADA;
 
-@mixin mq($breakpoint: md) {
+@mixin mq($breakpoint: sm) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
@@ -65,7 +66,7 @@ body {
   @include mq(lg){
     width: 500px;
   }
-  @include mq (sm){
+  @include mq(sm){
     width: 200px;
   }
 }
@@ -89,7 +90,22 @@ body {
     align-items: center;
 }
 
-  .btn {
+.btn{
+  @include mq(lg){
+    display: inline-block;
+    padding: 32px 64px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  @include mq(sm){
     display: inline-block;
     padding: 16px 32px;
     background-color:$btn_color; /* 背景色 */
@@ -102,6 +118,7 @@ body {
     font-weight: bold;
     letter-spacing: 0.02em;
   }
+}
 
   .btn:active {
     box-shadow: none;
@@ -118,8 +135,30 @@ body {
 #progress {
   align-items: center;
   background-color:$bg_color;
-  border-radius: 10px;
+  border-radius: 0px 0px 40px 40px;
   padding-bottom: 20px;
+}
+
+#progress-frac{
+  color: #fff;
+  font-size: 25px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+#quiz-progress{
+  width: 700px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+
+  @include mq(sm){
+  width: 343px;
+  height: 11px;
+  left: 0px;
+  top: 0px;
+  }
 }
 
 #quiz-progress::-webkit-progress-bar {
@@ -176,7 +215,6 @@ body {
 }
 
 .contents{
-    display: flex;
     align-items: center;
 
     @include mq(sm){
@@ -188,17 +226,93 @@ body {
 #img1,#img2{
   border-radius: 20px;
   border: 2px solid #DADADA;
-  margin:0px;
-
-  @include mq(sm){
-    display: block;
-    margin-right: auto;
-    width: 80%;
-  }
 
   @include mq(lg){
     width: 40%;
+    align-items: center;
+    margin: 0px 10px;
+  }
+
+  @include mq(sm){
+    width: 80%;
+    align-items: center;
+    margin: 15px 0px;
   }
 }
 
+.contents_img{
+  margin-right: auto;
+}
+
 // resultのページ
+#result{
+  align-items: center;
+}
+
+#correct-img{
+  @include mq(lg){
+    width: 500px;
+    height: 270px;
+    margin-top: 30px;
+    border-radius: 20px;
+  }
+
+  @include mq(sm){
+    width: 346px;
+    height: 185px;
+  }
+}
+
+.btn_next{
+  margin: 20px 0px;
+
+  @include mq(lg){
+    display: inline-block;
+    padding: 20px 50px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  @include mq(sm){
+    display: inline-block;
+    padding: 16px 32px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+}
+
+  .btn_next:active{
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+
+.btn_compare{
+  @include mq(lg){
+    padding: 16px 32px;
+    background-color:$btn_gray; /* 背景色 */
+    box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    width: 146px;
+    height: 52px;
+  }
+}

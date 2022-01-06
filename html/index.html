@@ -18,30 +18,22 @@
     <section>
         <div id="start">
             <div class="top">
-                <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
+                <h1 class="start"><img src="../image/logo.svg" class="logo_image"></h1>
                 <p id="text" onclick="getQuiz()" href="">
                     <a class="btn">クイズを始める</a>
                 </p>
             </div>
         </div>
         
-        <!-- <div id="progress" class="">
-            <img src="../image/logo.png" class="logo_progress">
-            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
-            <progress id="quiz-progress" value="" max=""></progress>
-        </div> -->
+        <div id="progress" class="">
+            <img src="../image/logo.svg" class="logo_progress">
+            <div>
+                <progress id="quiz-progress" value="" max=""></progress>
+                <p id="progress-frac">LV.<span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
+            </div>
+        </div>
         
         <div id="quiestion">
-
-            <div id="progress" class="">
-                <img src="../image/logo.png" class="logo_progress">
-
-                <div class="level">
-                    <progress id="quiz-progress" value="" max=""></progress>
-                    <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
-                </div>
-                
-            </div>
             
             <div class="status">
                 <p id="quiz-text"></p>
@@ -58,10 +50,14 @@
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
             <p id="explain"></p>
-            <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
-                正誤比較
-            </button>
-            <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
+            <div class="btn_next">
+                <input type="button" name="" id="next-btn" value="次の問題へ！" onclick="goNextQuestion()">
+            </div>
+            <div class="btn_compare">
+                <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
+                    正誤比較
+                </button>
+            </div>
         </div>
         
         <div id="end-result">

@@ -68,21 +68,41 @@ body {
   align-items: center;
 }
 
-.btn {
-  display: inline-block;
-  padding: 16px 32px;
-  background-color: #FF9F2E;
-  /* 背景色 */
-  box-shadow: 0px 5px 0px #C56A00;
-  /* 影の太さ・色 */
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  /* 文字の下線を消す */
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 0.02em;
+@media screen and (max-width: 1920px) {
+  .btn {
+    display: inline-block;
+    padding: 32px 64px;
+    background-color: #FF9F2E;
+    /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;
+    /* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #FF9F2E;
+    /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;
+    /* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    /* 文字の下線を消す */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
 }
 
 .btn:active {
@@ -98,8 +118,31 @@ body {
 #progress {
   align-items: center;
   background-color: #0097DB;
-  border-radius: 10px;
+  border-radius: 0px 0px 40px 40px;
   padding-bottom: 20px;
+}
+
+#progress-frac {
+  color: #fff;
+  font-size: 25px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+#quiz-progress {
+  width: 700px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+}
+@media screen and (max-width: 480px) {
+  #quiz-progress {
+    width: 343px;
+    height: 11px;
+    left: 0px;
+    top: 0px;
+  }
 }
 
 #quiz-progress::-webkit-progress-bar {
@@ -159,7 +202,6 @@ body {
 }
 
 .contents {
-  display: flex;
   align-items: center;
 }
 @media screen and (max-width: 480px) {
@@ -172,17 +214,106 @@ body {
 #img1, #img2 {
   border-radius: 20px;
   border: 2px solid #DADADA;
-  margin: 0px;
-}
-@media screen and (max-width: 480px) {
-  #img1, #img2 {
-    display: block;
-    margin-right: auto;
-    width: 80%;
-  }
 }
 @media screen and (max-width: 1920px) {
   #img1, #img2 {
     width: 40%;
+    align-items: center;
+    margin: 0px 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #img1, #img2 {
+    width: 80%;
+    align-items: center;
+    margin: 15px 0px;
+  }
+}
+
+.contents_img {
+  margin-right: auto;
+}
+
+#result {
+  align-items: center;
+}
+
+@media screen and (max-width: 1920px) {
+  #correct-img {
+    width: 500px;
+    height: 270px;
+    margin-top: 30px;
+    border-radius: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #correct-img {
+    width: 346px;
+    height: 185px;
+  }
+}
+
+.btn_next {
+  margin: 20px 0px;
+}
+@media screen and (max-width: 1920px) {
+  .btn_next {
+    display: inline-block;
+    padding: 20px 50px;
+    background-color: #FF9F2E;
+    /* 背景色 */
+    box-shadow: 0px 8px 0px #C56A00;
+    /* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .btn_next {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #FF9F2E;
+    /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;
+    /* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    /* 文字の下線を消す */
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+}
+
+.btn_next:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+@media screen and (max-width: 1920px) {
+  .btn_compare {
+    padding: 16px 32px;
+    background-color: #DADADA;
+    /* 背景色 */
+    box-shadow: 0px 6px 0px #C9C9C9;
+    /* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    /* 文字の下線を消す */
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    width: 146px;
+    height: 52px;
   }
 }/*# sourceMappingURL=style.css.map */
