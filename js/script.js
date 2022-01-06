@@ -34,16 +34,6 @@ document.getElementById('quiz-start').onclick = function quizStart() {
 }
 
 /**
- * quizObjectからjson形式でクイズを取得
- * @param 
- * @return {object}  - json形式のクイズ1問分
- */
-function getQuiz() {
-    let quiz = quizzes[levelIndex][quizIndex];
-    return quiz;
-}
-
-/**
  * クイズ取得から表示までのコントローラー
  * @param {number} quizIdx - quizのindex
  * @return
@@ -57,13 +47,13 @@ function quizController(quizIdx) {
 }
 
 /**
- * レベルの切り替え
+ * quizObjectからjson形式でクイズを取得
  * @param 
- * @return
+ * @return {object}  - json形式のクイズ1問分
  */
-function changeLevel() {
-    quizIndex = 0;
-    levelIndex++;
+function getQuiz() {
+    let quiz = quizzes[levelIndex][quizIndex];
+    return quiz;
 }
 
 /**
@@ -84,31 +74,18 @@ function displayQestion(quiz) {
 }
 
 /**
- * 変数のカウントをインクリメントする
- * @param {number} count
- * @returns 
- */
-function incrementCount(count) {
-    count++;
-    return count
-}
-
-/**
- * HTMLのprogressのvalue値の変更
- * @param
- * @returns 
- */
-function setProgressValueue() {
-    document.getElementById("quiz-progress").value = progressValue;
-}
-
-/**
- * HTMLのprogressのmax値の変更
- * @param
+ * 正誤判定画面の生成
+ * @param {object} e
  * @return
  */
-function setProgressMaxValue(maxValue) {
-    document.querySelector("#quiz-progress").setAttribute('max', maxValue);
+document.getElementById('quiz-choices').onclick = function generateResult(e) {
+    let event = e || window.event;
+    selected = event.target.id == 'choices-img1' ? 0 : 1;
+    let result = checkCorrect(selected);
+
+    progressValue = incrementCount(progressValue);
+    setProgressValue();
+    displayResult(result)
 }
 
 /**
@@ -124,22 +101,6 @@ function checkCorrect(selected) {
     } else {
         return [0, correct_num]
     }
-}
-
-/**
- * 正誤判定画面の生成
- * @param {object} e
- * @return
- */
-document.getElementById('quiz-choices').onclick = function generateResult(e) {
-    e = e || window.event;
-    e = e.target;
-    selected = e.id == 'choices-img1' ? 0 : 1;
-    let result = checkCorrect(selected);
-
-    progressValue = incrementCount(progressValue);
-    setProgressValueue();
-    displayResult(result)
 }
 
 /**
@@ -171,26 +132,6 @@ function displayResult(result) {
 }
 
 /**
- * 比較機能（ボタン押下時）
- * @params
- * @return
- */
-function displayComparison() {
-    let value = selected == 0 ? 1 : 0;
-    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
-}
-
-/**
- * 比較機能（ボタン非押下時）
- * @params
- * @return
- */
-function undisplayComparison() {
-    let value = selected
-    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
-}
-
-/**
  * 次の問題への遷移
  * @param
  * @return
@@ -201,10 +142,11 @@ document.getElementById('next-btn').onclick = function goNextQuestion() {
         return
     }
     if (quizIndex >= quizzes[levelIndex].length) {
-        progressValue = 0;
-        setProgressValueue();
+        progressValue = initializeVariable(progressValue);
+        setProgressValue();
 
-        changeLevel();
+        quizIndex = initializeVariable(quizIndex);
+        levelIndex = incrementCount(levelIndex);
 
         progressMaxValue = quizzes[levelIndex].length;
     }
@@ -242,6 +184,64 @@ function displayEndResult(userCorrectCount) {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
     }
+}
+
+/**
+ * 変数のカウントをインクリメントする
+ * @param {number} count
+ * @returns 
+ */
+function incrementCount(count) {
+    count++;
+    return count
+}
+
+/**
+ * 変数の値を0にする
+ * @param {number} count
+ * @returns
+ */
+function initializeVariable(value) {
+    value = 0;
+    return value;
+}
+
+/**
+ * HTMLのprogressのvalue値の変更
+ * @param
+ * @returns 
+ */
+function setProgressValue() {
+    document.getElementById("quiz-progress").value = progressValue;
+}
+
+/**
+ * HTMLのprogressのmax値の変更
+ * @param
+ * @return
+ */
+function setProgressMaxValue(maxValue) {
+    document.querySelector("#quiz-progress").setAttribute('max', maxValue);
+}
+
+/**
+ * 比較機能（ボタン押下時）
+ * @params
+ * @return
+ */
+document.getElementById("compare").onmousedown = function displayComparison() {
+    let value = selected == 0 ? 1 : 0;
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+};
+
+/**
+ * 比較機能（ボタン非押下時）
+ * @params
+ * @return
+ */
+document.getElementById("compare").onmouseup = function undisplayComparison() {
+    let value = selected
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
 }
 
 /**
