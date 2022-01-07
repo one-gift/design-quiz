@@ -29,7 +29,12 @@
             <img src="../image/logo.svg" class="logo_progress">
             <div>
                 <progress id="quiz-progress" value="" max=""></progress>
-                <p id="progress-frac">LV.<span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span></p>
+
+                <p id="progress-frac">LV.
+                    <span id="quiz-level"></span>
+                    <span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span>
+                </p>
+
             </div>
         </div>
         
@@ -50,13 +55,15 @@
             <p id="judged"></p>
             <img id="correct-img" src="" alt="">
             <p id="explain"></p>
-            <div class="btn_next">
-                <input type="button" name="" id="next-btn" value="次の問題へ！" onclick="goNextQuestion()">
-            </div>
-            <div class="btn_compare">
-                <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
-                    正誤比較
-                </button>
+            <div class="btn_group">
+                <div class="btn_next">
+                    <input type="button" name="" id="next-btn" value="次の問題へ！" onclick="goNextQuestion()">
+                </div>
+                <div class="btn_compare">
+                    <button id="compare" value="" src="" onmousedown="displayComparison();" onmouseup="undisplayComparison();">
+                        正誤比較
+                    </button>
+                </div>
             </div>
         </div>
         

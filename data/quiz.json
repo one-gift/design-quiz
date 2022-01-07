@@ -8,7 +8,7 @@
                         "../question_img/正解/ロゴクイズ_easy-1.png",
                         "../question_img/不正解/ロゴクイズ_easy-1.png"
                     ],
-                    "quiz_text": "easy aaa"
+                    "quiz_level": "EASY"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -22,7 +22,7 @@
                         "../question_img/正解/ロゴクイズ_easy-2.png",
                         "../question_img/不正解/ロゴクイズ_easy-2.png"
                     ],
-                    "quiz_text": "easy bbb"
+                    "quiz_level": "EASY"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -36,7 +36,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "easy ccc"
+                    "quiz_level": "EASY"
                 },
                 "answer": {
                     "correct_num": 1,
@@ -52,7 +52,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "midle aaa"
+                    "quiz_level": "MID"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -66,7 +66,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "midle bbb"
+                    "quiz_level": "MID"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -80,7 +80,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "midle ccc"
+                    "quiz_level": "MID"
                 },
                 "answer": {
                     "correct_num": 1,
@@ -94,7 +94,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "midle ddd"
+                    "quiz_level": "MID"
                 },
                 "answer": {
                     "correct_num": 1,
@@ -110,7 +110,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "high aaa"
+                    "quiz_level": "HARD"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -124,7 +124,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "high bbb"
+                    "quiz_level": "HARD"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -138,7 +138,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "high ccc"
+                    "quiz_level": "HARD"
                 },
                 "answer": {
                     "correct_num": 1,
@@ -152,7 +152,7 @@
                         "../data/quiz_img/burger.png",
                         "../data/quiz_img/patty.png"
                     ],
-                    "quiz_text": "midle ddd"
+                    "quiz_level": "HARD"
                 },
                 "answer": {
                     "correct_num": 1,
@@ -165,6 +165,6 @@
         "0": "頑張れよ",
         "1": "まずまず",
         "2": "惜しい",
-        "3": "じゅげむ"
+        "3": "全問正解まであと少し！もう少しだけ日常でロゴに目を凝らして👀"
     }
 }

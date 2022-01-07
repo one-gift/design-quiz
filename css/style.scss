@@ -60,8 +60,6 @@ body {
 
 .logo_image{
   margin-bottom: 100px;
-  @include mq(){
-  }
 
   @include mq(lg){
     width: 500px;
@@ -302,6 +300,7 @@ body {
 
 .btn_compare{
   @include mq(lg){
+    display: inline-block;
     padding: 16px 32px;
     background-color:$btn_gray; /* 背景色 */
     box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
@@ -314,5 +313,18 @@ body {
     letter-spacing: 0.02em;
     width: 146px;
     height: 52px;
+  }
+}
+
+.btn_group{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+// ここからend_result
+#end-result-circle{
+  @include mq(lg){
   }
 }
