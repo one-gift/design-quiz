@@ -40,10 +40,14 @@
         
         <div id="quiestion">
             
-            <div class="status">
+            <!-- <div class="status">
                 <p id="quiz-text"></p>
+            </div> -->
+
+            <div class="quiz_area">
+                <span class="quiz_number">Question</span><span id="quiz-index"></span>
+                <p class="quiz_text">どちらのロゴが正しいでしょう</p>    
             </div>
-            <span id="quiz-index"></span>問目のクイズ
 
             <div class="contents">
                 <img onclick="generateResult(0)" id="img1" src="" alt="aaa" value="0">
@@ -68,13 +72,16 @@
         </div>
         
         <div id="end-result">
-            <div id="end-result-circle"></div>
-            <p id="correct-cnt"></p>
-            <p id="thanks"></p>
+            <div class="end_result_top">
+                <div id="end-result-circle"></div>
+                <p id="correct-cnt"></p>
+                <p id="thanks"></p>
+            </div>
+            
             <div id="sns-link">
-                <a href="https://timeline.line.me/social-plugin/share?url=[URL]">LINE</a>
-                <a href="https://twitter.com/intent/tweet?url=[URL]">Twitter</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]">FaceBook</a>
+                <a href="https://timeline.line.me/social-plugin/share?url=[URL]"><img class="sns_icon" src="../image/line_icon.png" alt=""></a>
+                <a href="https://twitter.com/intent/tweet?url=[URL]"><img class="sns_icon" src="../image/twitter_icon.png" alt=""></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]"><img class="sns_icon" src="../image/facebook_icon.png" alt=""></a>
             </div>
         </div>
         

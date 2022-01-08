@@ -197,18 +197,40 @@ body {
   }
 }
 
-
-.status{
-  width: 100%;
-
-  @include mq(sm){
-    padding: 16px 16px 10px;
-    border-radius: 0px 0px 20px 20px;
-  }
+.quiz_area{
+  text-align: left;
 
   @include mq(lg){
-    padding: 20px;
-    border-radius: 0px 0px 40px 40px;
+    margin: 30px 215px 40px 370px;
+  }
+
+  @include mq(sm){
+    margin: 15px;
+  }
+}
+
+.quiz_number{
+  color: #222;
+  opacity: 0.2;
+  font-size: 16px;
+}
+
+#quiz-index{
+  color: #222;
+  opacity: 0.2;
+  font-size: 16px;
+}
+
+.quiz_text{
+  font-weight: bold;
+  margin: 3px 0px;
+
+  @include mq(lg){
+    font-size: 40px;
+  }
+
+  @include mq(sm){
+    font-size: 20px;
   }
 }
 
@@ -326,5 +348,34 @@ body {
 // ここからend_result
 #end-result-circle{
   @include mq(lg){
+  }
+}
+
+.end_result_top{
+  background-color: $bg_color;
+
+  @include mq(lg){
+    height: 430px;
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+
+#thanks{
+  color: $white;
+
+  @include mq(lg){
+    font-size: 20px;
+  }
+}
+
+#sns-link{
+  display: flex;
+  justify-content: center;
+}
+
+.sns_icon{
+  @include mq(lg){
+    width: 50px;
+    height: 50px;  
   }
 }

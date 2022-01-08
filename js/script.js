@@ -233,7 +233,7 @@ function displayEndResult(userCorrectCount) {
  */
 function displayEndResultCircle(correctCount, amount) {
     var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
-        color: 'FFDE2E',
+        color: '#FFDE2E',
         duration: 3000,
         easing: 'easeInOut',
         trailColor: 'rgba(218, 218, 218, 0.3)',
