@@ -370,12 +370,33 @@ body {
 
 #sns-link{
   display: flex;
+  align-content: center;
   justify-content: center;
+  flex-direction: column;
+
+  @include mq(lg){
+    margin-top: 40px;
+  }
+
+  @include mq(sm){
+    margin-top: 30px;
+  }
+}
+
+.share{
+  font-weight: bold;
+
+  @include mq(lg){
+    font-size: 20px;
+  }
+
+  @include mq(sm){
+    font-size: 16px;
+  }
 }
 
 .sns_icon{
-  @include mq(lg){
-    width: 50px;
-    height: 50px;  
-  }
+  width: 50px;
+  height: 50px;
+  margin: 15px 15px 0px 15px;
 }

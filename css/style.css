@@ -372,12 +372,37 @@ body {
 
 #sns-link {
   display: flex;
+  align-content: center;
   justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 1920px) {
+  #sns-link {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #sns-link {
+    margin-top: 30px;
+  }
 }
 
+.share {
+  font-weight: bold;
+}
 @media screen and (max-width: 1920px) {
-  .sns_icon {
-    width: 50px;
-    height: 50px;
+  .share {
+    font-size: 20px;
   }
+}
+@media screen and (max-width: 480px) {
+  .share {
+    font-size: 16px;
+  }
+}
+
+.sns_icon {
+  width: 50px;
+  height: 50px;
+  margin: 15px 15px 0px 15px;
 }/*# sourceMappingURL=style.css.map */
