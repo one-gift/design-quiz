@@ -236,7 +236,7 @@ body {
   }
 }
 
-#img1, #img2 {
+#choices-img1, #choices-img2 {
   border-radius: 20px;
   border: 2px solid #DADADA;
 }
@@ -315,6 +315,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 0.02em;
+
   }
 }
 
