@@ -189,7 +189,7 @@ function displayEndResult(userCorrectCount) {
 /**
  * 変数のカウントをインクリメントする
  * @param {number} count
- * @returns 
+ * @returns {number}
  */
 function incrementCount(count) {
     count++;
@@ -198,8 +198,8 @@ function incrementCount(count) {
 
 /**
  * 変数の値を0にする
- * @param {number} count
- * @returns
+ * @param {number} value
+ * @returns {number}
  */
 function initializeVariable(value) {
     value = 0;
@@ -217,7 +217,7 @@ function setProgressValue() {
 
 /**
  * HTMLのprogressのmax値の変更
- * @param
+ * @param {number} maxValue
  * @return
  */
 function setProgressMaxValue(maxValue) {
@@ -246,7 +246,8 @@ document.getElementById("compare").onmouseup = function undisplayComparison() {
 
 /**
  * 最終結果画面の円グラフ
- * @params
+ * @param {number} correctCount
+ * @param {number} amount
  * @return 
  */
 function displayEndResultCircle(correctCount, amount) {
