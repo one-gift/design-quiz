@@ -19,51 +19,91 @@
     <section>
         <div id="start">
             <div class="top">
+
                 <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
                 <p id="quiz-start">
+
                     <a class="btn">クイズを始める</a>
                 </p>
             </div>
         </div>
 
         <div id="progress" class="">
-            <p id="progress-frac"><span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span>
-            </p>
-            <progress id="quiz-progress" value="" max=""></progress>
+
+            <img src="../image/logo.svg" class="logo_progress">
+            <div>
+                <progress id="quiz-progress" value="" max=""></progress>
+
+                <p id="progress-frac">LV.
+                    <span id="quiz-level"></span>
+                    <span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span>
+                </p>
+
+            </div>
+
         </div>
 
         <div id="quiestion">
-            <div class="status">
-                <img src="../image/logo.png" class="logo_progress">
-                <p id="quiz-text"></p>
+            
+            <div class="quiz_area">
+                <div class="quiz_area_2">
+                    <span class="quiz_number">Question</span><span id="quiz-index"></span>
+                    <p class="quiz_text">どちらのロゴが正しいでしょう</p>
+                </div>
             </div>
-            <span id="quiz-index"></span>問目のクイズ
+
 
             <div id="choices"></div>
             <div class="contents" id="quiz-choices">
                 <img id="choices-img1" src="">
                 <img id="choices-img2" src="">
+
             </div>
         </div>
 
         <div id="result">
             <p id="judged"></p>
-            <img id="correct-img" src="" alt="">
+
+            <div class="img_sign">
+                <img id="correct-img" src="" alt="">
+
+                <div class="sign">
+                    <svg class="correct_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                        <circle class="path circle" fill="none" stroke="#fff" stroke-width="10" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                        <polyline class="path check" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+                    </svg>    
+                </div>    
+            </div>
+
+            <!-- 解説を書く領域 -->
             <p id="explain"></p>
+
             <button id="compare" value="" src="">
                 正誤比較
             </button>
-            <input type="button" name="" id="next-btn" value="次へ">
         </div>
 
         <div id="end-result">
-            <div id="end-result-circle"></div>
-            <p id="correct-cnt"></p>
-            <p id="thanks"></p>
+            <div class="end_result_top">
+                <img src="../image/logo.svg" class="logo_progress">
+
+                <div class="end_result_area">
+                    <div class="circle_text">
+                        <div id="end-result-circle"></div>
+                        <p id="correct-cnt"></p>    
+                    </div>
+                    <p id="thanks"></p>    
+                </div>
+            </div>
+                
             <div id="sns-link">
-                <a href="https://timeline.line.me/social-plugin/share?url=[URL]">LINE</a>
-                <a href="https://twitter.com/intent/tweet?url=[URL]">Twitter</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]">FaceBook</a>
+                <p class="share">クイズを友達にシェアしよう!</p>
+
+                <div class="sns">
+                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]"><img class="sns_icon" src="../image/line_icon.png" alt=""></a>
+                    <a href="https://twitter.com/intent/tweet?url=[URL]"><img class="sns_icon" src="../image/twitter_icon.png" alt=""></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]"><img class="sns_icon" src="../image/facebook_icon.png" alt=""></a>
+                </div>
             </div>
         </div>
 

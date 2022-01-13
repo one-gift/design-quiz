@@ -4,8 +4,10 @@ $white:#fff;
 $btn_shadow: 0px 5px 0px #C56A00;
 $question_text:#fff,20px;
 $progress_bg:#007DB5;
+$btn_gray: #DADADA;
+$score:#FFDE2E;
 
-@mixin mq($breakpoint: md) {
+@mixin mq($breakpoint: sm) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
@@ -35,13 +37,6 @@ $breakpoints: (
   display: none;
 }
 
-#end-result-circle {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-
 // ここからスタイルの記述
 html {
   -webkit-box-sizing: border-box;
@@ -51,21 +46,19 @@ html {
 }
 
 body {
-    font-family: Noto Sans JP;
-    height: 100vh;
-    justify-content: center;
-    background-image:url(../image/bg_white_pc.png);
+  font-family: 'Noto Sans JP', sans-serif;
+  height: 100vh;
+  justify-content: center;
+  background-image:url(../image/bg_white_pc.png);
 }
 
 .logo_image{
   margin-bottom: 100px;
-  @include mq(){
-  }
 
   @include mq(lg){
     width: 500px;
   }
-  @include mq (sm){
+  @include mq(sm){
     width: 200px;
   }
 }
@@ -89,19 +82,35 @@ body {
     align-items: center;
 }
 
-  .btn {
+.btn{
+  @include mq(lg){
+    display: inline-block;
+    padding: 32px 64px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: $white;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  @include mq(sm){
     display: inline-block;
     padding: 16px 32px;
     background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
+}
 
   .btn:active {
     box-shadow: none;
@@ -113,33 +122,63 @@ body {
 
 #quiestion{
   justify-content: center;
+
+  @include mq(lg){
+    margin-top: 30px;
+  }
+
+  @include mq(sm){
+    margin-top: 15px;
+  }
 }
 
-progress {
+#progress {
+  align-items: center;
+  background-color:$bg_color;
+  border-radius: 0px 0px 40px 40px;
+  padding-bottom: 20px;
+}
+
+#progress-frac{
+  color: $white;
+  font-size: 25px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+#quiz-progress{
+  width: 700px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+
+  @include mq(sm){
   width: 343px;
   height: 11px;
+  left: 0px;
+  top: 0px;
+  }
+}
+
+#quiz-progress::-webkit-progress-bar {
   background-color:$progress_bg;
   border-radius: 10px;
 }
 
-progress::-webkit-progress-bar {
-  background-color:$progress_bg;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
+#quiz-progress::-webkit-progress-value {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-progress::-moz-progress-bar {
+#quiz-progress::-moz-progress-bar {
   background-color:white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-progress::-ms-fill {
+#quiz-progress::-ms-fill {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
@@ -160,27 +199,49 @@ progress::-ms-fill {
   }
 }
 
-
-.status{
-  background-color: $bg_color;
-  width: 100%;
-
-  @include mq(sm){
-    padding: 16px 16px 10px;
-    border-radius: 0px 0px 20px 20px;
-  }
+.quiz_area{
+  text-align: center;
 
   @include mq(lg){
-    padding: 20px;
-    border-radius: 0px 0px 40px 40px;
+    margin-bottom: 40px;
+  }
+
+  @include mq(sm){
+    margin-bottom: 15px;
+  }
+}
+
+.quiz_area_2{
+  display: inline-block;
+  text-align: left;
+}
+
+.quiz_number{
+  color: #222;
+  opacity: 0.2;
+  font-size: 16px;
+}
+
+#quiz-index{
+  color: #222;
+  opacity: 0.2;
+  font-size: 16px;
+}
+
+.quiz_text{
+  font-weight: 700;
+  margin: 3px 0px;
+
+  @include mq(lg){
+    font-size: 40px;
+  }
+
+  @include mq(sm){
+    font-size: 20px;
   }
 }
 
 .contents{
-    display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
     align-items: center;
 
     @include mq(sm){
@@ -189,21 +250,266 @@ progress::-ms-fill {
     }
 }
 
-#choices-img1,#choices-img2{
+#choices-img1, #choices-img2{
   border-radius: 20px;
   border: 2px solid #DADADA;
-  // margin-left: 10px;
-
-  @include mq(sm){
-    display: block;
-    text-align: center;
-  }
 
   @include mq(lg){
+    width: 40%;
+    align-items: center;
+    margin: 0px 5px;
+  }
+
+  @include mq(sm){
     width: 80%;
+    align-items: center;
+    margin: 10px 0px;
   }
 }
 
-#button{
+.contents_img{
+  margin-right: auto;
+}
+
+// resultのページ
+#result{
+  align-items: center;
+}
+
+#correct-img{
+  border-radius: 20px;
+  border: 2px solid #DADADA;
+
+  @include mq(lg){
+    width: 500px;
+    height: 270px;
+    // margin-top: 30px;
+    border-radius: 20px;
+  }
+
+  @include mq(sm){
+    width: 346px;
+    height: 185px;
+  }
+}
+
+.img_sign{
+  position: relative;
   text-align: center;
+  margin: auto;
+
+  @include mq(lg){
+    width: 500px;
+    height: 270px;
+  }
+
+  @include mq(sm){
+    width: 346px;
+    height: 185px;
+  }
+}
+
+.sign{
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  left: 0;
+
+  @include mq(lg){
+    width: 90px;
+    height: 90px;
+    background-color:#37D0AB;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px 0px;
+  }
+}
+
+.correct_sign{
+  width: 50px;
+  height: 50px;
+}
+
+.btn_next{
+  margin: 20px 0px;
+
+  @include mq(lg){
+    display: inline-block;
+    padding: 20px 50px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  @include mq(sm){
+    display: inline-block;
+    padding: 16px 32px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+}
+
+  .btn_next:active{
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+
+.btn_compare{
+  @include mq(lg){
+    display: inline-block;
+    padding: 16px 32px;
+    background-color:$btn_gray; /* 背景色 */
+    box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+}
+
+.btn_group{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+// ここからend_result
+#end-result-circle {
+  @include mq(lg){
+    width: 250px;
+    height: 250px;
+    position: relative;
+  }
+
+  @include mq(sm){
+    width: 250px;
+    height: 250px;
+    position: relative;
+  }
+}
+
+.end_result_area{
+  @include mq(lg){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mq(sm){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+
+.end_result_top{
+  background-color: $bg_color;
+
+  @include mq(lg){
+    height: 430px;
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+
+#thanks{
+  color: $white;
+
+  @include mq(lg){
+    font-size: 20px;
+    text-align: left;
+    line-height: 29px;
+    margin: 0px 30px;
+  }
+
+  @include mq(sm){
+    font-size: 16px;
+    text-align: center;
+    line-height: 23px;
+    margin: 30px 0px;
+  }
+}
+
+#sns-link{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @include mq(lg){
+    margin-top: 40px;
+  }
+
+  @include mq(sm){
+    margin-top: 30px;
+  }
+}
+
+.share{
+  font-weight: bold;
+
+  @include mq(lg){
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  @include mq(sm){
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+.sns_icon{
+  width: 50px;
+  height: 50px;
+  margin: 15px 15px 0px 15px;
+}
+
+.circle_text{
+  position: relative;
+}
+
+#correct-cnt{
+  color: $score;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+
+  @include mq(lg){
+    font-size: 35px;
+  }
+}
+
+#correct-cnt::first-letter{
+  @include mq(lg){
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 40px;
+    letter-spacing: 0.02em;
+    margin: 0px 5px;
+  }
 }

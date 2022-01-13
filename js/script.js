@@ -66,10 +66,10 @@ function displayQestion(quiz) {
     document.querySelector("#progress-quiz-index").innerHTML = quizIndex;
     document.querySelector("#progress-level-quiz-amount").innerHTML = progressMaxValue;
 
-    document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
+    document.querySelector("#quiz-level").innerHTML = quiz["question"]["quiz_level"];
     document.querySelector("#choices-img1").setAttribute('src', quiz["question"]["img_path"][0]);
     document.querySelector("#choices-img2").setAttribute('src', quiz["question"]["img_path"][1]);
-
+    
     document.querySelector("#quiestion").style.display = "block"
 }
 
@@ -171,7 +171,7 @@ function displayEndResult(userCorrectCount) {
 
     displayEndResultCircle(userCorrectCount, amount);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount + "問正解";
+    document.querySelector("#correct-cnt").innerText = userCorrectCount + " /" + amount + "正解";
     let thanks = quizObject["thanks"];
     if (userCorrectCount < 1) {
         document.querySelector("#thanks").innerText = thanks["0"];
@@ -252,11 +252,12 @@ document.getElementById("compare").onmouseup = function undisplayComparison() {
  */
 function displayEndResultCircle(correctCount, amount) {
     var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
-        color: '#FCB03C',
+        color: '#FFDE2E',
         duration: 3000,
         easing: 'easeInOut',
-        trailColor: '#eee',
-        trailWidth: 1,
+        trailColor: 'rgba(218, 218, 218, 0.3)',
+        trailWidth: 15,
+        strokeWidth: 15,
     });
 
     var correctRate = correctCount / amount;
