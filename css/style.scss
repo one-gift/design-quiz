@@ -5,6 +5,7 @@ $btn_shadow: 0px 5px 0px #C56A00;
 $question_text:#fff,20px;
 $progress_bg:#007DB5;
 $btn_gray: #DADADA;
+$score:#FFDE2E;
 
 @mixin mq($breakpoint: sm) {
   @media #{map-get($breakpoints, $breakpoint)} {
@@ -36,13 +37,6 @@ $breakpoints: (
   display: none;
 }
 
-#end-result-circle {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-
 // ここからスタイルの記述
 html {
   -webkit-box-sizing: border-box;
@@ -52,10 +46,10 @@ html {
 }
 
 body {
-    font-family: Noto Sans JP;
-    height: 100vh;
-    justify-content: center;
-    background-image:url(../image/bg_white_pc.png);
+  font-family: 'Noto Sans JP', sans-serif;
+  height: 100vh;
+  justify-content: center;
+  background-image:url(../image/bg_white_pc.png);
 }
 
 .logo_image{
@@ -95,11 +89,11 @@ body {
     background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 20px;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
 
@@ -109,11 +103,11 @@ body {
     background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
 }
@@ -128,6 +122,14 @@ body {
 
 #quiestion{
   justify-content: center;
+
+  @include mq(lg){
+    margin-top: 30px;
+  }
+
+  @include mq(sm){
+    margin-top: 15px;
+  }
 }
 
 #progress {
@@ -138,7 +140,7 @@ body {
 }
 
 #progress-frac{
-  color: #fff;
+  color: $white;
   font-size: 25px;
   line-height: 36px;
   text-align: center;
@@ -198,15 +200,20 @@ body {
 }
 
 .quiz_area{
-  text-align: left;
+  text-align: center;
 
   @include mq(lg){
-    margin: 30px 215px 40px 370px;
+    margin-bottom: 40px;
   }
 
   @include mq(sm){
-    margin: 15px;
+    margin-bottom: 15px;
   }
+}
+
+.quiz_area_2{
+  display: inline-block;
+  text-align: left;
 }
 
 .quiz_number{
@@ -222,7 +229,7 @@ body {
 }
 
 .quiz_text{
-  font-weight: bold;
+  font-weight: 700;
   margin: 3px 0px;
 
   @include mq(lg){
@@ -250,13 +257,13 @@ body {
   @include mq(lg){
     width: 40%;
     align-items: center;
-    margin: 0px 10px;
+    margin: 0px 5px;
   }
 
   @include mq(sm){
     width: 80%;
     align-items: center;
-    margin: 15px 0px;
+    margin: 10px 0px;
   }
 }
 
@@ -270,10 +277,13 @@ body {
 }
 
 #correct-img{
+  border-radius: 20px;
+  border: 2px solid #DADADA;
+
   @include mq(lg){
     width: 500px;
     height: 270px;
-    margin-top: 30px;
+    // margin-top: 30px;
     border-radius: 20px;
   }
 
@@ -281,6 +291,43 @@ body {
     width: 346px;
     height: 185px;
   }
+}
+
+.img_sign{
+  position: relative;
+  text-align: center;
+  margin: auto;
+
+  @include mq(lg){
+    width: 500px;
+    height: 270px;
+  }
+
+  @include mq(sm){
+    width: 346px;
+    height: 185px;
+  }
+}
+
+.sign{
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  left: 0;
+
+  @include mq(lg){
+    width: 90px;
+    height: 90px;
+    background-color:#37D0AB;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px 0px;
+  }
+}
+
+.correct_sign{
+  width: 50px;
+  height: 50px;
 }
 
 .btn_next{
@@ -296,7 +343,7 @@ body {
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
 
@@ -310,7 +357,7 @@ body {
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
   }
 }
@@ -331,10 +378,8 @@ body {
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.02em;
-    width: 146px;
-    height: 52px;
   }
 }
 
@@ -346,10 +391,35 @@ body {
 }
 
 // ここからend_result
-#end-result-circle{
+#end-result-circle {
   @include mq(lg){
+    width: 250px;
+    height: 250px;
+    position: relative;
+  }
+
+  @include mq(sm){
+    width: 250px;
+    height: 250px;
+    position: relative;
   }
 }
+
+.end_result_area{
+  @include mq(lg){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include mq(sm){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
 
 .end_result_top{
   background-color: $bg_color;
@@ -365,6 +435,16 @@ body {
 
   @include mq(lg){
     font-size: 20px;
+    text-align: left;
+    line-height: 29px;
+    margin: 0px 30px;
+  }
+
+  @include mq(sm){
+    font-size: 16px;
+    text-align: center;
+    line-height: 23px;
+    margin: 30px 0px;
   }
 }
 
@@ -388,10 +468,12 @@ body {
 
   @include mq(lg){
     font-size: 20px;
+    line-height: 20px;
   }
 
   @include mq(sm){
     font-size: 16px;
+    line-height: 16px;
   }
 }
 
@@ -399,4 +481,35 @@ body {
   width: 50px;
   height: 50px;
   margin: 15px 15px 0px 15px;
+}
+
+.circle_text{
+  position: relative;
+}
+
+#correct-cnt{
+  color: $score;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+
+  @include mq(lg){
+    font-size: 35px;
+  }
+}
+
+#correct-cnt::first-letter{
+  @include mq(lg){
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 40px;
+    letter-spacing: 0.02em;
+    margin: 0px 5px;
+  }
 }

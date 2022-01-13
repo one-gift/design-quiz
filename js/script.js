@@ -229,7 +229,7 @@ function displayEndResult(userCorrectCount) {
 
     displayEndResultCircle(userCorrectCount, amount);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount + "問正解";
+    document.querySelector("#correct-cnt").innerText = userCorrectCount + " /" + amount + "正解";
     let thanks = quizObject["thanks"];
     if (userCorrectCount < 1) {
         document.querySelector("#thanks").innerText = thanks["0"];
@@ -255,7 +255,8 @@ function displayEndResultCircle(correctCount, amount) {
         duration: 3000,
         easing: 'easeInOut',
         trailColor: 'rgba(218, 218, 218, 0.3)',
-        trailWidth: 40,
+        trailWidth: 15,
+        strokeWidth: 15,
     });
 
     var correctRate = correctCount / amount;
