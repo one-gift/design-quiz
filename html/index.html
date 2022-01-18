@@ -44,7 +44,7 @@
         </div>
 
         <div id="quiestion">
-            
+
             <div class="quiz_area">
                 <div class="quiz_area_2">
                     <span class="quiz_number">Question</span><span id="quiz-index"></span>
@@ -68,19 +68,28 @@
                 <img id="correct-img" src="" alt="">
 
                 <div class="sign">
-                    <svg class="correct_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                        <circle class="path circle" fill="none" stroke="#fff" stroke-width="10" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-                        <polyline class="path check" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-                    </svg>    
-                </div>    
+                    <svg class="correct_sign" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 130.2 130.2">
+                        <circle class="path circle" fill="none" stroke="#fff" stroke-width="10" stroke-miterlimit="10"
+                            cx="65.1" cy="65.1" r="62.1" />
+                        <polyline class="path check" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"
+                            stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+                    </svg>
+                </div>
             </div>
 
             <!-- 解説を書く領域 -->
             <p id="explain"></p>
-
-            <button id="compare" value="" src="">
-                正誤比較
-            </button>
+            <div class="btn_group">
+                <div class="btn_next">
+                    <input type="button" name="" id="next-btn" value="次の問題へ！">
+                </div>
+                <div class="btn_compare">
+                    <button id="compare" value="正誤比較" src="">
+                    正誤比較
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div id="end-result">
@@ -90,19 +99,22 @@
                 <div class="end_result_area">
                     <div class="circle_text">
                         <div id="end-result-circle"></div>
-                        <p id="correct-cnt"></p>    
+                        <p id="correct-cnt"></p>
                     </div>
-                    <p id="thanks"></p>    
+                    <p id="thanks"></p>
                 </div>
             </div>
-                
+
             <div id="sns-link">
                 <p class="share">クイズを友達にシェアしよう!</p>
 
                 <div class="sns">
-                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]"><img class="sns_icon" src="../image/line_icon.png" alt=""></a>
-                    <a href="https://twitter.com/intent/tweet?url=[URL]"><img class="sns_icon" src="../image/twitter_icon.png" alt=""></a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]"><img class="sns_icon" src="../image/facebook_icon.png" alt=""></a>
+                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]"><img class="sns_icon"
+                            src="../image/line_icon.png" alt=""></a>
+                    <a href="https://twitter.com/intent/tweet?url=[URL]"><img class="sns_icon"
+                            src="../image/twitter_icon.png" alt=""></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]"><img class="sns_icon"
+                            src="../image/facebook_icon.png" alt=""></a>
                 </div>
             </div>
         </div>
