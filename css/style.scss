@@ -255,13 +255,13 @@ body {
   border: 2px solid #DADADA;
 
   @include mq(lg){
-    width: 40%;
+    width: 500px;
     align-items: center;
     margin: 0px 5px;
   }
 
   @include mq(sm){
-    width: 80%;
+    width: 343px;
     align-items: center;
     margin: 10px 0px;
   }
@@ -309,7 +309,7 @@ body {
   }
 }
 
-.sign{
+.correct_sign{
   position: absolute;/*絶対配置*/
   color: white;/*文字は白に*/
   top: 0;
@@ -325,7 +325,23 @@ body {
   }
 }
 
-.correct_sign{
+.uncorrect_sign{
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  left: 0;
+
+  @include mq(lg){
+    width: 90px;
+    height: 90px;
+    background-color:#ED6182;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px 0px;
+  }
+}
+
+.correct_sign,.uncorrect_sign{
   width: 50px;
   height: 50px;
 }
@@ -367,7 +383,7 @@ body {
     transform: translateY(5px);
   }
 
-.btn_compare{
+#compare{
   @include mq(lg){
     display: inline-block;
     padding: 16px 32px;
@@ -378,6 +394,20 @@ body {
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  @include mq(sm){
+    display: inline-block;
+    padding: 8px 18px;
+    background-color:$btn_gray; /* 背景色 */
+    box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.02em;
   }
@@ -511,5 +541,37 @@ body {
     line-height: 40px;
     letter-spacing: 0.02em;
     margin: 0px 5px;
+  }
+}
+
+.btn_onemore{
+  @include mq(lg){
+    display: inline-block;
+    padding: 20px 50px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 42px;
+  }
+
+  @include mq(sm){
+    display: inline-block;
+    padding: 16px 32px;
+    background-color:$btn_color; /* 背景色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; /* 文字の下線を消す */
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 32px;
   }
 }
