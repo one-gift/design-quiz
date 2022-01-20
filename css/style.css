@@ -432,178 +432,68 @@ body {
   }
 }
 
-.btn_group {
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media screen and (max-width: 1920px) {
-  #end-result-circle {
-    width: 250px;
-    height: 250px;
-    position: relative;
-  }
-}
-@media screen and (max-width: 480px) {
-  #end-result-circle {
-    width: 250px;
-    height: 250px;
-    position: relative;
-  }
-}
-
-@media screen and (max-width: 1920px) {
-  .end_result_area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 480px) {
-  .end_result_area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
-.end_result_top {
-  background-color: #0097DB;
-}
-@media screen and (max-width: 1920px) {
-  .end_result_top {
-    height: 430px;
-    border-radius: 0px 0px 20px 20px;
-  }
-}
-
-#thanks {
+.trigger {
+  text-align: center;
+  padding: 7px 13px;
+  background: #3e3e3e;
   color: #fff;
-}
-@media screen and (max-width: 1920px) {
-  #thanks {
-    font-size: 20px;
-    text-align: left;
-    line-height: 29px;
-    margin: 0px 30px;
-  }
-}
-@media screen and (max-width: 480px) {
-  #thanks {
-    font-size: 16px;
-    text-align: center;
-    line-height: 23px;
-    margin: 30px 0px;
-  }
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
 }
 
-#sns-link {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-}
-@media screen and (max-width: 1920px) {
-  #sns-link {
-    margin-top: 40px;
-  }
-}
-@media screen and (max-width: 480px) {
-  #sns-link {
-    margin-top: 30px;
-  }
-}
-
-.share {
-  font-weight: bold;
-}
-@media screen and (max-width: 1920px) {
-  .share {
-    font-size: 20px;
-    line-height: 20px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .share {
-    font-size: 16px;
-    line-height: 16px;
-  }
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
-.sns_icon {
-  width: 50px;
-  height: 50px;
-  margin: 15px 15px 0px 15px;
-}
-
-.circle_text {
-  position: relative;
-}
-
-#correct-cnt {
-  color: #FFDE2E;
-  font-weight: 900;
+.modal-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
-}
-@media screen and (max-width: 1920px) {
-  #correct-cnt {
-    font-size: 35px;
-  }
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
 }
 
-@media screen and (max-width: 1920px) {
-  #correct-cnt::first-letter {
-    font-weight: 900;
-    font-size: 60px;
-    line-height: 40px;
-    letter-spacing: 0.02em;
-    margin: 0px 5px;
-  }
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
 }
 
-@media screen and (max-width: 1920px) {
-  .btn_onemore {
-    display: inline-block;
-    padding: 20px 50px;
-    background-color: #FF9F2E;
-    /* 背景色 */
-    box-shadow: 0px 8px 0px #C56A00;
-    /* 影の太さ・色 */
-    border-radius: 20px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
-    /* 文字の下線を消す */
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 42px;
-  }
+.close-button:hover {
+  background-color: darkgray;
 }
-@media screen and (max-width: 480px) {
-  .btn_onemore {
-    display: inline-block;
-    padding: 16px 32px;
-    background-color: #FF9F2E;
-    /* 背景色 */
-    box-shadow: 0px 5px 0px #C56A00;
-    /* 影の太さ・色 */
-    border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
-    /* 文字の下線を消す */
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 32px;
-  }
-}/*# sourceMappingURL=style.css.map */
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
+}
+/*# sourceMappingURL=style.css.map */
