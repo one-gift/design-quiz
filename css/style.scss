@@ -16,8 +16,6 @@ $score:#FFDE2E;
 $breakpoints: (
   'sm': 'screen and (max-width: 480px)',
   'md': 'screen and (max-width: 768px)',
-  'lg': 'screen and (max-width: 1920px)',
-  // 'xl': 'screen and (max-width: 1800px)',
 ) !default;
 
 // 初期に書いていたもの
@@ -54,10 +52,8 @@ body {
 
 .logo_image{
   margin-bottom: 100px;
+  width: 500px;
 
-  @include mq(lg){
-    width: 500px;
-  }
   @include mq(sm){
     width: 200px;
   }
@@ -74,28 +70,26 @@ body {
 }
 
 #start{
-    background-image:url(../image/bg_blue_pc.png);
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-image:url(../image/bg_blue_pc.png);
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn{
-  @include mq(lg){
-    display: inline-block;
-    padding: 32px 64px;
-    background-color:$btn_color; /* 背景色 */
-    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
-    border-radius: 20px;
-    color: $white;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
+  display: inline-block;
+  padding: 32px 64px;
+  background-color:$btn_color; /* 背景色 */
+  box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 
   @include mq(sm){
     display: inline-block;
@@ -122,10 +116,7 @@ body {
 
 #quiestion{
   justify-content: center;
-
-  @include mq(lg){
-    margin-top: 30px;
-  }
+  margin-top: 30px;
 
   @include mq(sm){
     margin-top: 15px;
@@ -167,44 +158,39 @@ body {
 }
 
 #quiz-progress::-webkit-progress-value {
-  background-color: white;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
 #quiz-progress::-moz-progress-bar {
-  background-color:white;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
 #quiz-progress::-ms-fill {
-  background-color: white;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
 .logo_progress{
   margin:20px 0px 30px 0px;
-
-  @include mq(lg){
-    width: 200px;
-  }
+  width: 200px;
+  height: auto;
 
   @include mq(sm){
     margin-top: 15px;
     margin-bottom: 15px;
     width: 88px;
-    height: 41px;
+    height: auto;
   }
 }
 
 .quiz_area{
   text-align: center;
-
-  @include mq(lg){
-    margin-bottom: 40px;
-  }
+  margin-bottom: 40px;
 
   @include mq(sm){
     margin-bottom: 15px;
@@ -231,10 +217,7 @@ body {
 .quiz_text{
   font-weight: 700;
   margin: 3px 0px;
-
-  @include mq(lg){
-    font-size: 40px;
-  }
+  font-size: 40px;
 
   @include mq(sm){
     font-size: 20px;
@@ -253,12 +236,10 @@ body {
 #choices-img1, #choices-img2{
   border-radius: 20px;
   border: 2px solid #DADADA;
-
-  @include mq(lg){
-    width: 500px;
-    align-items: center;
-    margin: 0px 5px;
-  }
+  cursor: pointer;
+  width: 500px;
+  align-items: center;
+  margin: 0px 5px;
 
   @include mq(sm){
     width: 343px;
@@ -279,13 +260,9 @@ body {
 #correct-img{
   border-radius: 20px;
   border: 2px solid #DADADA;
-
-  @include mq(lg){
-    width: 500px;
-    height: 270px;
-    // margin-top: 30px;
-    border-radius: 20px;
-  }
+  width: 500px;
+  height: 270px;
+  border-radius: 20px;
 
   @include mq(sm){
     width: 346px;
@@ -297,11 +274,8 @@ body {
   position: relative;
   text-align: center;
   margin: auto;
-
-  @include mq(lg){
-    width: 500px;
-    height: 270px;
-  }
+  width: 500px;
+  height: 270px;
 
   @include mq(sm){
     width: 346px;
@@ -311,34 +285,28 @@ body {
 
 .correct_sign{
   position: absolute;/*絶対配置*/
-  color: white;/*文字は白に*/
+  color:$white;/*文字は白に*/
   top: 0;
   left: 0;
-
-  @include mq(lg){
-    width: 90px;
-    height: 90px;
-    background-color:#37D0AB;
-    margin: auto;
-    padding: 20px;
-    border-radius: 20px 0px;
-  }
+  width: 90px;
+  height: 90px;
+  background-color:#37D0AB;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px 0px;
 }
 
 .uncorrect_sign{
   position: absolute;/*絶対配置*/
-  color: white;/*文字は白に*/
+  color: $white;/*文字は白に*/
   top: 0;
   left: 0;
-
-  @include mq(lg){
-    width: 90px;
-    height: 90px;
-    background-color:#ED6182;
-    margin: auto;
-    padding: 20px;
-    border-radius: 20px 0px;
-  }
+  width: 90px;
+  height: 90px;
+  background-color:#ED6182;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px 0px;
 }
 
 .correct_sign,.uncorrect_sign{
@@ -348,20 +316,17 @@ body {
 
 .btn_next{
   margin: 20px 0px;
-
-  @include mq(lg){
-    display: inline-block;
-    padding: 20px 50px;
-    background-color:$btn_color; /* 背景色 */
-    box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
-    border-radius: 20px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
+  display: inline-block;
+  padding: 20px 50px;
+  background-color:$btn_color; /* 背景色 */
+  box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 
   @include mq(sm){
     display: inline-block;
@@ -369,7 +334,7 @@ body {
     background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
@@ -384,19 +349,17 @@ body {
   }
 
 #compare{
-  @include mq(lg){
-    display: inline-block;
-    padding: 16px 32px;
-    background-color:$btn_gray; /* 背景色 */
-    box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
-    border-radius: 20px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
+  display: inline-block;
+  padding: 16px 32px;
+  background-color:$btn_gray; /* 背景色 */
+  box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 
   @include mq(sm){
     display: inline-block;
@@ -404,7 +367,7 @@ body {
     background-color:$btn_gray; /* 背景色 */
     box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
     border-radius: 10px;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     text-decoration: none; /* 文字の下線を消す */
     font-size: 14px;
@@ -414,19 +377,17 @@ body {
 }
 
 .btn_group{
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 // ここからend_result
 #end-result-circle {
-  @include mq(lg){
-    width: 250px;
-    height: 250px;
-    position: relative;
-  }
+  width: 250px;
+  height: 250px;
+  position: relative;
 
   @include mq(sm){
     width: 250px;
@@ -436,11 +397,9 @@ body {
 }
 
 .end_result_area{
-  @include mq(lg){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @include mq(sm){
     display: flex;
@@ -453,22 +412,16 @@ body {
 
 .end_result_top{
   background-color: $bg_color;
-
-  @include mq(lg){
-    height: 430px;
-    border-radius: 0px 0px 20px 20px;
-  }
+  height: 430px;
+  border-radius: 0px 0px 20px 20px;
 }
 
 #thanks{
   color: $white;
-
-  @include mq(lg){
-    font-size: 20px;
-    text-align: left;
-    line-height: 29px;
-    margin: 0px 30px;
-  }
+  font-size: 20px;
+  text-align: left;
+  line-height: 29px;
+  margin: 0px 30px;
 
   @include mq(sm){
     font-size: 16px;
@@ -483,10 +436,7 @@ body {
   align-content: center;
   justify-content: center;
   flex-direction: column;
-
-  @include mq(lg){
-    margin-top: 40px;
-  }
+  margin-top: 40px;
 
   @include mq(sm){
     margin-top: 30px;
@@ -495,11 +445,8 @@ body {
 
 .share{
   font-weight: bold;
-
-  @include mq(lg){
-    font-size: 20px;
-    line-height: 20px;
-  }
+  font-size: 20px;
+  line-height: 20px;
 
   @include mq(sm){
     font-size: 16px;
@@ -528,37 +475,30 @@ body {
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
-
-  @include mq(lg){
-    font-size: 35px;
-  }
+  font-size: 35px;
 }
 
 #correct-cnt::first-letter{
-  @include mq(lg){
-    font-weight: 900;
-    font-size: 60px;
-    line-height: 40px;
-    letter-spacing: 0.02em;
-    margin: 0px 5px;
-  }
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  margin: 0px 5px;
 }
 
 .btn_onemore{
-  @include mq(lg){
-    display: inline-block;
-    padding: 20px 50px;
-    background-color:$btn_color; /* 背景色 */
-    box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
-    border-radius: 20px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 42px;
-  }
+  display: inline-block;
+  padding: 20px 50px;
+  background-color:$btn_color; /* 背景色 */
+  box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+  border-radius: 20px;
+  color: $white;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 42px;
 
   @include mq(sm){
     display: inline-block;
