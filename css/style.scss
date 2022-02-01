@@ -40,7 +40,6 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  background-color:$bg_color;
 }
 
 body {
@@ -263,10 +262,12 @@ body {
   width: 500px;
   height: 270px;
   border-radius: 20px;
+  cursor: pointer;
 
   @include mq(sm){
     width: 346px;
     height: 185px;
+    cursor: pointer;
   }
 }
 
@@ -314,8 +315,24 @@ body {
   height: 50px;
 }
 
+.text_answer{
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  width: 50%;
+
+  @include mq(sm){
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  padding: 0px 16px;
+  }
+}
+
 .btn_next{
-  margin: 20px 0px;
+  margin-top: 40px;
   display: inline-block;
   padding: 20px 50px;
   background-color:$btn_color; /* 背景色 */
@@ -329,6 +346,7 @@ body {
   letter-spacing: 0.02em;
 
   @include mq(sm){
+    margin-top: 32px;
     display: inline-block;
     padding: 16px 32px;
     background-color:$btn_color; /* 背景色 */
@@ -349,6 +367,7 @@ body {
   }
 
 #compare{
+  margin-top: 20px;
   display: inline-block;
   padding: 16px 32px;
   background-color:$btn_gray; /* 背景色 */
@@ -390,8 +409,8 @@ body {
   position: relative;
 
   @include mq(sm){
-    width: 250px;
-    height: 250px;
+    width: 190px;
+    height: 190px;
     position: relative;
   }
 }
@@ -476,6 +495,10 @@ body {
   margin:0;
   padding:0;
   font-size: 35px;
+
+  @include mq(sm){
+    font-size: 24px;
+  }
 }
 
 #correct-cnt::first-letter{
