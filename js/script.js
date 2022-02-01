@@ -8,7 +8,20 @@ var progressValue = 0;
 var progressMaxValue = 0;
 
 const quizzes = quizObject["quizzes"];
+const correctImg = `<div class="sign_correct">
+                    <svg class="correct_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                        <circle class="path circle" fill="none" stroke="#fff" stroke-width="12" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                        <polyline class="path check" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+                    </svg>
+                    </div>`
 
+const incorrectImg = `<div class="sign_uncorrect">
+                        <svg class="uncorrect_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                            <circle class="path circle" fill="none" stroke="#fff" stroke-width="12" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                            <line class="path line" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+                            <line class="path line" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+                        </svg>
+                    </div>`
 /**
  * jsonファイルを読み込む
  * @param 
@@ -121,9 +134,8 @@ function displayResult(result) {
         }
         document.querySelector("#quiestion").style.display = "none";
         document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "正解";
         document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
+        document.getElementById("result-sign").innerHTML = correctImg;
         doConfetti();
     } else {
         if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
@@ -131,9 +143,8 @@ function displayResult(result) {
         }
         document.querySelector("#quiestion").style.display = "none";
         document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "不正解";
         document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
+        document.getElementById("result-sign").innerHTML = incorrectImg;
     }
 }
 
@@ -236,8 +247,9 @@ function setProgressMaxValue(maxValue) {
  * @return
  */
 document.getElementById("compare").onmousedown = function displayComparison() {
-    let value = selected == 0 ? 1 : 0;
+    let value = 1 - selected;
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    displaySign();
 };
 
 /**
@@ -248,6 +260,18 @@ document.getElementById("compare").onmousedown = function displayComparison() {
 document.getElementById("compare").onmouseup = function undisplayComparison() {
     let value = selected
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    displaySign();
+}
+
+/**
+ * compare時の正誤アイコン表示機能
+ * @param
+ * @return
+ */
+function displaySign() {
+    let signClassName = document.getElementById('result-sign').firstElementChild.className;
+    let sign = signClassName == 'sign_correct' ? incorrectImg : correctImg;
+    document.getElementById("result-sign").innerHTML = sign;
 }
 
 /**
@@ -299,7 +323,7 @@ function showModal() {
  * @param 
  * @return
  */
-document.querySelector("#close-button").onclick = function closeModal(){
+document.querySelector("#close-button").onclick = function closeModal() {
     var modal = document.querySelector("#modal");
     modal.classList.remove("show-modal");
     document.body.style.overflowY = "visible";
