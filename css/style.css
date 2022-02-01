@@ -16,12 +16,13 @@
 }
 
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   height: 100vh;
   justify-content: center;
   background-image: url(../image/bg_white_pc.png);
@@ -31,6 +32,7 @@ body {
   margin-bottom: 100px;
   width: 500px;
 }
+
 @media screen and (max-width: 480px) {
   .logo_image {
     width: 200px;
@@ -72,6 +74,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
 @media screen and (max-width: 480px) {
   .btn {
     display: inline-block;
@@ -101,6 +104,7 @@ body {
   justify-content: center;
   margin-top: 30px;
 }
+
 @media screen and (max-width: 480px) {
   #quiestion {
     margin-top: 15px;
@@ -128,6 +132,7 @@ body {
   left: 0px;
   top: 0px;
 }
+
 @media screen and (max-width: 480px) {
   #quiz-progress {
     width: 343px;
@@ -165,6 +170,9 @@ body {
   width: 200px;
   height: auto;
 }
+
+
+
 @media screen and (max-width: 480px) {
   .logo_progress {
     margin-top: 15px;
@@ -178,6 +186,7 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
+
 @media screen and (max-width: 480px) {
   .quiz_area {
     margin-bottom: 15px;
@@ -206,6 +215,7 @@ body {
   margin: 3px 0px;
   font-size: 40px;
 }
+
 @media screen and (max-width: 480px) {
   .quiz_text {
     font-size: 20px;
@@ -215,6 +225,7 @@ body {
 .contents {
   align-items: center;
 }
+
 @media screen and (max-width: 480px) {
   .contents {
     display: block;
@@ -230,6 +241,7 @@ body {
   align-items: center;
   margin: 0px 5px;
 }
+
 @media screen and (max-width: 480px) {
   #choices-img1, #choices-img2 {
     width: 343px;
@@ -254,6 +266,7 @@ body {
   border-radius: 20px;
   cursor: pointer;
 }
+
 @media screen and (max-width: 480px) {
   #correct-img {
     width: 346px;
@@ -269,6 +282,7 @@ body {
   width: 500px;
   height: 270px;
 }
+
 @media screen and (max-width: 480px) {
   .img_sign {
     width: 346px;
@@ -345,6 +359,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
 @media screen and (max-width: 480px) {
   .btn_next {
     margin-top: 32px;
@@ -387,6 +402,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+
 @media screen and (max-width: 480px) {
   #compare {
     display: inline-block;
@@ -418,6 +434,7 @@ body {
   height: 250px;
   position: relative;
 }
+
 @media screen and (max-width: 480px) {
   #end-result-circle {
     width: 190px;
@@ -431,6 +448,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 @media screen and (max-width: 480px) {
   .end_result_area {
     display: flex;
@@ -453,6 +471,7 @@ body {
   line-height: 29px;
   margin: 0px 30px;
 }
+
 @media screen and (max-width: 480px) {
   #thanks {
     font-size: 16px;
@@ -469,6 +488,7 @@ body {
   flex-direction: column;
   margin-top: 40px;
 }
+
 @media screen and (max-width: 480px) {
   #sns-link {
     margin-top: 30px;
@@ -480,6 +500,7 @@ body {
   font-size: 20px;
   line-height: 20px;
 }
+
 @media screen and (max-width: 480px) {
   .share {
     font-size: 16px;
@@ -503,6 +524,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
@@ -539,6 +562,7 @@ body {
   letter-spacing: 0.02em;
   margin: 42px;
 }
+
 @media screen and (max-width: 480px) {
   .btn_onemore {
     display: inline-block;
@@ -557,4 +581,61 @@ body {
     letter-spacing: 0.02em;
     margin: 32px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+.trigger {
+  text-align: center;
+  padding: 7px 13px;
+  background: #3e3e3e;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: cursive;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.close-button:hover {
+  background-color: darkgray;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}

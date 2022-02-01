@@ -28,7 +28,13 @@ function getJSON() {
  * @return 
  */
 document.getElementById('quiz-start').onclick = function quizStart() {
+    // クイズ制御
     quizController(quizIndex);
+
+    // modal制御
+    showModal();
+
+    // 画面表示
     document.querySelector("#start").style.display = "none";
     document.querySelector("#progress").style.display = "block";
 }
@@ -69,7 +75,7 @@ function displayQestion(quiz) {
     document.querySelector("#quiz-level").innerHTML = quiz["question"]["quiz_level"];
     document.querySelector("#choices-img1").setAttribute('src', quiz["question"]["img_path"][0]);
     document.querySelector("#choices-img2").setAttribute('src', quiz["question"]["img_path"][1]);
-    
+
     document.querySelector("#quiestion").style.display = "block"
 }
 
@@ -275,4 +281,26 @@ function doConfetti() {
         spread: 70,
         origin: { y: 0.6 }
     })
+}
+
+/**
+ * modal表示機能
+ * @param 
+ * @return
+ */
+function showModal() {
+    var modal = document.querySelector("#modal");
+    modal.classList.add("show-modal");
+    document.body.style.overflowY = "hidden";
+}
+
+/**
+ * modal非表示機能
+ * @param 
+ * @return
+ */
+document.querySelector("#close-button").onclick = function closeModal(){
+    var modal = document.querySelector("#modal");
+    modal.classList.remove("show-modal");
+    document.body.style.overflowY = "visible";
 }
