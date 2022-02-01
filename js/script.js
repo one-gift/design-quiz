@@ -134,10 +134,7 @@ function displayResult(result) {
         }
         document.querySelector("#quiestion").style.display = "none";
         document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "正解";
         document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
-        // アイコン表示
         document.getElementById("result-sign").innerHTML = correctImg;
         doConfetti();
     } else {
@@ -146,10 +143,7 @@ function displayResult(result) {
         }
         document.querySelector("#quiestion").style.display = "none";
         document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "不正解";
         document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
-        // アイコン表示
         document.getElementById("result-sign").innerHTML = incorrectImg;
     }
 }
@@ -253,13 +247,9 @@ function setProgressMaxValue(maxValue) {
  * @return
  */
 document.getElementById("compare").onmousedown = function displayComparison() {
-    let value = selected == 0 ? 1 : 0;
+    let value = 1 - selected;
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
-    
-    // アイコン切り替え
-    let signClassName = document.getElementById('result-sign').firstElementChild.className;
-    let sign = signClassName == 'sign_correct' ? incorrectImg : correctImg;
-    document.getElementById("result-sign").innerHTML = sign;
+    displaySign();
 };
 
 /**
@@ -270,8 +260,15 @@ document.getElementById("compare").onmousedown = function displayComparison() {
 document.getElementById("compare").onmouseup = function undisplayComparison() {
     let value = selected
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
-    
-    // アイコン切り替え
+    displaySign();
+}
+
+/**
+ * compare時の正誤アイコン表示機能
+ * @param
+ * @return
+ */
+function displaySign() {
     let signClassName = document.getElementById('result-sign').firstElementChild.className;
     let sign = signClassName == 'sign_correct' ? incorrectImg : correctImg;
     document.getElementById("result-sign").innerHTML = sign;
