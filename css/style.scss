@@ -6,6 +6,7 @@ $question_text:#fff,20px;
 $progress_bg:#007DB5;
 $btn_gray: #DADADA;
 $score:#FFDE2E;
+$black:#222;
 
 @mixin mq($breakpoint: sm) {
   @media #{map-get($breakpoints, $breakpoint)} {
@@ -81,7 +82,7 @@ body {
   display: inline-block;
   padding: 32px 64px;
   background-color:$btn_color; /* 背景色 */
-  box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+  box-shadow:$btn_shadow;/* 影の太さ・色 */
   border-radius: 20px;
   color: $white;
   cursor: pointer;
@@ -127,6 +128,10 @@ body {
   background-color:$bg_color;
   border-radius: 0px 0px 40px 40px;
   padding-bottom: 20px;
+
+  @include mq(sm){
+    padding-bottom: 10px;
+  }
 }
 
 #progress-frac{
@@ -135,6 +140,14 @@ body {
   line-height: 36px;
   text-align: center;
   letter-spacing: 0.02em;
+
+  @include mq(sm){
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  }
 }
 
 #quiz-progress{
@@ -192,7 +205,9 @@ body {
   margin-bottom: 40px;
 
   @include mq(sm){
+    text-align: left;
     margin-bottom: 15px;
+    padding: 0px 16px;
   }
 }
 
@@ -328,6 +343,7 @@ body {
   line-height: 23px;
   letter-spacing: 0.02em;
   padding: 0px 16px;
+  width: auto;
   }
 }
 
