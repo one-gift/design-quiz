@@ -308,7 +308,7 @@ body {
   height: 90px;
   background-color:#37D0AB;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -321,7 +321,7 @@ body {
   height: 90px;
   background-color:#ED6182;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -336,6 +336,7 @@ body {
   line-height: 29px;
   letter-spacing: 0.02em;
   width: 50%;
+  text-align: left;
 
   @include mq(sm){
   margin-top: 12px;
@@ -344,6 +345,7 @@ body {
   letter-spacing: 0.02em;
   padding: 0px 16px;
   width: auto;
+  text-align: left;
   }
 }
 
