@@ -126,11 +126,11 @@ body {
 #progress {
   align-items: center;
   background-color:$bg_color;
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 0px 0px 20px 20px;
   padding-bottom: 20px;
 
   @include mq(sm){
-    padding-bottom: 10px;
+    padding: 16px 16px 10px 16px;
   }
 }
 
@@ -157,7 +157,7 @@ body {
   top: 0px;
 
   @include mq(sm){
-  width: 343px;
+  width: 100%;
   height: 11px;
   left: 0px;
   top: 0px;
@@ -193,8 +193,7 @@ body {
   height: auto;
 
   @include mq(sm){
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin:0px 0px 15px 0px;
     width: 88px;
     height: auto;
   }
@@ -235,6 +234,7 @@ body {
 
   @include mq(sm){
     font-size: 20px;
+    margin: 3px 0px 0px 0px;
   }
 }
 
@@ -244,6 +244,7 @@ body {
     @include mq(sm){
       display: block;
       align-items: center;
+      padding: 0px 16px;
     }
 }
 
@@ -256,9 +257,9 @@ body {
   margin: 0px 5px;
 
   @include mq(sm){
-    width: 343px;
+    width: 100%;
     align-items: center;
-    margin: 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
 }
 
@@ -269,6 +270,10 @@ body {
 // resultのページ
 #result{
   align-items: center;
+
+  @include mq(sm){
+    padding: 0px 16px;
+  }
 }
 
 #correct-img{
@@ -280,8 +285,8 @@ body {
   cursor: pointer;
 
   @include mq(sm){
-    width: 346px;
-    height: 185px;
+    width: 100%;
+    height: auto;
     cursor: pointer;
   }
 }
@@ -343,7 +348,6 @@ body {
   font-size: 16px;
   line-height: 23px;
   letter-spacing: 0.02em;
-  padding: 0px 16px;
   width: auto;
   text-align: left;
   }
