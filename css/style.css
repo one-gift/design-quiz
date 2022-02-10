@@ -16,14 +16,12 @@
 }
 
 html {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  background-color: #0097DB;
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   height: 100vh;
   justify-content: center;
   background-image: url(../image/bg_white_pc.png);
@@ -33,7 +31,6 @@ body {
   margin-bottom: 100px;
   width: 500px;
 }
-
 @media screen and (max-width: 480px) {
   .logo_image {
     width: 200px;
@@ -75,7 +72,6 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
-
 @media screen and (max-width: 480px) {
   .btn {
     display: inline-block;
@@ -105,7 +101,6 @@ body {
   justify-content: center;
   margin-top: 30px;
 }
-
 @media screen and (max-width: 480px) {
   #quiestion {
     margin-top: 15px;
@@ -115,8 +110,13 @@ body {
 #progress {
   align-items: center;
   background-color: #0097DB;
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 0px 0px 20px 20px;
   padding-bottom: 20px;
+}
+@media screen and (max-width: 480px) {
+  #progress {
+    padding: 16px 16px 10px 16px;
+  }
 }
 
 #progress-frac {
@@ -126,6 +126,15 @@ body {
   text-align: center;
   letter-spacing: 0.02em;
 }
+@media screen and (max-width: 480px) {
+  #progress-frac {
+    margin-top: 5px;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+}
 
 #quiz-progress {
   width: 700px;
@@ -133,10 +142,9 @@ body {
   left: 0px;
   top: 0px;
 }
-
 @media screen and (max-width: 480px) {
   #quiz-progress {
-    width: 343px;
+    width: 100%;
     height: 11px;
     left: 0px;
     top: 0px;
@@ -171,13 +179,9 @@ body {
   width: 200px;
   height: auto;
 }
-
-
-
 @media screen and (max-width: 480px) {
   .logo_progress {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 0px 0px 15px 0px;
     width: 88px;
     height: auto;
   }
@@ -187,10 +191,11 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
-
 @media screen and (max-width: 480px) {
   .quiz_area {
+    text-align: left;
     margin-bottom: 15px;
+    padding: 0px 16px;
   }
 }
 
@@ -216,21 +221,21 @@ body {
   margin: 3px 0px;
   font-size: 40px;
 }
-
 @media screen and (max-width: 480px) {
   .quiz_text {
     font-size: 20px;
+    margin: 3px 0px 0px 0px;
   }
 }
 
 .contents {
   align-items: center;
 }
-
 @media screen and (max-width: 480px) {
   .contents {
     display: block;
     align-items: center;
+    padding: 0px 16px;
   }
 }
 
@@ -242,12 +247,11 @@ body {
   align-items: center;
   margin: 0px 5px;
 }
-
 @media screen and (max-width: 480px) {
   #choices-img1, #choices-img2 {
-    width: 343px;
+    width: 100%;
     align-items: center;
-    margin: 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
 }
 
@@ -258,6 +262,11 @@ body {
 #result {
   align-items: center;
 }
+@media screen and (max-width: 480px) {
+  #result {
+    padding: 0px 16px;
+  }
+}
 
 #correct-img {
   border-radius: 20px;
@@ -265,12 +274,13 @@ body {
   width: 500px;
   height: 270px;
   border-radius: 20px;
+  cursor: pointer;
 }
-
 @media screen and (max-width: 480px) {
   #correct-img {
-    width: 346px;
-    height: 185px;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
   }
 }
 
@@ -281,7 +291,6 @@ body {
   width: 500px;
   height: 270px;
 }
-
 @media screen and (max-width: 480px) {
   .img_sign {
     width: 346px;
@@ -300,7 +309,7 @@ body {
   height: 90px;
   background-color: #37D0AB;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -315,7 +324,7 @@ body {
   height: 90px;
   background-color: #ED6182;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -324,8 +333,27 @@ body {
   height: 50px;
 }
 
+.text_answer {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  width: 50%;
+  text-align: left;
+}
+@media screen and (max-width: 480px) {
+  .text_answer {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    width: auto;
+    text-align: left;
+  }
+}
+
 .btn_next {
-  margin: 20px 0px;
+  margin-top: 40px;
   display: inline-block;
   padding: 20px 50px;
   background-color: #FF9F2E;
@@ -341,9 +369,9 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
-
 @media screen and (max-width: 480px) {
   .btn_next {
+    margin-top: 32px;
     display: inline-block;
     padding: 16px 32px;
     background-color: #FF9F2E;
@@ -367,6 +395,7 @@ body {
 }
 
 #compare {
+  margin-top: 20px;
   display: inline-block;
   padding: 16px 32px;
   background-color: #DADADA;
@@ -382,7 +411,6 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
-
 @media screen and (max-width: 480px) {
   #compare {
     display: inline-block;
@@ -414,11 +442,10 @@ body {
   height: 250px;
   position: relative;
 }
-
 @media screen and (max-width: 480px) {
   #end-result-circle {
-    width: 250px;
-    height: 250px;
+    width: 190px;
+    height: 190px;
     position: relative;
   }
 }
@@ -428,7 +455,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 @media screen and (max-width: 480px) {
   .end_result_area {
     display: flex;
@@ -451,7 +477,6 @@ body {
   line-height: 29px;
   margin: 0px 30px;
 }
-
 @media screen and (max-width: 480px) {
   #thanks {
     font-size: 16px;
@@ -468,7 +493,6 @@ body {
   flex-direction: column;
   margin-top: 40px;
 }
-
 @media screen and (max-width: 480px) {
   #sns-link {
     margin-top: 30px;
@@ -480,7 +504,6 @@ body {
   font-size: 20px;
   line-height: 20px;
 }
-
 @media screen and (max-width: 480px) {
   .share {
     font-size: 16px;
@@ -504,12 +527,15 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
   font-size: 35px;
+}
+@media screen and (max-width: 480px) {
+  #correct-cnt {
+    font-size: 24px;
+  }
 }
 
 #correct-cnt::first-letter {
@@ -537,7 +563,6 @@ body {
   letter-spacing: 0.02em;
   margin: 42px;
 }
-
 @media screen and (max-width: 480px) {
   .btn_onemore {
     display: inline-block;
@@ -644,4 +669,4 @@ body {
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
+}/*# sourceMappingURL=style.css.map */

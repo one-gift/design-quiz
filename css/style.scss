@@ -41,7 +41,6 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  background-color:$bg_color;
 }
 
 body {
@@ -83,7 +82,7 @@ body {
   display: inline-block;
   padding: 32px 64px;
   background-color:$btn_color; /* 背景色 */
-  box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
+  box-shadow:$btn_shadow;/* 影の太さ・色 */
   border-radius: 20px;
   color: $white;
   cursor: pointer;
@@ -127,8 +126,12 @@ body {
 #progress {
   align-items: center;
   background-color:$bg_color;
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 0px 0px 20px 20px;
   padding-bottom: 20px;
+
+  @include mq(sm){
+    padding: 16px 16px 10px 16px;
+  }
 }
 
 #progress-frac{
@@ -137,6 +140,14 @@ body {
   line-height: 36px;
   text-align: center;
   letter-spacing: 0.02em;
+
+  @include mq(sm){
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  }
 }
 
 #quiz-progress{
@@ -146,7 +157,7 @@ body {
   top: 0px;
 
   @include mq(sm){
-  width: 343px;
+  width: 100%;
   height: 11px;
   left: 0px;
   top: 0px;
@@ -182,8 +193,7 @@ body {
   height: auto;
 
   @include mq(sm){
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin:0px 0px 15px 0px;
     width: 88px;
     height: auto;
   }
@@ -194,7 +204,9 @@ body {
   margin-bottom: 40px;
 
   @include mq(sm){
+    text-align: left;
     margin-bottom: 15px;
+    padding: 0px 16px;
   }
 }
 
@@ -222,6 +234,7 @@ body {
 
   @include mq(sm){
     font-size: 20px;
+    margin: 3px 0px 0px 0px;
   }
 }
 
@@ -231,6 +244,7 @@ body {
     @include mq(sm){
       display: block;
       align-items: center;
+      padding: 0px 16px;
     }
 }
 
@@ -243,9 +257,9 @@ body {
   margin: 0px 5px;
 
   @include mq(sm){
-    width: 343px;
+    width: 100%;
     align-items: center;
-    margin: 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
 }
 
@@ -256,6 +270,10 @@ body {
 // resultのページ
 #result{
   align-items: center;
+
+  @include mq(sm){
+    padding: 0px 16px;
+  }
 }
 
 #correct-img{
@@ -264,10 +282,12 @@ body {
   width: 500px;
   height: 270px;
   border-radius: 20px;
+  cursor: pointer;
 
   @include mq(sm){
-    width: 346px;
-    height: 185px;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
   }
 }
 
@@ -293,7 +313,7 @@ body {
   height: 90px;
   background-color:#37D0AB;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -306,7 +326,7 @@ body {
   height: 90px;
   background-color:#ED6182;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px 0px;
 }
 
@@ -315,8 +335,26 @@ body {
   height: 50px;
 }
 
+.text_answer{
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  width: 50%;
+  text-align: left;
+
+  @include mq(sm){
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  width: auto;
+  text-align: left;
+  }
+}
+
 .btn_next{
-  margin: 20px 0px;
+  margin-top: 40px;
   display: inline-block;
   padding: 20px 50px;
   background-color:$btn_color; /* 背景色 */
@@ -330,6 +368,7 @@ body {
   letter-spacing: 0.02em;
 
   @include mq(sm){
+    margin-top: 32px;
     display: inline-block;
     padding: 16px 32px;
     background-color:$btn_color; /* 背景色 */
@@ -350,6 +389,7 @@ body {
   }
 
 #compare{
+  margin-top: 20px;
   display: inline-block;
   padding: 16px 32px;
   background-color:$btn_gray; /* 背景色 */
@@ -391,8 +431,8 @@ body {
   position: relative;
 
   @include mq(sm){
-    width: 250px;
-    height: 250px;
+    width: 190px;
+    height: 190px;
     position: relative;
   }
 }
@@ -477,6 +517,10 @@ body {
   margin:0;
   padding:0;
   font-size: 35px;
+
+  @include mq(sm){
+    font-size: 24px;
+  }
 }
 
 #correct-cnt::first-letter{
