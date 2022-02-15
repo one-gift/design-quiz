@@ -286,8 +286,8 @@ function displayEndResultCircle(correctCount, amount) {
         duration: 3000,
         easing: 'easeInOut',
         trailColor: 'rgba(218, 218, 218, 0.3)',
-        trailWidth: 15,
-        strokeWidth: 15,
+        trailWidth: 10,
+        strokeWidth: 10,
     });
 
     var correctRate = correctCount / amount;
