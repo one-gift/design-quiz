@@ -289,6 +289,7 @@ function displayEndResultCircle(correctCount, amount) {
         trailWidth: 10,
         strokeWidth: 10,
     });
+    endResultCircle.path.style.strokeLinecap = 'round';
 
     var correctRate = correctCount / amount;
     endResultCircle.animate(correctRate);
