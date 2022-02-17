@@ -459,18 +459,19 @@ body {
   }
 }
 
+
 #thanks{
   color: $white;
   font-size: 20px;
   text-align: left;
   line-height: 29px;
-  margin-right: 70px;
+  margin: 0px 0px 0px 70px;
 
   @include mq(sm){
     font-size: 16px;
     text-align: center;
     line-height: 23px;
-    margin-top: 30px;
+    margin: 30px 0px 0px 0px;
   }
 }
 
@@ -498,10 +499,14 @@ body {
   }
 }
 
+.hr_img{
+  margin: 20px 0px;
+}
+
 .sns_icon{
   width: 50px;
   height: 50px;
-  margin: 15px 15px 0px 15px;
+  margin: 0px 15px;
 }
 
 .box{
@@ -551,6 +556,7 @@ body {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
+  margin-top: 20px;
 
   @include mq(sm){
     display: inline-block;
@@ -563,6 +569,7 @@ body {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 0.02em;
+    margin-top: 15px;
   }
 }
 
@@ -603,9 +610,9 @@ body {
   border-radius: 0.5rem;
   text-align: left;
 
-  @include mq(md){
-    width: 90%;
-  }
+  // @include mq(md){
+  //   width: 90%;
+  // }
   @include mq(sm){
     width: 95%;
     padding: 1.1rem;
@@ -664,9 +671,9 @@ body {
     border-radius: 0.5rem;
     text-align: left;
 
-    @include mq(md){
-      width: 90%;
-    }
+    // @include mq(md){
+    //   width: 90%;
+    // }
     @include mq(sm){
       width: 95%;
       padding: 1.1rem;
