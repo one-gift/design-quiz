@@ -29,7 +29,8 @@ body {
 
 .logo_image {
   margin-bottom: 100px;
-  width: auto;
+  width: 500px;
+  height: auto;
 }
 @media screen and (max-width: 480px) {
   .logo_image {
@@ -241,10 +242,7 @@ body {
   width: 500px;
   height: auto;
   align-items: center;
-  margin: 0 auto;
-}
-#choices-img1:hover, #choices-img2:hover {
-  transform: scale(1.2, 1.2);
+  margin: 0px 5px;
 }
 @media screen and (max-width: 480px) {
   #choices-img1, #choices-img2 {
@@ -252,6 +250,10 @@ body {
     align-items: center;
     margin: 0px 0px 10px 0px;
   }
+}
+#choices-img1:hover, #choices-img2:hover {
+  transform: scale(1.2, 1.2);
+  transition: 1s all;
 }
 
 .contents_img {
@@ -305,8 +307,6 @@ body {
   /*文字は白に*/
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color: #37D0AB;
   margin: auto;
   padding: 10px;
@@ -320,8 +320,6 @@ body {
   /*文字は白に*/
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color: #ED6182;
   margin: auto;
   padding: 10px;
@@ -387,9 +385,9 @@ body {
   }
 }
 
-.btn_next:active {
-  box-shadow: none;
-  transform: translateY(5px);
+.btn_next:hover {
+  box-shadow: 3px;
+  transform: translateY(2px);
 }
 
 #compare {
@@ -500,6 +498,7 @@ body {
 }
 
 .share {
+  color: #222;
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
@@ -511,8 +510,11 @@ body {
   }
 }
 
-.hr_img {
+.hr_line {
   margin: 20px 0px;
+  width: 100px;
+  height: 2px;
+  color: #DADADA;
 }
 
 .sns_icon {

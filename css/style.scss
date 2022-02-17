@@ -51,7 +51,8 @@ body {
 
 .logo_image{
   margin-bottom: 100px;
-  width: auto;
+  width: 500px;
+  height: auto;
 
   @include mq(sm){
     width: 200px;
@@ -102,7 +103,7 @@ body {
   }
 }
 
-  .btn:active {
+  .btn:active{
     box-shadow: none;
     transform: translateY(5px);
   }
@@ -251,16 +252,17 @@ body {
   width: 500px;
   height: auto;
   align-items: center;
-  margin: 0 auto;
-
-  &:hover{
-    transform: scale(1.2,1.2);
-  }
+  margin: 0px 5px;
 
   @include mq(sm){
     width: 100%;
     align-items: center;
     margin: 0px 0px 10px 0px;
+  }
+
+  &:hover{
+    transform:scale(1.2,1.2);
+    transition:1s all;
   }
 }
 
@@ -311,8 +313,6 @@ body {
   color:$white;/*文字は白に*/
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color:#37D0AB;
   margin: auto;
   padding: 10px;
@@ -324,8 +324,6 @@ body {
   color: $white;/*文字は白に*/
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color:#ED6182;
   margin: auto;
   padding: 10px;
@@ -384,9 +382,9 @@ body {
   }
 }
 
-  .btn_next:active{
-    box-shadow: none;
-    transform: translateY(5px);
+  .btn_next:hover{
+    box-shadow: 3px;
+    transform: translateY(2px);
   }
 
 #compare{
@@ -489,6 +487,7 @@ body {
 }
 
 .share{
+  color: $black;
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
@@ -499,8 +498,11 @@ body {
   }
 }
 
-.hr_img{
+.hr_line{
   margin: 20px 0px;
+  width: 100px;
+  height: 2px;
+  color: $btn_gray;
 }
 
 .sns_icon{
@@ -574,15 +576,15 @@ body {
 }
 
 .trigger{
-      text-align: center;
-    padding: 7px 13px;
-    background: #3e3e3e;
-    color: $white;
-    font-size: 15px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    font-family: cursive;
+  text-align: center;
+  padding: 7px 13px;
+  background: #3e3e3e;
+  color: $white;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: cursive;
 }
 
 .modal {
@@ -610,9 +612,6 @@ body {
   border-radius: 0.5rem;
   text-align: left;
 
-  // @include mq(md){
-  //   width: 90%;
-  // }
   @include mq(sm){
     width: 95%;
     padding: 1.1rem;
@@ -646,18 +645,18 @@ body {
 }
 
 .close-button:hover {
-    opacity: 0.7;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    z-index: 5;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  opacity: 0.7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  z-index: 5;
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
 .modal-content {
@@ -671,9 +670,6 @@ body {
     border-radius: 0.5rem;
     text-align: left;
 
-    // @include mq(md){
-    //   width: 90%;
-    // }
     @include mq(sm){
       width: 95%;
       padding: 1.1rem;
@@ -699,15 +695,15 @@ body {
 }
 
 .close-button {
-    padding: 7px 11px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 2rem;
-    background-color: $black;
+  padding: 7px 11px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2rem;
+  background-color: $black;
 }
 
 .close-button:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .show-modal {
