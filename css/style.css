@@ -87,6 +87,12 @@ body {
   }
 }
 
+.btn:hover {
+  box-shadow: 0px 3px 0px #C56A00;
+  /* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
+
 .btn:active {
   box-shadow: none;
   transform: translateY(5px);
@@ -343,7 +349,6 @@ body {
   position: absolute;
   /*絶対配置*/
   color: #fff;
-  /*文字は白に*/
   top: 0;
   left: 0;
   background-color: #ED6182;
@@ -382,13 +387,11 @@ body {
   padding: 20px 50px;
   background-color: #FF9F2E;
   /* 背景色 */
-  box-shadow: 0px 8px 0px #C56A00;
+  box-shadow: 0 8px 0 #C56A00;
   /* 影の太さ・色 */
   border-radius: 20px;
   color: #fff;
   cursor: pointer;
-  text-decoration: none;
-  /* 文字の下線を消す */
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -412,8 +415,9 @@ body {
 }
 
 .btn_next:hover {
-  box-shadow: 3px;
-  transform: translateY(2px);
+  box-shadow: 0 5px 0 #C56A00;
+  /* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
 }
 
 #compare {
@@ -446,6 +450,19 @@ body {
     font-weight: 700;
     letter-spacing: 0.02em;
   }
+}
+
+#compare:hover {
+  box-shadow: 0px 2px 0px #C9C9C9;
+  /* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
+
+#compare:active {
+  background-color: #C9C9C9;
+  box-shadow: 0px 2px 0px #C9C9C9;
+  /* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
 }
 
 .btn_group {
@@ -615,6 +632,12 @@ body {
     letter-spacing: 0.02em;
     margin-top: 15px;
   }
+}
+
+.btn_onemore:hover {
+  box-shadow: 0px 3px 0px #C56A00;
+  /* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
 }
 
 .trigger {
