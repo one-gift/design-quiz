@@ -5,13 +5,13 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/正解/ロゴクイズ_easy-1.png",
-                        "../data/quiz_img/不正解/ロゴクイズ_easy-1.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_tutorial.png",
+                        "../data/quiz_img/正解/ロゴクイズ_tutorial.png"
                     ],
                     "quiz_level": "TUTORIAL"
                 },
                 "answer": {
-                    "correct_num": 0,
+                    "correct_num": 1,
                     "explain": "現在のロゴマークは、2006年のNY店オープンを機に作られました。世界中への店舗拡大に向けて、ベンチャースピリッツの象徴、そして日本を代表する色である赤が採用されたデザインになっています。"
                 }
             }
@@ -21,8 +21,8 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/正解/ロゴクイズ_easy-1.png",
-                        "../data/quiz_img/不正解/ロゴクイズ_easy-1.png"
+                        "../data/quiz_img/正解/ロゴクイズ_easy.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_easy.png"
                     ],
                     "quiz_level": "EASY"
                 },
@@ -35,8 +35,8 @@
                 "quiz_id": 2,
                 "question": {
                     "img_path": [
-                        "/正解/ロゴクイズ_easy-2.png",
-                        "/不正解/ロゴクイズ_easy-2.png"
+                        "../data/quiz_img/正解/ロゴクイズ_easy-1.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_easy-1.png"
                     ],
                     "quiz_level": "EASY"
                 },
@@ -49,13 +49,13 @@
                 "quiz_id": 3,
                 "question": {
                     "img_path": [
-                        "/quiz",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_easy-2.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_easy-2.png"
                     ],
                     "quiz_level": "EASY"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "ニンテンドースイッチの左右取り外し可能なコントローラーが元になったロゴマークです。中央の赤い線を基準に左右同じサイズに見えるパーツ、実は若干左のパーツの方が大きくなっているのです。"
                 }
             }
@@ -65,13 +65,13 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_midium.png",
+                        "../data/quiz_img/正解/ロゴクイズ_midium.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 0,
+                    "correct_num": 1,
                     "explain": "白い吹き出しを用いることで、コミュニケーションサービスであることをわかりやすく表しています。また、中央にあるテキストの丸みを無くしたことで、吹き出しがよりはっきりと見えるようになっています。"
                 }
             },
@@ -79,13 +79,13 @@
                 "quiz_id": 2,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-1.png",
+                        "../data/quiz_img/正解/ロゴクイズ_midium-1.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 0,
+                    "correct_num": 1,
                     "explain": "「料理の楽しさ」や「親しみやすさ」をコック帽やcookpadの文字として取り入れ、クックパッドを多くの人に利用してもらい、生活を楽しく豊かにする存在でありたいという想いが込められたデザインです。"
                 }
             },
@@ -93,13 +93,13 @@
                 "quiz_id": 3,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_midium-2.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-2.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "黄色い背景の中に赤い丼が配置され、その上にロゴタイプが載せられています。黄色と赤の暖色によって食欲がそそられ、ひらがなを使ったロゴタイプが和食のお店としての印象を与えてくれるデザインになっています。"
                 }
             },
@@ -107,13 +107,13 @@
                 "quiz_id": 4,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_midium-3.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-3.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "特徴的なMのマークは、単純にモスバーガーの頭文字としてだけでなく、「丸みを帯びたパン」をイメージしたと言われています。また食に対して「安心・安全・環境」の提供を努める姿勢も示しています。"
                 }
             },
@@ -121,10 +121,10 @@
                 "quiz_id": 5,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_midium-4.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-4.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
                     "correct_num": 0,
@@ -135,13 +135,13 @@
                 "quiz_id": 6,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-5.png",
+                        "../data/quiz_img/正解/ロゴクイズ_midium-5.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 0,
+                    "correct_num": 1,
                     "explain": "創設者をモチーフとしたコック帽に蝶ネクタイ、髭のイラストが特徴的なロゴマークです。赤橙色や茶色といったブランドカラーも相まって、大衆的なお店として親しみを感じられるデザインとなっています。"
                 }
             },
@@ -149,13 +149,13 @@
                 "quiz_id": 7,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_midium-6.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_midium-6.png"
                     ],
-                    "quiz_level": "MID"
+                    "quiz_level": "NORMAL"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "3つのドットが付いたドミノが印象的なロゴマークです。この3つのドットは、ロゴが作成された1965年に創業者が経営権を取得した「Domino's Pizza」としての最初の3店舗を表したものです。"
                 }
             }
@@ -165,13 +165,13 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_hard.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_hard.png"
                     ],
                     "quiz_level": "HARD"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "zoomのアイコンは、直感的にビデオ会議通話のアプリケーションだと分かるようにデザインされています。また、よく見るとカメラの両端は丸みを帯び、他の2つの端はシャープになっていることが特徴的です。"
                 }
             },
@@ -179,8 +179,8 @@
                 "quiz_id": 2,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_hard-1.png",
+                        "../data/quiz_img/正解/ロゴクイズ_hard-1.png"
                     ],
                     "quiz_level": "HARD"
                 },
@@ -193,13 +193,13 @@
                 "quiz_id": 3,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_hard-2.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_hard-2.png"
                     ],
                     "quiz_level": "HARD"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "活性化した生き物のように、有機的な2つのフォルムが重なり合ったデザインになっています。これは、融合しながら絶えず進化を続け、これまでにない夢や遊び、感動を生み出していく様子を表現しています。"
                 }
             },
@@ -207,8 +207,8 @@
                 "quiz_id": 4,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/不正解/ロゴクイズ_hard-3.png",
+                        "../data/quiz_img/正解/ロゴクイズ_hard-3.png"
                     ],
                     "quiz_level": "HARD"
                 },
@@ -221,13 +221,13 @@
                 "quiz_id": 5,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
-                        "../data/quiz_img/patty.png"
+                        "../data/quiz_img/正解/ロゴクイズ_hard-4.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_hard-4.png"
                     ],
                     "quiz_level": "HARD"
                 },
                 "answer": {
-                    "correct_num": 1,
+                    "correct_num": 0,
                     "explain": "真ん中の白い三角形、実は中心から若干右にずれています。数値的に正しく中心に配置した場合、少し左に寄って見えてしまいます。視覚調整という人間の目の錯覚を考慮したデザイン調整がされています。"
                 }
             }
