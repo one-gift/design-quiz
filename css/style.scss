@@ -344,8 +344,14 @@ body {
   left: 0;
   background-color:#37D0AB;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px 0px;
+
+  @include mq(sm){
+    padding: 16px;
+    width: 64px;
+    height: auto;
+  }
 }
 
 .uncorrect_sign{
@@ -355,13 +361,14 @@ body {
   left: 0;
   background-color:#ED6182;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px 0px;
-}
 
-.correct_sign,.uncorrect_sign{
-  width: 50px;
-  height: 50px;
+  @include mq(sm){
+    padding: 16px;
+    width: 64px;
+    height: auto;
+  }
 }
 
 .text_answer{
