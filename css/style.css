@@ -529,6 +529,10 @@ body {
   margin: 0px 15px;
 }
 
+.sns_icon:hover {
+  opacity: 0.7;
+}
+
 .box {
   color: #DADADA;
   height: 2px;
