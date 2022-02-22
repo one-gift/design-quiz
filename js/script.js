@@ -8,9 +8,8 @@ var progressValue = 0;
 var progressMaxValue = 0;
 
 const quizzes = quizObject["quizzes"];
-const correctImg =`<img class="correct_sign" src="../image/icon_correct.svg" alt="">`
-
-const incorrectImg =`<img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt="">`
+const correctImg =`<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
+const incorrectImg =`<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
 
 /**
  * jsonファイルを読み込む
