@@ -5,22 +5,22 @@
                 "quiz_id": 1,
                 "question": {
                     "img_path": [
-                        "../question_img/正解/ロゴクイズ_easy-1.png",
-                        "../question_img/不正解/ロゴクイズ_easy-1.png"
+                        "../data/quiz_img/正解/ロゴクイズ_easy-1.png",
+                        "../data/quiz_img/不正解/ロゴクイズ_easy-1.png"
                     ],
                     "quiz_level": "EASY"
                 },
                 "answer": {
                     "correct_num": 0,
-                    "explain": "aaa"
+                    "explain": "ggg"
                 }
             },
             {
                 "quiz_id": 2,
                 "question": {
                     "img_path": [
-                        "../question_img/正解/ロゴクイズ_easy-2.png",
-                        "../question_img/不正解/ロゴクイズ_easy-2.png"
+                        "/正解/ロゴクイズ_easy-2.png",
+                        "/不正解/ロゴクイズ_easy-2.png"
                     ],
                     "quiz_level": "EASY"
                 },
@@ -33,7 +33,7 @@
                 "quiz_id": 3,
                 "question": {
                     "img_path": [
-                        "../data/quiz_img/burger.png",
+                        "/quiz",
                         "../data/quiz_img/patty.png"
                     ],
                     "quiz_level": "EASY"
