@@ -128,22 +128,17 @@ function checkCorrect(selected) {
  * @return
  */
 function displayResult(result) {
+    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+        document.querySelector("#next-btn").value = "最終結果を見る"
+    }
+    document.querySelector("#quiestion").style.display = "none";
+    document.querySelector("#result").style.display = "block";
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
+    document.querySelector("#explain").innerText = quizzes[levelIndex][quizIndex - 1]["answer"]["explain"];
     if (result[0] == 1) {
-        if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
-            document.querySelector("#next-btn").value = "最終結果を見る"
-        }
-        document.querySelector("#quiestion").style.display = "none";
-        document.querySelector("#result").style.display = "block";
-        document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
         document.getElementById("result-sign").innerHTML = correctImg;
         doConfetti();
     } else {
-        if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
-            document.querySelector("#next-btn").value = "最終結果を見る"
-        }
-        document.querySelector("#quiestion").style.display = "none";
-        document.querySelector("#result").style.display = "block";
-        document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
         document.getElementById("result-sign").innerHTML = incorrectImg;
     }
 }
