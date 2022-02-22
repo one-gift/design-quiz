@@ -190,16 +190,18 @@ function displayEndResult(userCorrectCount) {
 
     document.querySelector("#correct-cnt").innerText = userCorrectCount + " /" + amount + "正解";
     let thanks = quizObject["thanks"];
-    if (userCorrectCount < 1) {
+    if (userCorrectCount < 4) {
         document.querySelector("#thanks").innerText = thanks["0"];
-    } else if (userCorrectCount > 0 && userCorrectCount < 2) {
+    } else if (3 < userCorrectCount < 8) {
         document.querySelector("#thanks").innerText = thanks["1"];
-    } else if (userCorrectCount > 1 && userCorrectCount < 3) {
-        doConfetti();
+    } else if (7 < userCorrectCount < 12) {
         document.querySelector("#thanks").innerText = thanks["2"];
-    } else {
+    } else if (11 < userCorrectCount < 16) {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
+    } else {
+        doConfetti();
+        document.querySelector("#thanks").innerText = thanks["4"];
     }
 }
 
