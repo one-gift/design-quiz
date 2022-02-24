@@ -118,7 +118,7 @@ function checkCorrect(selected) {
  */
 function displayResult(result) {
     if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
-        document.querySelector("#next-btn").value = "最終結果を見る"
+        document.querySelector("#next-btn-text").value = "最終結果を見る"
     }
     document.querySelector("#quiestion").style.display = "none";
     document.querySelector("#result").style.display = "block";
