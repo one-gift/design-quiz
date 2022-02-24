@@ -8,20 +8,9 @@ var progressValue = 0;
 var progressMaxValue = 0;
 
 const quizzes = quizObject["quizzes"];
-const correctImg = `<div class="sign_correct">
-                    <svg class="correct_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                        <circle class="path circle" fill="none" stroke="#fff" stroke-width="12" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-                        <polyline class="path check" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-                    </svg>
-                    </div>`
+const correctImg =`<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
+const incorrectImg =`<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
 
-const incorrectImg = `<div class="sign_uncorrect">
-                        <svg class="uncorrect_sign" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                            <circle class="path circle" fill="none" stroke="#fff" stroke-width="12" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-                            <line class="path line" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
-                            <line class="path line" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
-                        </svg>
-                    </div>`
 /**
  * jsonファイルを読み込む
  * @param 
@@ -183,7 +172,9 @@ function displayEndResult(userCorrectCount) {
 
     displayEndResultCircle(userCorrectCount, amount);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCount + " /" + amount + "正解";
+    document.querySelector("#correct-cnt").innerText = userCorrectCount;
+    // document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount;
+
     let thanks = quizObject["thanks"];
     if (userCorrectCount < 4) {
         document.querySelector("#thanks").innerText = thanks["0"];
@@ -283,9 +274,10 @@ function displayEndResultCircle(correctCount, amount) {
         duration: 3000,
         easing: 'easeInOut',
         trailColor: 'rgba(218, 218, 218, 0.3)',
-        trailWidth: 15,
-        strokeWidth: 15,
+        trailWidth: 10,
+        strokeWidth: 10,
     });
+    endResultCircle.path.style.strokeLinecap = 'round';
 
     var correctRate = correctCount / amount;
     endResultCircle.animate(correctRate);

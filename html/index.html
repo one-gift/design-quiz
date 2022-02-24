@@ -73,14 +73,20 @@
 
             <div id="choices"></div>
             <div class="contents" id="quiz-choices">
-                <img id="choices-img1" src="">
-                <img id="choices-img2" src="">
 
+                <div class="choice_box">
+                    <img id="choices-img1" src="">
+                </div>
+
+                <div class="choice_box">
+                    <img id="choices-img2" src="">
+                </div>
+                
             </div>
         </div>
 
         <div id="result">
-            <div class="img_sign" >
+            <div class="img_sign">
                 <img id="correct-img" src="" alt="">
                 <div id="result-sign"></div>
             </div>
@@ -109,7 +115,12 @@
                 <div class="end_result_area">
                     <div class="circle_text">
                         <div id="end-result-circle"></div>
-                        <p id="correct-cnt"></p>
+                        <div class="score">
+                            <div>
+                                <span id="correct-cnt"></span><span class="quiz_all">/11</span>
+                            </div>
+                            <p class="seikai">正解</p>    
+                        </div>
                     </div>
                     <p id="thanks"></p>
                 </div>
@@ -118,18 +129,27 @@
             <div id="sns-link">
                 <p class="share">クイズを友達にシェアしよう!</p>
 
+                <hr class="hr_line">
+
                 <div class="sns">
-                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]"><img class="sns_icon"
-                            src="../image/line_icon.png" alt=""></a>
-                    <a href="https://twitter.com/intent/tweet?url=[URL]"><img class="sns_icon"
-                            src="../image/twitter_icon.png" alt=""></a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]"><img class="sns_icon"
-                            src="../image/facebook_icon.png" alt=""></a>
+                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]" target="_blank" rel="noopener">
+                        <img class="sns_icon" src="../image/LINE APP ICON/Android.png" alt="">
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?url=[URL]">
+                        <img class="sns_icon" src="../image/twiiter_icon.png" alt="" target="_blank" rel="noopener">
+                    </a>
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]" target="_blank" rel="noopener">
+                        <img class="sns_icon" src="../image/f_logo_RGB-Blue_1024.png" alt="">
+                    </a>
                 </div>
             </div>
 
-            <button class="btn_onemore">
-                <input type="button" name="" id="" value="もう一度遊ぶ" onclick="location.reload()">
+            <div class="box"></div>
+
+            <button class="btn_onemore" onclick="location.reload()">
+                <input type="button" name="" id="" value="もう一度遊ぶ">
             </button>
 
         </div>

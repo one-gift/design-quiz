@@ -16,7 +16,6 @@ $black:#222;
 
 $breakpoints: (
   'sm': 'screen and (max-width: 480px)',
-  'md': 'screen and (max-width: 768px)',
 ) !default;
 
 // 初期に書いていたもの
@@ -53,6 +52,7 @@ body {
 .logo_image{
   margin-bottom: 100px;
   width: 500px;
+  height: auto;
 
   @include mq(sm){
     width: 200px;
@@ -64,7 +64,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0px;
   width: 100%;
   height: 100vh;
 }
@@ -86,31 +85,27 @@ body {
   border-radius: 20px;
   color: $white;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
 
   @include mq(sm){
-    display: inline-block;
     padding: 16px 32px;
-    background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: $white;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
   }
 }
 
-  .btn:active {
-    box-shadow: none;
-    transform: translateY(5px);
-  }
+.btn:hover{
+  box-shadow: 0px 3px 0px #C56A00;/* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
 
+.btn:active{
+  box-shadow: none;
+  transform: translateY(5px);
+}
 
 /* ここからquiestion */
 
@@ -127,7 +122,7 @@ body {
   align-items: center;
   background-color:$bg_color;
   border-radius: 0px 0px 20px 20px;
-  padding-bottom: 20px;
+  padding: 20px;
 
   @include mq(sm){
     padding: 16px 16px 10px 16px;
@@ -145,8 +140,6 @@ body {
   margin-top: 5px;
   font-size: 15px;
   line-height: 22px;
-  text-align: center;
-  letter-spacing: 0.02em;
   }
 }
 
@@ -159,8 +152,6 @@ body {
   @include mq(sm){
   width: 100%;
   height: 11px;
-  left: 0px;
-  top: 0px;
   }
 }
 
@@ -188,14 +179,13 @@ body {
 }
 
 .logo_progress{
-  margin:20px 0px 30px 0px;
+  margin:0px 0px 30px 0px;
   width: 200px;
   height: auto;
 
   @include mq(sm){
-    margin:0px 0px 15px 0px;
     width: 88px;
-    height: auto;
+    margin:0px 0px 16px 0px;
   }
 }
 
@@ -216,13 +206,13 @@ body {
 }
 
 .quiz_number{
-  color: #222;
+  color: $black;
   opacity: 0.2;
   font-size: 16px;
 }
 
 #quiz-index{
-  color: #222;
+  color: $black;
   opacity: 0.2;
   font-size: 16px;
 }
@@ -240,6 +230,8 @@ body {
 
 .contents{
     align-items: center;
+    display: flex;
+    justify-content: center;
 
     @include mq(sm){
       display: block;
@@ -250,45 +242,66 @@ body {
 
 #choices-img1, #choices-img2{
   border-radius: 20px;
-  border: 2px solid #DADADA;
   cursor: pointer;
   width: 500px;
+  height: auto;
   align-items: center;
-  margin: 0px 5px;
+  transition:1s all;
 
   @include mq(sm){
     width: 100%;
-    align-items: center;
-    margin: 0px 0px 10px 0px;
   }
+}
+
+#choices-img1:hover, #choices-img2:hover{
+  transform: scale(1.2,1.2);
+  transition: 1s all;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 500px;
+  height: auto;
+  align-items: center;
+  transition:1s all;
 }
 
 .contents_img{
   margin-right: auto;
 }
 
+.choice_box{
+  border-radius: 20px;
+  border: 2px solid #DADADA;
+  cursor: pointer;
+  width: 500px;
+  height: auto;
+  align-items: center;
+  transition:1s all;
+  overflow: hidden;
+  margin: 0px 5px;
+
+  @include mq(sm){
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+  }
+}
+
 // resultのページ
 #result{
   align-items: center;
+  margin-top: 30px;
 
   @include mq(sm){
     padding: 0px 16px;
+    margin-top: 40px;
   }
 }
 
 #correct-img{
   border-radius: 20px;
   border: 2px solid #DADADA;
-  width: 500px;
-  height: 270px;
-  border-radius: 20px;
+  width: 100%;
+  height: auto;
   cursor: pointer;
-
-  @include mq(sm){
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-  }
 }
 
 .img_sign{
@@ -296,43 +309,43 @@ body {
   text-align: center;
   margin: auto;
   width: 500px;
-  height: 270px;
+  height: auto;
 
   @include mq(sm){
     width: 346px;
-    height: 185px;
   }
 }
 
 .correct_sign{
-  position: absolute;/*絶対配置*/
-  color:$white;/*文字は白に*/
+  position: absolute;
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color:#37D0AB;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px 0px;
+
+  @include mq(sm){
+    padding: 16px;
+    width: 64px;
+    height: auto;
+  }
 }
 
 .uncorrect_sign{
-  position: absolute;/*絶対配置*/
-  color: $white;/*文字は白に*/
+  position: absolute;
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
   background-color:#ED6182;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px 0px;
-}
 
-.correct_sign,.uncorrect_sign{
-  width: 50px;
-  height: 50px;
+  @include mq(sm){
+    padding: 16px;
+    width: 64px;
+    height: auto;
+  }
 }
 
 .text_answer{
@@ -344,12 +357,9 @@ body {
   text-align: left;
 
   @include mq(sm){
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 23px;
-  letter-spacing: 0.02em;
-  width: auto;
-  text-align: left;
+    font-size: 16px;
+    line-height: 23px;
+    width: auto;
   }
 }
 
@@ -358,35 +368,27 @@ body {
   display: inline-block;
   padding: 20px 50px;
   background-color:$btn_color; /* 背景色 */
-  box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
+  box-shadow: 0 8px 0 #C56A00;/* 影の太さ・色 */
   border-radius: 20px;
   color: $white;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
 
   @include mq(sm){
     margin-top: 32px;
-    display: inline-block;
     padding: 16px 32px;
-    background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: $white;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
   }
 }
 
-  .btn_next:active{
-    box-shadow: none;
-    transform: translateY(5px);
-  }
+.btn_next:hover{
+  box-shadow: 0 5px 0 #C56A00;/* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
 
 #compare{
   margin-top: 20px;
@@ -397,24 +399,26 @@ body {
   border-radius: 20px;
   color: $white;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
 
   @include mq(sm){
-    display: inline-block;
     padding: 8px 18px;
-    background-color:$btn_gray; /* 背景色 */
-    box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
     border-radius: 10px;
-    color: $white;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
     font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
   }
+}
+
+#compare:hover{
+  box-shadow: 0px 2px 0px #C9C9C9;/* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
+
+#compare:active{
+  background-color: #C9C9C9;
+  box-shadow: 0px 2px 0px #C9C9C9;/* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
 }
 
 .btn_group{
@@ -450,25 +454,29 @@ body {
   }
 }
 
-
 .end_result_top{
   background-color: $bg_color;
-  height: 430px;
   border-radius: 0px 0px 20px 20px;
+  padding: 20px 20px 40px;
+
+  @include mq(sm){
+    padding: 16px 16px 30px;
+  }
 }
+
 
 #thanks{
   color: $white;
   font-size: 20px;
   text-align: left;
   line-height: 29px;
-  margin: 0px 30px;
+  margin: 0px 0px 0px 70px;
 
   @include mq(sm){
     font-size: 16px;
     text-align: center;
     line-height: 23px;
-    margin: 30px 0px;
+    margin: 30px 0px 0px 0px;
   }
 }
 
@@ -478,6 +486,7 @@ body {
   justify-content: center;
   flex-direction: column;
   margin-top: 40px;
+  align-items: center;
 
   @include mq(sm){
     margin-top: 30px;
@@ -485,6 +494,7 @@ body {
 }
 
 .share{
+  color: $black;
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
@@ -495,10 +505,29 @@ body {
   }
 }
 
+.hr_line{
+  margin: 20px 0px;
+  width: 100px;
+  height: 2px;
+  color: $btn_gray;
+}
+
 .sns_icon{
   width: 50px;
   height: 50px;
-  margin: 15px 15px 0px 15px;
+  margin: 0px 15px;
+  cursor: pointer;
+}
+
+.sns_icon:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.box{
+  color: $btn_gray;
+  height: 2px;
+  width: 100px;
 }
 
 .circle_text{
@@ -508,6 +537,43 @@ body {
 #correct-cnt{
   color: $score;
   font-weight: 900;
+  font-size: 60px;
+  letter-spacing: 0.02em;
+  margin-right: 5px;
+  line-height: 40px;
+
+  @include mq(sm){
+    font-size: 40px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.seikai{
+  color: $score;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 20px;
+  letter-spacing: 0.02em;
+
+  @include mq(sm){
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.quiz_all{
+  color: $score;
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 24px;
+
+  @include mq(sm){
+    font-size: 24px;
+  }
+}
+
+.score{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -516,19 +582,7 @@ body {
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
-  font-size: 35px;
 
-  @include mq(sm){
-    font-size: 24px;
-  }
-}
-
-#correct-cnt::first-letter{
-  font-weight: 900;
-  font-size: 60px;
-  line-height: 40px;
-  letter-spacing: 0.02em;
-  margin: 0px 5px;
 }
 
 .btn_onemore{
@@ -539,42 +593,38 @@ body {
   border-radius: 20px;
   color: $white;
   cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  margin: 42px;
+  margin-top: 20px;
 
   @include mq(sm){
-    display: inline-block;
     padding: 16px 32px;
-    background-color:$btn_color; /* 背景色 */
     box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none; /* 文字の下線を消す */
     font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin: 32px;
+    margin-top: 15px;
   }
 }
 
+.btn_onemore:hover{
+  box-shadow: 0px 3px 0px #C56A00;/* 影の太さ・色 */
+  transform: translate3d(0, 3px, 0);
+}
+
 .trigger{
-      text-align: center;
-    padding: 7px 13px;
-    background: #3e3e3e;
-    color: #fff;
-    font-size: 15px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    font-family: cursive;
+  text-align: center;
+  padding: 7px 13px;
+  background: #3e3e3e;
+  color: $white;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: cursive;
 }
 
 .modal {
-<<<<<<< Updated upstream
   position: fixed;
   left: 0;
   top: 0;
@@ -587,20 +637,18 @@ body {
   z-index: 5;
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content {
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translate(-50%, 0%);
-  background-color: white;
+  background-color: $white;
   padding: 2rem;
   width: 38rem;
   border-radius: 0.5rem;
   text-align: left;
 
-  @include mq(md){
-    width: 90%;
-  }
   @include mq(sm){
     width: 95%;
     padding: 1.1rem;
@@ -620,48 +668,34 @@ body {
 }
 
 .modal-close{
-width: 100%;
-text-align: right;
-margin-bottom: 2rem;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 2rem;
 }
 
 .close-button {
-  
   padding: 7px 11px;
   text-align: center;
   cursor: pointer;
   border-radius: 2rem;
-  background-color: black;
+  background-color: $black;
 }
+
 .close-button:hover {
   opacity: 0.7;
-=======
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    z-index: 5;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content {
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, 0%);
-    background-color: white;
+    background-color: $white;
     padding: 2rem;
     width: 38rem;
     border-radius: 0.5rem;
     text-align: left;
 
-    @include mq(md){
-      width: 90%;
-    }
     @include mq(sm){
       width: 95%;
       padding: 1.1rem;
@@ -680,24 +714,6 @@ margin-bottom: 2rem;
     }
 }
 
-.modal-close{
-  width: 100%;
-  text-align: right;
-  margin-bottom: 2rem;
-}
-
-.close-button {
-    
-    padding: 7px 11px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 2rem;
-    background-color: black;
-}
-.close-button:hover {
-    opacity: 0.7;
->>>>>>> Stashed changes
-}
 .show-modal {
   opacity: 1;
   visibility: visible;
