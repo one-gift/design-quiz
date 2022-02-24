@@ -449,6 +449,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 700px;
+  margin: auto;
 
   @include mq(sm){
     display: flex;
@@ -502,6 +504,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
+  margin-bottom: 15px;
 
   @include mq(sm){
     font-size: 16px;
@@ -510,7 +513,7 @@ body {
 }
 
 .hr_line{
-  margin: 20px 0px;
+  margin-top: 20px;
   width: 100px;
   height: 2px;
   color: $btn_gray;

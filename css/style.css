@@ -457,6 +457,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 700px;
+  margin: auto;
 }
 @media screen and (max-width: 480px) {
   .end_result_area {
@@ -513,6 +515,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
+  margin-bottom: 15px;
 }
 @media screen and (max-width: 480px) {
   .share {
@@ -522,7 +525,7 @@ body {
 }
 
 .hr_line {
-  margin: 20px 0px;
+  margin-top: 20px;
   width: 100px;
   height: 2px;
   color: #DADADA;
