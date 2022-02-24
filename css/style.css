@@ -255,6 +255,11 @@ body {
   align-items: center;
   transition: 1s all;
 }
+@media screen and (max-width: 480px) {
+  #choices-img1:hover, #choices-img2:hover {
+    pointer-events: none;
+  }
+}
 
 .contents_img {
   margin-right: auto;

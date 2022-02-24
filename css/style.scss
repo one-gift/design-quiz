@@ -262,6 +262,10 @@ body {
   height: auto;
   align-items: center;
   transition:1s all;
+
+  @include mq(sm){
+    pointer-events: none;
+  }
 }
 
 .contents_img{
