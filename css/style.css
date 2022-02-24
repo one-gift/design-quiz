@@ -548,26 +548,52 @@ body {
 #correct-cnt {
   color: #FFDE2E;
   font-weight: 900;
+  font-size: 60px;
+  letter-spacing: 0.02em;
+  margin-right: 5px;
+  line-height: 40px;
+}
+@media screen and (max-width: 480px) {
+  #correct-cnt {
+    font-size: 40px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.seikai {
+  color: #FFDE2E;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 20px;
+  letter-spacing: 0.02em;
+}
+@media screen and (max-width: 480px) {
+  .seikai {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.quiz_all {
+  color: #FFDE2E;
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 24px;
+}
+@media screen and (max-width: 480px) {
+  .quiz_all {
+    font-size: 24px;
+  }
+}
+
+.score {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
-  font-size: 35px;
-}
-@media screen and (max-width: 480px) {
-  #correct-cnt {
-    font-size: 24px;
-  }
-}
-
-#correct-cnt::first-letter {
-  font-weight: 900;
-  font-size: 60px;
-  line-height: 40px;
-  letter-spacing: 0.02em;
-  margin: 0px 5px;
 }
 
 .btn_onemore {

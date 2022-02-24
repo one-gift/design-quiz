@@ -177,7 +177,9 @@ function displayEndResult(userCorrectCount) {
 
     displayEndResultCircle(userCorrectCount, amount);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCount + " /" + amount + "正解";
+    document.querySelector("#correct-cnt").innerText = userCorrectCount;
+    // document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount;
+
     let thanks = quizObject["thanks"];
     if (userCorrectCount < 1) {
         document.querySelector("#thanks").innerText = thanks["0"];
