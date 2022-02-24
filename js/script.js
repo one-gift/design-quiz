@@ -173,7 +173,7 @@ function displayEndResult(userCorrectCount) {
     displayEndResultCircle(userCorrectCount, amount);
 
     document.querySelector("#correct-cnt").innerText = userCorrectCount;
-    // document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount;
+    document.querySelector("#amount-cnt").innerText = amount;
 
     let thanks = quizObject["thanks"];
     console.log(userCorrectCount)
