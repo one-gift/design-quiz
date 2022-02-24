@@ -176,13 +176,14 @@ function displayEndResult(userCorrectCount) {
     // document.querySelector("#correct-cnt").innerText = userCorrectCount + "/" + amount;
 
     let thanks = quizObject["thanks"];
+    console.log(userCorrectCount)
     if (userCorrectCount < 4) {
         document.querySelector("#thanks").innerText = thanks["0"];
-    } else if (3 < userCorrectCount < 8) {
+    } else if (userCorrectCount < 8) {
         document.querySelector("#thanks").innerText = thanks["1"];
-    } else if (7 < userCorrectCount < 12) {
+    } else if (userCorrectCount < 12) {
         document.querySelector("#thanks").innerText = thanks["2"];
-    } else if (11 < userCorrectCount < 16) {
+    } else if (userCorrectCount < 16) {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
     } else {
