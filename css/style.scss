@@ -256,12 +256,12 @@ body {
 #choices-img1:hover, #choices-img2:hover{
   transform: scale(1.2,1.2);
   transition: 1s all;
-  border-radius: 20px;
   cursor: pointer;
-  width: 500px;
-  height: auto;
-  align-items: center;
-  transition:1s all;
+
+  @include mq(sm){
+    transform: scale(1);
+    transition: none;
+  }
 }
 
 .contents_img{
@@ -445,6 +445,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 700px;
+  margin: auto;
 
   @include mq(sm){
     display: flex;
@@ -498,6 +500,7 @@ body {
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
+  margin-bottom: 15px;
 
   @include mq(sm){
     font-size: 16px;
@@ -506,7 +509,7 @@ body {
 }
 
 .hr_line{
-  margin: 20px 0px;
+  margin-top: 20px;
   width: 100px;
   height: 2px;
   color: $btn_gray;
