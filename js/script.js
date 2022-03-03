@@ -232,7 +232,8 @@ function setProgressMaxValue(maxValue) {
 
 /**
  * デバイス判定機能
- * 
+ * @param 
+ * @return bool
  */
 function isSmartPhone() {
     const touchPoints = navigator.maxTouchPoints;
