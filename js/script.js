@@ -240,26 +240,38 @@ function setProgressMaxValue(maxValue) {
 }
 
 /**
+ * デバイス判定機能
+ * @param 
+ * @return bool
+ */
+function isSmartPhone() {
+    const touchPoints = navigator.maxTouchPoints;
+    return touchPoints > 1 ? true : false;
+}
+
+/**
  * 比較機能（ボタン押下時）
  * @params
  * @return
  */
-document.getElementById("compare").onmousedown = function displayComparison() {
+const eventStart = isSmartPhone() ? 'touchstart' : 'mousedown';
+document.getElementById("compare").addEventListener(eventStart, e => {
     let value = 1 - selected;
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
     displaySign();
-};
+});
 
 /**
  * 比較機能（ボタン非押下時）
  * @params
  * @return
  */
-document.getElementById("compare").onmouseup = function undisplayComparison() {
+const eventEnd = isSmartPhone() ? 'touchend' : 'mouseup';
+document.getElementById("compare").addEventListener(eventEnd, e => {
     let value = selected
     document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
     displaySign();
-}
+});
 
 /**
  * compare時の正誤アイコン表示機能
