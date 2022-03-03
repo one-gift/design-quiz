@@ -407,6 +407,10 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media screen and (max-width: 480px) {
   #compare {
@@ -462,6 +466,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
   }
 }
 
