@@ -88,6 +88,15 @@ function displayQestion(quiz) {
  */
 document.getElementById('quiz-choices').onclick = function generateResult(e) {
     let event = e || window.event;
+    const choices_ids = [
+        'choices-img1',
+        'choices-img2'
+    ]
+
+    if (!(choices_ids.includes(event.target.id))) {
+        return
+    }
+
     selected = event.target.id == 'choices-img1' ? 0 : 1;
     let result = checkCorrect(selected);
 
