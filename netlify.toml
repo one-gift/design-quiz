@@ -1,3 +1,4 @@
 [[redirects]]
     from = "/html"
     to = "/"
+    status = 301
