@@ -4,3 +4,8 @@
     status = 200
     force = true
 
+[[redirects]]
+    from = "/html/*"
+    to = "/"
+    status = 200
+    force = true
