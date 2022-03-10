@@ -1,5 +1,5 @@
 [[redirects]]
     from = "https://jugem.netlify.app/html/index.html"
-    to = "/"
+    to = "https://jugem.netlify.app/"
     status = 301
     force = true
