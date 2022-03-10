@@ -1,5 +1,5 @@
 [[redirects]]
-    from = "/html/:splat"
+    from = "https://jugem.netlify.app/html/*"
     to = "/"
     status = 200
     force = true
