@@ -2,4 +2,4 @@
     from = "/html/*"
     to = "https://jugem.netlify.app"
     status = 301
-    force = false
+    force = true
