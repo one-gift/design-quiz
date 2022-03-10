@@ -679,11 +679,13 @@ body {
 }
 
 .close-button {
-  padding: 7px 11px;
   text-align: center;
   cursor: pointer;
   border-radius: 2rem;
   background-color: $black;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
 }
 
 .close-button:hover {
