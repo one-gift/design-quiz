@@ -1,1 +1,5 @@
-
+[[redirects]]
+  from = "https://jugem.netlify.app/html/*"
+  to = "https://jugem.netlify.app/:splat"
+  status = 301
+  force = true
