@@ -7,5 +7,5 @@
 [[redirects]]
   from = "/*"
   to = "/html"
-  status = 404
+  status = 301
   force = true
