@@ -1,11 +1,11 @@
 [[redirects]]
-  from = "/"
-  to = "/html"
+  from = "/js/*"
+  to = "/"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/js/*"
-  to = "/"
+  from = "/"
+  to = "/html"
   status = 200
   force = true
