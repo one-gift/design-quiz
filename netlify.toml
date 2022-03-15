@@ -1,10 +1,4 @@
 [[redirects]]
-  from = "/js/*"
-  to = "/"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/"
   to = "/html"
   status = 200
