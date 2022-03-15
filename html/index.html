@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
-<head>
+<head prefix="og: http://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#">
+    <title>デザインジュゲム｜どちらが正しいロゴ？有名ロゴの2択クイズ</title>
+    <meta name="description" content="有名ロゴを2択クイズにしたアプリ「デザインジュゲム」。皆さんの身近に潜む、なかなか気がつけていない新たな発見を体感できるはずです。見たことはあるのに分からない、そんなモヤモヤを楽めるロゴクイズです。">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <!-- user_agent_styleseetのリセット用CSS -->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+
     <!-- Google Fontsの読み込み -->
     <link rel=“preconnect” href=“https://fonts.googleapis.com”>
     <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin>
     <link href=“https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap” rel=“stylesheet”>
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../image/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
+    <!-- OGP画像 -->
+    <meta property="og:url" content="https://jugem.netlify.app">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="デザインジュゲム｜どちらが正しいロゴ？有名ロゴの2択クイズ">
+    <meta property="og:description" content="有名ロゴを2択クイズにしたアプリ「デザインジュゲム」。皆さんの身近に潜む、なかなか気がつけていない新たな発見を体感できるはずです。見たことはあるのに分からない、そんなモヤモヤを楽めるロゴクイズです。">
+    <meta property="og:site_name" content="デザインジュゲム">
+    <meta property="og:image" content="https://jugem.netlify.app/image/ogp画像">
+
+    <!-- twiiter画像 -->
+    <meta name="twitter:card" content="Summary Card">
+    <meta name="twitter:site" content="@naotake_design">
+
+    <!-- facebbok画像 -->
+    <meta property="fb:app_id" content="AppID" />    
 </head>
 
 <body>
@@ -48,7 +68,7 @@
 
         <div id="progress" class="">
 
-            <img src="../image/logo.svg" class="logo_progress">
+            <img src="../image/logo.png" class="logo_progress">
             <div>
                 <progress id="quiz-progress" value="" max=""></progress>
 
@@ -110,7 +130,7 @@
 
         <div id="end-result">
             <div class="end_result_top">
-                <img src="../image/logo.svg" class="logo_progress">
+                <img src="../image/logo.png" class="logo_progress">
 
                 <div class="end_result_area">
                     <div class="circle_text">
@@ -131,7 +151,7 @@
 
                 <div class="sns">
                     <a href="https://timeline.line.me/social-plugin/share?url=[URL]" target="_blank" rel="noopener">
-                        <img class="sns_icon" src="../image/LINE APP ICON/Android.png" alt="">
+                        <img class="sns_icon" src="../image/line_icon.png" alt="">
                     </a>
 
                     <a href="https://twitter.com/intent/tweet?url=[URL]">
@@ -139,7 +159,7 @@
                     </a>
 
                     <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]" target="_blank" rel="noopener">
-                        <img class="sns_icon" src="../image/f_logo_RGB-Blue_1024.png" alt="">
+                        <img class="sns_icon" src="../image/facebook_icon.png" alt="">
                     </a>
                 </div>
 
