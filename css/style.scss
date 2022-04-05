@@ -1,5 +1,25 @@
-@charset "UTF-8";
-#progress {
+$bg_color:#0097DB;
+$btn_color:#FF9F2E;
+$white:#fff;
+$btn_shadow: 0px 5px 0px #C56A00;
+$question_text:#fff,20px;
+$progress_bg:#007DB5;
+$btn_gray: #DADADA;
+$score:#FFDE2E;
+$black:#222;
+
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+$breakpoints: (
+  'sm': 'screen and (max-width: 480px)',
+) !default;
+
+// 初期に書いていたもの
+#progress{
   display: none;
 }
 
@@ -15,6 +35,7 @@
   display: none;
 }
 
+// ここからスタイルの記述
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -25,22 +46,20 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   height: 100vh;
   justify-content: center;
-  background-image: url(../image/bg_white_pc.png);
+  background-image:url(../image/bg_white_pc.png);
 }
 
-.logo_image {
+.logo_image{
   margin-bottom: 100px;
   width: 500px;
   height: auto;
-}
 
-@media screen and (max-width: 480px) {
-  .logo_image {
+  @include mq(sm){
     width: 200px;
   }
 }
 
-.top {
+.top{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,8 +68,8 @@ body {
   height: 100vh;
 }
 
-#start {
-  background-image: url(../image/bg_blue_pc.png);
+#start{
+  background-image:url(../image/bg_blue_pc.png);
   width: auto;
   display: flex;
   flex-direction: column;
@@ -58,254 +77,226 @@ body {
   align-items: center;
 }
 
-.btn {
+.btn{
   display: inline-block;
   padding: 32px 64px;
-  background-color: #FF9F2E;
-  /* 背景色 */
-  box-shadow: 0px 5px 0px #C56A00;
-  /* 影の太さ・色 */
+  background-color:$btn_color; /* 背景色 */
+  box-shadow:$btn_shadow;/* 影の太さ・色 */
   border-radius: 20px;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
-}
 
-@media screen and (max-width: 480px) {
-  .btn {
+  @include mq(sm){
     padding: 16px 32px;
-    box-shadow: 0px 5px 0px #C56A00;
-    /* 影の太さ・色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
     font-size: 24px;
   }
 }
 
-.btn:hover {
-  box-shadow: 0px 3px 0px #C56A00;
-  /* 影の太さ・色 */
+.btn:hover{
+  box-shadow: 0px 3px 0px #C56A00;/* 影の太さ・色 */
   transform: translate3d(0, 3px, 0);
 }
 
-.btn:active {
+.btn:active{
   box-shadow: none;
   transform: translateY(5px);
 }
 
 /* ここからquiestion */
-#quiestion {
+
+#quiestion{
   justify-content: center;
   margin-top: 30px;
-}
 
-@media screen and (max-width: 480px) {
-  #quiestion {
+  @include mq(sm){
     margin-top: 15px;
   }
 }
 
 #progress {
   align-items: center;
-  background-color: #0097DB;
+  background-color:$bg_color;
   border-radius: 0px 0px 20px 20px;
   padding: 20px;
-}
 
-@media screen and (max-width: 480px) {
-  #progress {
+  @include mq(sm){
     padding: 16px 16px 10px 16px;
   }
 }
 
-#progress-frac {
-  color: #fff;
+#progress-frac{
+  color: $white;
   font-size: 25px;
   line-height: 36px;
   text-align: center;
   letter-spacing: 0.02em;
-}
 
-@media screen and (max-width: 480px) {
-  #progress-frac {
-    margin-top: 5px;
-    font-size: 15px;
-    line-height: 22px;
+  @include mq(sm){
+  margin-top: 5px;
+  font-size: 15px;
+  line-height: 22px;
   }
 }
 
-#quiz-progress {
+#quiz-progress{
   width: 700px;
   height: 15px;
   left: 0px;
   top: 0px;
-}
 
-@media screen and (max-width: 480px) {
-  #quiz-progress {
-    width: 100%;
-    height: 11px;
+  @include mq(sm){
+  width: 100%;
+  height: 11px;
   }
 }
 
 #quiz-progress::-webkit-progress-bar {
-  background-color: #007DB5;
+  background-color:$progress_bg;
   border-radius: 10px;
 }
 
 #quiz-progress::-webkit-progress-value {
-  background-color: #fff;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
 #quiz-progress::-moz-progress-bar {
-  background-color: #fff;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
 #quiz-progress::-ms-fill {
-  background-color: #fff;
+  background-color:$white;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #006C9D;
 }
 
-.logo_progress {
-  margin: 0px 0px 30px 0px;
+.logo_progress{
+  margin:0px 0px 30px 0px;
   width: 200px;
   height: auto;
-}
 
-@media screen and (max-width: 480px) {
-  .logo_progress {
+  @include mq(sm){
     width: 88px;
-    margin: 0px 0px 16px 0px;
+    margin:0px 0px 16px 0px;
   }
 }
 
-.quiz_area {
+.quiz_area{
   text-align: center;
   margin-bottom: 40px;
-}
 
-@media screen and (max-width: 480px) {
-  .quiz_area {
+  @include mq(sm){
     text-align: left;
     margin-bottom: 15px;
     padding: 0px 16px;
   }
 }
 
-.quiz_area_2 {
+.quiz_area_2{
   display: inline-block;
   text-align: left;
 }
 
-.quiz_number {
-  color: #222;
+.quiz_number{
+  color: $black;
   opacity: 0.2;
   font-size: 16px;
 }
 
-#quiz-index {
-  color: #222;
+#quiz-index{
+  color: $black;
   opacity: 0.2;
   font-size: 16px;
 }
 
-.quiz_text {
+.quiz_text{
   font-weight: 700;
   margin: 3px 0px;
   font-size: 40px;
-}
 
-@media screen and (max-width: 480px) {
-  .quiz_text {
+  @include mq(sm){
     font-size: 20px;
     margin: 3px 0px 0px 0px;
   }
 }
 
-.contents {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 480px) {
-  .contents {
-    display: block;
+.contents{
     align-items: center;
-    padding: 0px 16px;
-  }
+    display: flex;
+    justify-content: center;
+
+    @include mq(sm){
+      display: block;
+      align-items: center;
+      padding: 0px 16px;
+    }
 }
 
-#choices-img1, #choices-img2 {
+#choices-img1, #choices-img2{
   border-radius: 20px;
   cursor: pointer;
   width: 500px;
   height: auto;
   align-items: center;
-  transition: 1s all;
-}
+  transition:1s all;
 
-@media screen and (max-width: 480px) {
-  #choices-img1, #choices-img2 {
+  @include mq(sm){
     width: 100%;
   }
 }
 
-#choices-img1:hover, #choices-img2:hover {
-  transform: scale(1.2, 1.2);
+#choices-img1:hover, #choices-img2:hover{
+  transform: scale(1.2,1.2);
   transition: 1s all;
   cursor: pointer;
-}
 
-@media screen and (max-width: 480px) {
-  #choices-img1:hover, #choices-img2:hover {
+  @include mq(sm){
     transform: scale(1);
     transition: none;
   }
 }
 
-.contents_img {
+.contents_img{
   margin-right: auto;
 }
 
-.choice_box {
+.choice_box{
   border-radius: 20px;
   border: 2px solid #DADADA;
   cursor: pointer;
   width: 500px;
   height: auto;
   align-items: center;
-  transition: 1s all;
+  transition:1s all;
   overflow: hidden;
   margin: 0px 5px;
-}
 
-@media screen and (max-width: 480px) {
-  .choice_box {
+  @include mq(sm){
     width: 100%;
     margin: 0px 0px 10px 0px;
   }
 }
 
-#result {
+// resultのページ
+#result{
   align-items: center;
   margin-top: 30px;
-}
 
-@media screen and (max-width: 480px) {
-  #result {
+  @include mq(sm){
     padding: 0px 16px;
     margin-top: 40px;
   }
 }
 
-#correct-img {
+#correct-img{
   border-radius: 20px;
   border: 2px solid #DADADA;
   width: 100%;
@@ -313,175 +304,152 @@ body {
   cursor: pointer;
 }
 
-.img_sign {
+.img_sign{
   position: relative;
   text-align: center;
   margin: auto;
   width: 500px;
   height: auto;
-}
 
-@media screen and (max-width: 480px) {
-  .img_sign {
+  @include mq(sm){
     width: 346px;
   }
 }
 
-.correct_sign {
+.correct_sign{
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #37D0AB;
+  background-color:#37D0AB;
   margin: auto;
   padding: 20px;
   border-radius: 20px 0px;
-}
 
-@media screen and (max-width: 480px) {
-  .correct_sign {
+  @include mq(sm){
     padding: 16px;
     width: 64px;
     height: auto;
   }
 }
 
-.uncorrect_sign {
+.uncorrect_sign{
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #ED6182;
+  background-color:#ED6182;
   margin: auto;
   padding: 20px;
   border-radius: 20px 0px;
-}
 
-@media screen and (max-width: 480px) {
-  .uncorrect_sign {
+  @include mq(sm){
     padding: 16px;
     width: 64px;
     height: auto;
   }
 }
 
-.text_answer {
+.text_answer{
   margin-top: 12px;
   font-size: 20px;
   line-height: 29px;
   letter-spacing: 0.02em;
   width: 50%;
   text-align: left;
-}
 
-@media screen and (max-width: 480px) {
-  .text_answer {
+  @include mq(sm){
     font-size: 16px;
     line-height: 23px;
     width: auto;
   }
 }
 
-.btn_next {
+.btn_next{
   margin-top: 40px;
   display: inline-block;
   padding: 20px 50px;
-  background-color: #FF9F2E;
-  /* 背景色 */
-  box-shadow: 0 8px 0 #C56A00;
-  /* 影の太さ・色 */
+  background-color:$btn_color; /* 背景色 */
+  box-shadow: 0 8px 0 #C56A00;/* 影の太さ・色 */
   border-radius: 20px;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
-}
 
-@media screen and (max-width: 480px) {
-  .btn_next {
+  @include mq(sm){
     margin-top: 32px;
     padding: 16px 32px;
-    box-shadow: 0px 5px 0px #C56A00;
-    /* 影の太さ・色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
     font-size: 24px;
   }
 }
 
-.btn_next:hover {
-  box-shadow: 0 5px 0 #C56A00;
-  /* 影の太さ・色 */
+.btn_next:hover{
+  box-shadow: 0 5px 0 #C56A00;/* 影の太さ・色 */
   transform: translate3d(0, 3px, 0);
 }
 
-#compare {
+#compare{
   margin-top: 20px;
   display: inline-block;
   padding: 16px 32px;
-  background-color: #DADADA;
-  /* 背景色 */
-  box-shadow: 0px 6px 0px #C9C9C9;
-  /* 影の太さ・色 */
+  background-color:$btn_gray; /* 背景色 */
+  box-shadow: 0px 6px 0px #C9C9C9;/* 影の太さ・色 */
   border-radius: 20px;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
   user-select: none;
-}
 
-@media screen and (max-width: 480px) {
-  #compare {
+  @include mq(sm){
     padding: 8px 18px;
     border-radius: 10px;
     font-size: 14px;
   }
 }
 
-#compare:hover {
-  box-shadow: 0px 2px 0px #C9C9C9;
-  /* 影の太さ・色 */
+#compare:hover{
+  box-shadow: 0px 2px 0px #C9C9C9;/* 影の太さ・色 */
   transform: translate3d(0, 3px, 0);
 }
 
-#compare:active {
+#compare:active{
   background-color: #C9C9C9;
-  box-shadow: 0px 2px 0px #C9C9C9;
-  /* 影の太さ・色 */
+  box-shadow: 0px 2px 0px #C9C9C9;/* 影の太さ・色 */
   transform: translate3d(0, 3px, 0);
 }
 
-.btn_group {
+.btn_group{
   display: flex;
   align-content: center;
   flex-direction: column;
   align-items: center;
 }
 
+// ここからend_result
 #end-result-circle {
   width: 250px;
   height: 250px;
   position: relative;
-}
 
-@media screen and (max-width: 480px) {
-  #end-result-circle {
+  @include mq(sm){
     width: 190px;
     height: 190px;
     position: relative;
   }
 }
 
-.end_result_area {
+.end_result_area{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 700px;
   margin: auto;
-}
 
-@media screen and (max-width: 480px) {
-  .end_result_area {
+  @include mq(sm){
     display: flex;
     justify-content: center;
     align-items: center;
@@ -490,28 +458,25 @@ body {
   }
 }
 
-.end_result_top {
-  background-color: #0097DB;
+.end_result_top{
+  background-color: $bg_color;
   border-radius: 0px 0px 20px 20px;
   padding: 20px 20px 40px;
-}
 
-@media screen and (max-width: 480px) {
-  .end_result_top {
+  @include mq(sm){
     padding: 16px 16px 30px;
   }
 }
 
-#thanks {
-  color: #fff;
+
+#thanks{
+  color: $white;
   font-size: 20px;
   text-align: left;
   line-height: 29px;
   margin: 0px 0px 0px 70px;
-}
 
-@media screen and (max-width: 480px) {
-  #thanks {
+  @include mq(sm){
     font-size: 16px;
     text-align: center;
     line-height: 23px;
@@ -519,159 +484,144 @@ body {
   }
 }
 
-#sns-link {
+#sns-link{
   display: flex;
   align-content: center;
   justify-content: center;
   flex-direction: column;
   margin-top: 40px;
   align-items: center;
-}
 
-@media screen and (max-width: 480px) {
-  #sns-link {
+  @include mq(sm){
     margin-top: 30px;
   }
 }
 
-.share {
-  color: #222;
+.share{
+  color: $black;
   font-weight: bold;
   font-size: 20px;
   line-height: 20px;
   margin-bottom: 15px;
-}
 
-@media screen and (max-width: 480px) {
-  .share {
+  @include mq(sm){
     font-size: 16px;
     line-height: 16px;
   }
 }
 
-.hr_line {
+.hr_line{
   margin-top: 20px;
   width: 100px;
   height: 2px;
-  color: #DADADA;
+  color: $btn_gray;
 }
 
-.sns_icon {
+.sns_icon{
   width: 50px;
   height: 50px;
   margin: 0px 15px;
   cursor: pointer;
 }
 
-.sns_icon:hover {
+.sns_icon:hover{
   opacity: 0.7;
   cursor: pointer;
 }
 
-.box {
-  color: #DADADA;
+.box{
+  color: $btn_gray;
   height: 2px;
   width: 100px;
 }
 
-.circle_text {
+.circle_text{
   position: relative;
 }
 
-#correct-cnt {
-  color: #FFDE2E;
+#correct-cnt{
+  color: $score;
   font-weight: 900;
   font-size: 60px;
   letter-spacing: 0.02em;
   margin-right: 5px;
   line-height: 40px;
-}
 
-@media screen and (max-width: 480px) {
-  #correct-cnt {
+  @include mq(sm){
     font-size: 40px;
     letter-spacing: 0.02em;
   }
 }
 
-.seikai {
-  color: #FFDE2E;
+.seikai{
+  color: $score;
   font-weight: 700;
   font-size: 25px;
   margin-top: 20px;
   letter-spacing: 0.02em;
-}
 
-@media screen and (max-width: 480px) {
-  .seikai {
+  @include mq(sm){
     font-size: 16px;
     margin-top: 10px;
   }
 }
 
-.quiz_all {
-  color: #FFDE2E;
+.quiz_all{
+  color: $score;
   font-size: 35px;
   font-weight: 900;
   letter-spacing: 0.02em;
   line-height: 24px;
-}
 
-@media screen and (max-width: 480px) {
-  .quiz_all {
+  @include mq(sm){
     font-size: 24px;
   }
 }
 
-.score {
+.score{
   position: absolute;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  margin: 0;
-  padding: 0;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+
 }
 
-.btn_onemore {
+.btn_onemore{
   display: inline-block;
   padding: 20px 50px;
-  background-color: #FF9F2E;
-  /* 背景色 */
-  box-shadow: 0px 8px 0px #C56A00;
-  /* 影の太さ・色 */
+  background-color:$btn_color; /* 背景色 */
+  box-shadow: 0px 8px 0px #C56A00;/* 影の太さ・色 */
   border-radius: 20px;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-top: 20px;
-}
 
-@media screen and (max-width: 480px) {
-  .btn_onemore {
+  @include mq(sm){
     padding: 16px 32px;
-    box-shadow: 0px 5px 0px #C56A00;
-    /* 影の太さ・色 */
+    box-shadow: 0px 5px 0px #C56A00;/* 影の太さ・色 */
     border-radius: 10px;
     font-size: 24px;
     margin-top: 15px;
   }
 }
 
-.btn_onemore:hover {
-  box-shadow: 0px 3px 0px #C56A00;
-  /* 影の太さ・色 */
+.btn_onemore:hover{
+  box-shadow: 0px 3px 0px #C56A00;/* 影の太さ・色 */
   transform: translate3d(0, 3px, 0);
 }
 
-.trigger {
+.trigger{
   text-align: center;
   padding: 7px 13px;
   background: #3e3e3e;
-  color: #fff;
+  color: $white;
   font-size: 15px;
   outline: none;
   border: none;
@@ -698,33 +648,31 @@ body {
   top: 5%;
   left: 50%;
   transform: translate(-50%, 0%);
-  background-color: #fff;
+  background-color: $white;
   padding: 2rem;
   width: 38rem;
   border-radius: 0.5rem;
   text-align: left;
-}
 
-@media screen and (max-width: 480px) {
-  .modal-content {
+  @include mq(sm){
     width: 95%;
     padding: 1.1rem;
   }
+
+  h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1.8rem;
+    line-height: 2rem;
+  }
+
+  p{
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+  }
 }
 
-.modal-content h1 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 1.8rem;
-  line-height: 2rem;
-}
-
-.modal-content p {
-  line-height: 1.6rem;
-  margin-bottom: 2rem;
-}
-
-.modal-close {
+.modal-close{
   width: 100%;
   text-align: right;
   margin-bottom: 2rem;
@@ -734,7 +682,7 @@ body {
   text-align: center;
   cursor: pointer;
   border-radius: 2rem;
-  background-color: #222;
+  background-color: $black;
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -745,39 +693,38 @@ body {
 }
 
 .modal-content {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  background-color: #fff;
-  padding: 2rem;
-  width: 38rem;
-  border-radius: 0.5rem;
-  text-align: left;
-}
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: $white;
+    padding: 2rem;
+    width: 38rem;
+    border-radius: 0.5rem;
+    text-align: left;
 
-@media screen and (max-width: 480px) {
-  .modal-content {
-    width: 95%;
-    padding: 1.1rem;
-  }
-}
+    @include mq(sm){
+      width: 95%;
+      padding: 1.1rem;
+    }
 
-.modal-content h1 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 1.8rem;
-  line-height: 2rem;
-}
+    h1{
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 1.8rem;
+      line-height: 2rem;
+    }
 
-.modal-content p {
-  line-height: 1.6rem;
-  margin-bottom: 2rem;
+    p{
+      line-height: 1.6rem;
+      margin-bottom: 2rem;
+    }
 }
 
 .show-modal {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  transform: scale(1.0);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+

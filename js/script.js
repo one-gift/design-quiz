@@ -1,36 +1,67 @@
 'use strict'
-var quizList = getJSON();
-var quizIdx = 0;
-var levelIdx = 0;
-var userCorrectCnt = 0;
+var quizObject = getJSON();
+var quizIndex = 0;
+var levelIndex = 0;
+var userCorrectCount = 0;
 var selected;
-var progressVal = 0;
-var progressMax = 0;
+var progressValue = 0;
+var progressMaxValue = 0;
 
+const quizzes = quizObject["quizzes"];
+const correctImg =`<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
+const incorrectImg =`<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
 
 /**
- * json形式でクイズを取得
+ * jsonファイルを読み込む
  * @param 
- * @return
+ * @return {object} quizObject - json形式のクイズ一覧
  */
-function getQuiz() {
-    var quiz = quizList["items"][levelIdx][quizIdx];
-    quizIdx++;
-    progressMax = quizList["items"][levelIdx].length;
-    setProgressMax();
-    generateQestion(quiz);
+function getJSON() {
+    let req = new XMLHttpRequest();
+    req.open("GET", "../data/quiz.json", false);
+    req.send(null);
+    let object = JSON.parse(req.responseText);
+    return object;
+}
+
+/**
+ * #quiz-startクリックされた時の処理
+ * @param
+ * @return 
+ */
+document.getElementById('quiz-start').onclick = function quizStart() {
+    // クイズ制御
+    quizController(quizIndex);
+
+    // modal制御
+    showModal();
+
+    // 画面表示
     document.querySelector("#start").style.display = "none";
     document.querySelector("#progress").style.display = "block";
 }
 
 /**
- * レベルの切り替え
- * @param 
+ * クイズ取得から表示までのコントローラー
+ * @param {number} quizIdx - quizのindex
  * @return
  */
-function changeLevel() {
-    quizIdx = 0;
-    levelIdx++;
+function quizController(quizIdx) {
+    let quiz = getQuiz();
+    quizIndex = incrementCount(quizIdx);
+    progressMaxValue = quizzes[levelIndex].length;
+    setProgressMaxValue(progressMaxValue);
+    displayQestion(quiz);
+}
+
+/**
+ * quizObjectからjson形式でクイズを取得
+ * @param 
+ * @return {object}  - json形式のクイズ1問分
+ */
+function getQuiz() {
+    let quiz = quizzes[levelIndex][quizIndex];
+    return quiz;
 }
 
 /**
@@ -38,70 +69,51 @@ function changeLevel() {
  * @param {object} quiz 
  * @retunrn 
  */
-function generateQestion(quiz) {
-    document.querySelector("#quiz-idx").innerHTML = quizIdx;
-    document.querySelector("#progress-quiz-idx").innerHTML = quizIdx;
-    document.querySelector("#progress-level-quiz-amount").innerHTML = progressMax;
-    document.querySelector("#quiz-text").innerHTML = JSON.stringify(quiz["question"]["quiz_text"]);
+function displayQestion(quiz) {
+    document.querySelector("#quiz-index").innerHTML = quizIndex;
+    document.querySelector("#progress-quiz-index").innerHTML = quizIndex;
+    document.querySelector("#progress-level-quiz-amount").innerHTML = progressMaxValue;
 
-    document.querySelector("#img1").setAttribute('src', quiz["question"]["img_path"][0]);
-    document.querySelector("#img2").setAttribute('src', quiz["question"]["img_path"][1]);
+    document.querySelector("#quiz-level").innerHTML = quiz["question"]["quiz_level"];
+    document.querySelector("#choices-img1").setAttribute('src', quiz["question"]["img_path"][0]);
+    document.querySelector("#choices-img2").setAttribute('src', quiz["question"]["img_path"][1]);
 
-    document.querySelector("#quiestion").style.display = "block";
-
+    document.querySelector("#quiestion").style.display = "block"
 }
 
 /**
- * progressValのインクリメント
- * @param
- * @returns 
+ * 正誤判定画面の生成
+ * @param {object} e
+ * @return
  */
-function incrementProgress() {
-    progressVal++;
-}
+document.getElementById('quiz-choices').onclick = function generateResult(e) {
+    let event = e || window.event;
+    const choices_ids = [
+        'choices-img1',
+        'choices-img2'
+    ]
 
-/**
- * HTMLのprogressのvalue値の変更
- * @param
- * @returns 
- */
-function setProgressVal() {
-    document.getElementById("quiz-progress").value = progressVal;
-}
+    if (!(choices_ids.includes(event.target.id))) {
+        return
+    }
 
-/**
- * HTMLのprogressのmax値の変更
- * @param
- * @returns
- */
-function setProgressMax() {
+    selected = event.target.id == 'choices-img1' ? 0 : 1;
+    let result = checkCorrect(selected);
 
-    document.querySelector("#quiz-progress").setAttribute('max', progressMax);
-}
-
-/**
- * jsonファイルを読み込む
- * @param 
- * @return {object} quizList - json形式のクイズ一覧
- */
-function getJSON() {
-    var req = new XMLHttpRequest();
-    req.open("GET", "../data/quiz.json", false);
-    req.send(null);
-    quizList = JSON.parse(req.responseText);
-    return quizList;
+    progressValue = incrementCount(progressValue);
+    setProgressValue();
+    displayResult(result)
 }
 
 /**
  * 正誤判定機能
  * @param {object} selected
- * @return {list}
+ * @return {array}
  */
 function checkCorrect(selected) {
-    var correct_num = quizList["items"][levelIdx][quizIdx - 1]["answer"]["correct_num"];
+    let correct_num = quizzes[levelIndex][quizIndex - 1]["answer"]["correct_num"];
     if (selected == correct_num) {
-        userCorrectCnt++;
-        console.log(userCorrectCnt);
+        userCorrectCount++;
         return [1, correct_num];
     } else {
         return [0, correct_num]
@@ -109,62 +121,24 @@ function checkCorrect(selected) {
 }
 
 /**
- * 正誤判定画面の生成
- * @param {object} select
+ * 正誤判定画面の表示
+ * @param {array} result
  * @return
  */
-function generateResult(select) {
-    
-    incrementProgress();
-    setProgressVal();
-
-    selected = select
-    var result_flag = checkCorrect(selected)
-    console.log(result_flag);
-    if (result_flag[0] == 1) {
-        if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
-            document.querySelector("#next-btn").value = "最終結果を見る"
-        }
-        console.log("正解");
-        document.querySelector("#quiestion").style.display = "none";
-        document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
+function displayResult(result) {
+    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+        document.querySelector("#next-btn-text").value = "最終結果を見る"
+    }
+    document.querySelector("#quiestion").style.display = "none";
+    document.querySelector("#result").style.display = "block";
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
+    document.querySelector("#explain").innerText = quizzes[levelIndex][quizIndex - 1]["answer"]["explain"];
+    if (result[0] == 1) {
+        document.getElementById("result-sign").innerHTML = correctImg;
         doConfetti();
     } else {
-        if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
-            document.querySelector("#next-btn").value = "最終結果を見る"
-        }
-        console.log("不正解");
-        document.querySelector("#quiestion").style.display = "none";
-        document.querySelector("#result").style.display = "block";
-
-        document.querySelector("#judged").innerText = "不正解";
-        document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][selected]);
+        document.getElementById("result-sign").innerHTML = incorrectImg;
     }
-}
-
-/**
- * @params
- * @return
- */
-function down() {
-    if (selected == 0) {
-        var value = 1
-    } else {
-        var value = 0
-    }
-    document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][value]);
-}
-
-/**
- * @params
- * @return
- */
-function up() {
-    var value = selected
-    document.querySelector("#correct-img").setAttribute('src', quizList["items"][levelIdx][quizIdx - 1]["question"]["img_path"][value]);
 }
 
 /**
@@ -172,22 +146,21 @@ function up() {
  * @param
  * @return
  */
-function goNextQuestion() {
-    if (quizIdx >= quizList["items"][levelIdx].length && levelIdx == quizList["items"].length - 1) {
-        generateEndResult(userCorrectCnt)
+document.getElementById('next-btn').onclick = function goNextQuestion() {
+    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+        displayEndResult(userCorrectCount)
         return
     }
-    if (quizIdx >= quizList["items"][levelIdx].length) {
-        // progressValの指定
-        progressVal = 0;
-        setProgressVal();
+    if (quizIndex >= quizzes[levelIndex].length) {
+        progressValue = initializeVariable(progressValue);
+        setProgressValue();
 
-        changeLevel();
+        quizIndex = initializeVariable(quizIndex);
+        levelIndex = incrementCount(levelIndex);
 
-        // progressMaxの指定
-        progressMax = quizList["items"][levelIdx].length;
+        progressMaxValue = quizzes[levelIndex].length;
     }
-    getQuiz();
+    quizController(quizIndex);
     document.querySelector("#result").style.display = "none";
 }
 
@@ -196,52 +169,173 @@ function goNextQuestion() {
  * @pram
  * @return
  */
-function generateEndResult(userCorrectCnt) {
+function displayEndResult(userCorrectCount) {
     document.querySelector("#result").style.display = "none";
     document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
 
-    // circle;
-    var amount = 0;
-    for (var i = 0; i < quizList["items"].length; i++) {
-        amount += quizList["items"][i].length;
+    let amount = 0;
+    for (let i = 0; i < quizzes.length; i++) {
+        amount += quizObject["quizzes"][i].length;
     }
-    var correctRate = userCorrectCnt/amount
-    circle.animate(correctRate);
 
-    document.querySelector("#correct-cnt").innerText = userCorrectCnt + "/" + amount + "問正解";
-    var thanks = quizList["thanks"];
-    if (userCorrectCnt < 1) {
+    displayEndResultCircle(userCorrectCount, amount);
+
+    document.querySelector("#correct-cnt").innerText = userCorrectCount;
+    document.querySelector("#amount-cnt").innerText = amount;
+
+    let thanks = quizObject["thanks"];
+    console.log(userCorrectCount)
+    if (userCorrectCount < 4) {
         document.querySelector("#thanks").innerText = thanks["0"];
-    } else if (userCorrectCnt > 0 && userCorrectCnt < 2) {
+    } else if (userCorrectCount < 8) {
         document.querySelector("#thanks").innerText = thanks["1"];
-    } else if (userCorrectCnt > 1 && userCorrectCnt < 3) {
-        doConfetti();
+    } else if (userCorrectCount < 12) {
         document.querySelector("#thanks").innerText = thanks["2"];
-    } else {
+    } else if (userCorrectCount < 16) {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
+    } else {
+        doConfetti();
+        document.querySelector("#thanks").innerText = thanks["4"];
     }
 }
 
+/**
+ * 変数のカウントをインクリメントする
+ * @param {number} count
+ * @returns {number}
+ */
+function incrementCount(count) {
+    count++;
+    return count
+}
 
-var circle = new ProgressBar.Circle('#container', {
-    color: '#FCB03C',
-    duration: 3000,
-    easing: 'easeInOut',
-    trailColor: '#eee',
-    trailWidth: 1,
+/**
+ * 変数の値を0にする
+ * @param {number} value
+ * @returns {number}
+ */
+function initializeVariable(value) {
+    value = 0;
+    return value;
+}
+
+/**
+ * HTMLのprogressのvalue値の変更
+ * @param
+ * @returns 
+ */
+function setProgressValue() {
+    document.getElementById("quiz-progress").value = progressValue;
+}
+
+/**
+ * HTMLのprogressのmax値の変更
+ * @param {number} maxValue
+ * @return
+ */
+function setProgressMaxValue(maxValue) {
+    document.querySelector("#quiz-progress").setAttribute('max', maxValue);
+}
+
+/**
+ * デバイス判定機能
+ * @param 
+ * @return bool
+ */
+function isSmartPhone() {
+    const touchPoints = navigator.maxTouchPoints;
+    return touchPoints > 1 ? true : false;
+}
+
+/**
+ * 比較機能（ボタン押下時）
+ * @params
+ * @return
+ */
+const eventStart = isSmartPhone() ? 'touchstart' : 'mousedown';
+document.getElementById("compare").addEventListener(eventStart, e => {
+    let value = 1 - selected;
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    displaySign();
 });
+
+/**
+ * 比較機能（ボタン非押下時）
+ * @params
+ * @return
+ */
+const eventEnd = isSmartPhone() ? 'touchend' : 'mouseup';
+document.getElementById("compare").addEventListener(eventEnd, e => {
+    let value = selected
+    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    displaySign();
+});
+
+/**
+ * compare時の正誤アイコン表示機能
+ * @param
+ * @return
+ */
+function displaySign() {
+    let signClassName = document.getElementById('result-sign').firstElementChild.className;
+    let sign = signClassName == 'sign_correct' ? incorrectImg : correctImg;
+    document.getElementById("result-sign").innerHTML = sign;
+}
+
+/**
+ * 最終結果画面の円グラフ
+ * @param {number} correctCount
+ * @param {number} amount
+ * @return 
+ */
+function displayEndResultCircle(correctCount, amount) {
+    var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
+        color: '#FFDE2E',
+        duration: 3000,
+        easing: 'easeInOut',
+        trailColor: 'rgba(218, 218, 218, 0.3)',
+        trailWidth: 10,
+        strokeWidth: 10,
+    });
+    endResultCircle.path.style.strokeLinecap = 'round';
+
+    var correctRate = correctCount / amount;
+    endResultCircle.animate(correctRate);
+}
 
 /**
  * 紙吹雪機能
  * @pram
  * @return
  */
-function doConfetti(){
+function doConfetti() {
     confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 }
     })
+}
+
+/**
+ * modal表示機能
+ * @param 
+ * @return
+ */
+function showModal() {
+    var modal = document.querySelector("#modal");
+    modal.classList.add("show-modal");
+    document.body.style.overflowY = "hidden";
+}
+
+/**
+ * modal非表示機能
+ * @param 
+ * @return
+ */
+document.querySelector("#close-button").onclick = function closeModal() {
+    var modal = document.querySelector("#modal");
+    modal.classList.remove("show-modal");
+    document.body.style.overflowY = "visible";
 }

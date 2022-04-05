@@ -1,87 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#">
+    <title>デザインジュゲム｜どちらが正しいロゴ？有名ロゴの2択クイズ</title>
+    <meta name="description" content="有名ロゴを2択クイズにしたアプリ「デザインジュゲム」。皆さんの身近に潜む、なかなか気がつけていない新たな発見を体感できるはずです。見たことはあるのに分からない、そんなモヤモヤを楽めるロゴクイズです。">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- user_agent_styleseetのリセット用CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
-    <style>
-        #jst {
-            text-decoration: underline;
-            font-weight: bold;
-        }
 
-        #progress{
-            display: none;
-        }
+    <!-- Google Fontsの読み込み -->
+    <link rel=“preconnect” href=“https://fonts.googleapis.com”>
+    <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin>
+    <link href=“https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap” rel=“stylesheet”>
     
-        #quiestion {
-            display: none;
-        }
+    <!-- ファビコン -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../image/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 
-        #result {
-            display: none;
-        }
+    <!-- OGP画像 -->
+    <meta property="og:url" content="https://jugem.netlify.app">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="デザインジュゲム｜どちらが正しいロゴ？有名ロゴの2択クイズ">
+    <meta property="og:description" content="有名ロゴを2択クイズにしたアプリ「デザインジュゲム」。皆さんの身近に潜む、なかなか気がつけていない新たな発見を体感できるはずです。見たことはあるのに分からない、そんなモヤモヤを楽めるロゴクイズです。">
+    <meta property="og:site_name" content="デザインジュゲム">
+    <meta property="og:image" content="https://jugem.netlify.app/image/ogp画像">
 
-        #end-result {
-            display: none;
-        }
+    <!-- twiiter画像 -->
+    <meta name="twitter:card" content="Summary Card">
+    <meta name="twitter:site" content="@naotake_design">
 
-        #container {
-            margin: 20px;
-            width: 200px;
-            height: 200px;
-            position: relative;
-        }
-    </style>
+    <!-- facebbok画像 -->
+    <meta property="fb:app_id" content="AppID" />    
 </head>
+
 <body>
     <section>
-        <h1>クイズ</h1>
         <div id="start">
-            <p id="text" onclick="getQuiz()">クイズを始める</p>
-        </div>
-        
-        <div id="progress" class="">
-            <p id="progress-frac"><span id="progress-quiz-idx"></span>/<span id="progress-level-quiz-amount"></span></p>
-            <progress id="quiz-progress" value="" max=""></progress>
-        </div>
-        
-        <div id="quiestion">
-            <span id="quiz-idx"></span>問目のクイズ
-            <p id="quiz-text"></p>
-            <div id="choices"></div>
-            <button onclick="generateResult(0)"><img id="img1" class="choices-btn" src="" alt="aaa" value="0"></button>
-            <button onclick="generateResult(1)"><img id="img2" class="choices-btn" src="" alt="bbb" value="1"></button>
-        </div>
-        
-        <div id="result">
-            <p id="judged"></p>
-            <img id="correct-img" src="" alt="">
-            <p id="explain"></p>
-            <button id="compare" value="" src="" onmousedown="down();" onmouseup="up();">
-                正誤比較
-            </button>
-            <input type="button" name="" id="next-btn" value="次へ" onclick="goNextQuestion()">
-        </div>
-        
-        <div id="end-result">
-            <div id="container"></div>
-            <p id="correct-cnt"></p>
-            <p id="thanks"></p>
-            <div id="sns-link">
-                <a href="https://timeline.line.me/social-plugin/share?url=[URL]">LINE</a>
-                <a href="https://twitter.com/intent/tweet?url=[URL]">Twitter</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]">FaceBook</a>
+            <div class="top">
+
+                <h1 class="start"><img src="../image/logo.png" class="logo_image"></h1>
+
+                <p id="quiz-start">
+                    <button class="btn">クイズを始める</button>
+                </p>
+                
             </div>
         </div>
-        
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-close">
+                    <span class="close-button" id="close-button">
+                        <svg width="16" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4999 2.49999L13.4999 0.5L8 5.9999L2.5001 0.5L0.500112 2.49999L6.00002 7.99989L0.5 13.4999L2.49998 15.4999L8 9.99987L13.5 15.4999L15.5 13.4999L9.99999 7.99989L15.4999 2.49999Z" fill="white"/>
+                        </svg>                        
+                    </span>
+                </div>
+                <h1>見たことあるのに、、、<br>分かりそうでわからないロゴクイズ。</h1>
+                <p>私たちの周りにはたくさんのロゴが溢れています。しかし、それらのロゴを細かい部分まで目を配れていますか？そのロゴを知ってはいても、実は細かい部分までは見れていないかも！ロゴクイズを通して、普段気がつけていない新たな発見をしてみてください。</p>
+                <b>Let’s START！</b>
+            </div>
+        </div>
+
+        <div id="progress" class="">
+
+            <img src="../image/logo.png" class="logo_progress">
+            <div>
+                <progress id="quiz-progress" value="" max=""></progress>
+
+                <p id="progress-frac">LV.
+                    <span id="quiz-level"></span>
+                    <span id="progress-quiz-index"></span>/<span id="progress-level-quiz-amount"></span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="quiestion">
+
+            <div class="quiz_area">
+                <div class="quiz_area_2">
+                    <span class="quiz_number">Question</span><span id="quiz-index"></span>
+                    <p class="quiz_text">どちらのロゴが正しいでしょう</p>
+                </div>
+            </div>
+
+
+            <div id="choices"></div>
+            <div class="contents" id="quiz-choices">
+
+                <div class="choice_box">
+                    <img id="choices-img1" src="">
+                </div>
+
+                <div class="choice_box">
+                    <img id="choices-img2" src="">
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="result">
+            <div class="img_sign">
+                <img id="correct-img" src="" alt="">
+                <div id="result-sign"></div>
+            </div>
+
+            <!-- 解説を書く領域 -->
+            <div class="btn_group">
+                <p class="text_answer" id="explain">
+                </p>
+
+                <div class="btn_next" id="next-btn">
+                    <input type="button" name="" id="next-btn-text" value="次の問題へ！">
+                </div>
+                <div class="btn_compare">
+                    <button id="compare" value="正誤比較" src="">
+                    正誤比較
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="end-result">
+            <div class="end_result_top">
+                <img src="../image/logo.png" class="logo_progress">
+
+                <div class="end_result_area">
+                    <div class="circle_text">
+                        <div id="end-result-circle"></div>
+                        <div class="score">
+                            <div>
+                                <span id="correct-cnt"></span><span class="quiz_all">/<span id="amount-cnt"></span></span>
+                            </div>
+                            <p class="seikai">正解</p>    
+                        </div>
+                    </div>
+                    <p id="thanks"></p>
+                </div>
+            </div>
+
+            <div id="sns-link">
+                <p class="share">クイズを友達にシェアしよう!</p>
+
+                <div class="sns">
+                    <a href="https://timeline.line.me/social-plugin/share?url=[URL]" target="_blank" rel="noopener">
+                        <img class="sns_icon" src="../image/line_icon.png" alt="">
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?url=[URL]">
+                        <img class="sns_icon" src="../image/twiiter_icon.png" alt="" target="_blank" rel="noopener">
+                    </a>
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]" target="_blank" rel="noopener">
+                        <img class="sns_icon" src="../image/facebook_icon.png" alt="">
+                    </a>
+                </div>
+
+                <hr class="hr_line">
+
+            </div>
+
+            <div class="box"></div>
+
+            <button class="btn_onemore" onclick="location.reload()">
+                <input type="button" name="" id="" value="もう一度遊ぶ">
+            </button>
+
+        </div>
+
     </section>
+
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
-    
-    
+
 </body>
+
 </html>
