@@ -8,8 +8,8 @@ var progressValue = 0;
 var progressMaxValue = 0;
 
 const quizzes = quizObject["quizzes"];
-const correctImg =`<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
-const incorrectImg =`<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
+const correctImg = `<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
+const incorrectImg = `<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
 
 /**
  * jsonファイルを読み込む
@@ -185,19 +185,24 @@ function displayEndResult(userCorrectCount) {
     document.querySelector("#amount-cnt").innerText = amount;
 
     let thanks = quizObject["thanks"];
-    console.log(userCorrectCount)
+
     if (userCorrectCount < 4) {
         document.querySelector("#thanks").innerText = thanks["0"];
+        document.querySelector("#twitter-share").setAttribute('href', "https://twitter.com/intent/tweet?url=https://jugem.404design.dev&text=" + "あなたの点数は" + userCorrectCount + "点..." + "%0a" + thanks["0"]);
     } else if (userCorrectCount < 8) {
         document.querySelector("#thanks").innerText = thanks["1"];
+        document.querySelector("#twitter-share").setAttribute('href', "https://twitter.com/intent/tweet?url=https://jugem.404design.dev&text=" + "あなたの点数は" + userCorrectCount + "点" + "%0a" + thanks["1"]);
     } else if (userCorrectCount < 12) {
         document.querySelector("#thanks").innerText = thanks["2"];
+        document.querySelector("#twitter-share").setAttribute('href', "https://twitter.com/intent/tweet?url=https://jugem.404design.dev&text=" + "あなたの点数は" + userCorrectCount + "点！" + "%0a" + thanks["2"]);
     } else if (userCorrectCount < 16) {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["3"];
+        document.querySelector("#twitter-share").setAttribute('href', "https://twitter.com/intent/tweet?url=https://jugem.404design.dev&text=" + "あなたの点数は" + userCorrectCount + "点！！" + "%0a" + thanks["3"]);
     } else {
         doConfetti();
         document.querySelector("#thanks").innerText = thanks["4"];
+        document.querySelector("#twitter-share").setAttribute('href', "https://twitter.com/intent/tweet?url=https://jugem.404design.dev&text=" + "あなたの点数は" + userCorrectCount + "点！！！！！！！！！" + "%0a" + thanks["4"]);
     }
 }
 
