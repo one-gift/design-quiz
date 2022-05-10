@@ -364,7 +364,7 @@ body {
 @media screen and (max-width: 480px) {
   .uncorrect_sign {
     padding: 16px;
-    width: 64px;
+    width: 20%;
     height: auto;
   }
 }
