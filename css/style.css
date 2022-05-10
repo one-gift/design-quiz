@@ -142,6 +142,12 @@ body {
   top: 0px;
 }
 
+@media screen and (max-width: 768px) {
+  #quiz-progress {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 480px) {
   #quiz-progress {
     width: 100%;
@@ -245,7 +251,7 @@ body {
 #choices-img1, #choices-img2 {
   border-radius: 20px;
   cursor: pointer;
-  width: 500px;
+  width: 100%;
   height: auto;
   align-items: center;
   transition: 1s all;
@@ -323,7 +329,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .img_sign {
-    width: 346px;
+    width: 100%;
   }
 }
 
@@ -340,7 +346,7 @@ body {
 @media screen and (max-width: 480px) {
   .correct_sign {
     padding: 16px;
-    width: 64px;
+    width: 20%;
     height: auto;
   }
 }
@@ -358,7 +364,7 @@ body {
 @media screen and (max-width: 480px) {
   .uncorrect_sign {
     padding: 16px;
-    width: 64px;
+    width: 20%;
     height: auto;
   }
 }
@@ -478,6 +484,12 @@ body {
   align-items: center;
   width: 700px;
   margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .end_result_area {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 480px) {
