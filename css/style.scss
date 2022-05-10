@@ -323,7 +323,7 @@ body {
   height: auto;
 
   @include mq(sm){
-    width: 346px;
+    width: 100%;
   }
 }
 
@@ -338,7 +338,7 @@ body {
 
   @include mq(sm){
     padding: 16px;
-    width: 64px;
+    width: 20%;
     height: auto;
   }
 }

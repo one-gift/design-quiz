@@ -329,7 +329,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .img_sign {
-    width: 346px;
+    width: 100%;
   }
 }
 
@@ -346,7 +346,7 @@ body {
 @media screen and (max-width: 480px) {
   .correct_sign {
     padding: 16px;
-    width: 64px;
+    width: 20%;
     height: auto;
   }
 }
