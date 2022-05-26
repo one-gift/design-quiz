@@ -6,10 +6,15 @@ var userCorrectCount = 0;
 var selected;
 var progressValue = 0;
 var progressMaxValue = 0;
+var quiz;
+var usedQuizzes = [];
 
 const quizzes = quizObject["quizzes"];
 const correctImg = `<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
 const incorrectImg = `<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
+
+// TUTORIAL,EASY,NORMAL,HARDの出題数の設定
+const numberOfQuizzes = [1, 2, 4, 3];
 
 /**
  * jsonファイルを読み込む
@@ -47,21 +52,28 @@ document.getElementById('quiz-start').onclick = function quizStart() {
  * @return
  */
 function quizController(quizIdx) {
-    let quiz = getQuiz();
+    quiz = getRandomQuiz();
     quizIndex = incrementCount(quizIdx);
-    progressMaxValue = quizzes[levelIndex].length;
+    progressMaxValue = numberOfQuizzes[levelIndex];
     setProgressMaxValue(progressMaxValue);
     displayQestion(quiz);
 }
 
 /**
- * quizObjectからjson形式でクイズを取得
+ * quizObjectからjson形式でクイズをランダムで取得
  * @param 
  * @return {object}  - json形式のクイズ1問分
  */
-function getQuiz() {
-    let quiz = quizzes[levelIndex][quizIndex];
-    return quiz;
+function getRandomQuiz() {
+    let max = Object.keys(quizzes[levelIndex]).length;
+    do{
+        quizIndex = Math.floor(Math.random() * max);
+    }
+    while (usedQuizzes.toString().includes([levelIndex, quizIndex].toString()))
+    usedQuizzes.push([levelIndex, quizIndex]);
+    let randomQuiz = quizzes[levelIndex][quizIndex];
+    
+    return randomQuiz;
 }
 
 /**
@@ -111,7 +123,7 @@ document.getElementById('quiz-choices').onclick = function generateResult(e) {
  * @return {array}
  */
 function checkCorrect(selected) {
-    let correct_num = quizzes[levelIndex][quizIndex - 1]["answer"]["correct_num"];
+    let correct_num = quiz["answer"]["correct_num"];
     if (selected == correct_num) {
         userCorrectCount++;
         return [1, correct_num];
@@ -126,13 +138,13 @@ function checkCorrect(selected) {
  * @return
  */
 function displayResult(result) {
-    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+    if (quizIndex >= numberOfQuizzes[levelIndex] && levelIndex == numberOfQuizzes.length - 1) {
         document.querySelector("#next-btn-text").value = "最終結果を見る"
     }
     document.querySelector("#quiestion").style.display = "none";
     document.querySelector("#result").style.display = "block";
-    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][selected]);
-    document.querySelector("#explain").innerText = quizzes[levelIndex][quizIndex - 1]["answer"]["explain"];
+    document.querySelector("#correct-img").setAttribute('src', quiz["question"]["img_path"][selected]);
+    document.querySelector("#explain").innerText = quiz["answer"]["explain"];
     if (result[0] == 1) {
         document.getElementById("result-sign").innerHTML = correctImg;
         doConfetti();
@@ -147,18 +159,18 @@ function displayResult(result) {
  * @return
  */
 document.getElementById('next-btn').onclick = function goNextQuestion() {
-    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+    if (quizIndex >= numberOfQuizzes[levelIndex] && levelIndex == numberOfQuizzes.length - 1) {
         displayEndResult(userCorrectCount)
         return
     }
-    if (quizIndex >= quizzes[levelIndex].length) {
+    if (quizIndex >= numberOfQuizzes[levelIndex]) {
         progressValue = initializeVariable(progressValue);
         setProgressValue();
 
         quizIndex = initializeVariable(quizIndex);
         levelIndex = incrementCount(levelIndex);
 
-        progressMaxValue = quizzes[levelIndex].length;
+        progressMaxValue = numberOfQuizzes[levelIndex];
     }
     quizController(quizIndex);
     document.querySelector("#result").style.display = "none";
@@ -174,10 +186,7 @@ function displayEndResult(userCorrectCount) {
     document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
 
-    let amount = 0;
-    for (let i = 0; i < quizzes.length; i++) {
-        amount += quizObject["quizzes"][i].length;
-    }
+    let amount = numberOfQuizzes.reduce((prev, current) => prev + current, 0);
 
     displayEndResultCircle(userCorrectCount, amount);
 
@@ -262,7 +271,7 @@ function isSmartPhone() {
 const eventStart = isSmartPhone() ? 'touchstart' : 'mousedown';
 document.getElementById("compare").addEventListener(eventStart, e => {
     let value = 1 - selected;
-    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    document.querySelector("#correct-img").setAttribute('src', quiz["question"]["img_path"][value]);
     displaySign();
 });
 
@@ -274,7 +283,7 @@ document.getElementById("compare").addEventListener(eventStart, e => {
 const eventEnd = isSmartPhone() ? 'touchend' : 'mouseup';
 document.getElementById("compare").addEventListener(eventEnd, e => {
     let value = selected
-    document.querySelector("#correct-img").setAttribute('src', quizzes[levelIndex][quizIndex - 1]["question"]["img_path"][value]);
+    document.querySelector("#correct-img").setAttribute('src', quiz["question"]["img_path"][value]);
     displaySign();
 });
 
