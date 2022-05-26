@@ -66,13 +66,13 @@ function quizController(quizIdx) {
  */
 function getRandomQuiz() {
     let max = Object.keys(quizzes[levelIndex]).length;
-    do{
+    do {
         quizIndex = Math.floor(Math.random() * max);
     }
     while (usedQuizzes.toString().includes([levelIndex, quizIndex].toString()))
     usedQuizzes.push([levelIndex, quizIndex]);
     let randomQuiz = quizzes[levelIndex][quizIndex];
-    
+
     return randomQuiz;
 }
 
