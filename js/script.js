@@ -6,10 +6,10 @@ var userCorrectCount = 0;
 var selected;
 var progressValue = 0;
 var progressMaxValue = 0;
-
-const quizzes = quizObject["quizzes"];
+const numberOfQuizzes = [1, 3, 7, 5];
 const correctImg = `<div class="sign_correct"><img class="correct_sign" src="../image/icon_correct.svg" alt=""></div>`
 const incorrectImg = `<div class="sign_uncorrect"><img class="uncorrect_sign" src="../image/icon_uncorrect.svg" alt=""></div>`
+let quizzes = quizObject["quizzes"];
 
 /**
  * jsonファイルを読み込む
@@ -25,17 +25,29 @@ function getJSON() {
 }
 
 /**
+ * クイズのシャッフル
+ * @param 
+ */
+function shuffle() {
+    for (let numberOfQuizzesIdx = 0; numberOfQuizzesIdx < numberOfQuizzes.length; numberOfQuizzesIdx++) {
+        for (let dividedQuizzesIdx = quizzes[numberOfQuizzesIdx].length; 1 < dividedQuizzesIdx; dividedQuizzesIdx--) {
+            let randomNum = Math.floor(Math.random() * dividedQuizzesIdx);
+            [quizzes[numberOfQuizzesIdx][randomNum], quizzes[numberOfQuizzesIdx][dividedQuizzesIdx - 1]] = [quizzes[numberOfQuizzesIdx][dividedQuizzesIdx - 1], quizzes[numberOfQuizzesIdx][randomNum]];
+        }
+    }
+}
+
+/**
  * #quiz-startクリックされた時の処理
  * @param
- * @return 
  */
 document.getElementById('quiz-start').onclick = function quizStart() {
+    // シャッフル
+    shuffle();
     // クイズ制御
     quizController(quizIndex);
-
     // modal制御
     showModal();
-
     // 画面表示
     document.querySelector("#start").style.display = "none";
     document.querySelector("#progress").style.display = "block";
@@ -49,7 +61,7 @@ document.getElementById('quiz-start').onclick = function quizStart() {
 function quizController(quizIdx) {
     let quiz = getQuiz();
     quizIndex = incrementCount(quizIdx);
-    progressMaxValue = quizzes[levelIndex].length;
+    progressMaxValue = numberOfQuizzes[levelIndex];
     setProgressMaxValue(progressMaxValue);
     displayQestion(quiz);
 }
@@ -67,7 +79,6 @@ function getQuiz() {
 /**
  * 問題を表示機能
  * @param {object} quiz 
- * @retunrn 
  */
 function displayQestion(quiz) {
     document.querySelector("#quiz-index").innerHTML = quizIndex;
@@ -123,10 +134,9 @@ function checkCorrect(selected) {
 /**
  * 正誤判定画面の表示
  * @param {array} result
- * @return
  */
 function displayResult(result) {
-    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+    if (quizIndex >= numberOfQuizzes[levelIndex] && levelIndex == numberOfQuizzes.length - 1) {
         document.querySelector("#next-btn-text").value = "最終結果を見る"
     }
     document.querySelector("#quiestion").style.display = "none";
@@ -147,18 +157,18 @@ function displayResult(result) {
  * @return
  */
 document.getElementById('next-btn').onclick = function goNextQuestion() {
-    if (quizIndex >= quizzes[levelIndex].length && levelIndex == quizzes.length - 1) {
+    if (quizIndex >= numberOfQuizzes[levelIndex] && levelIndex == numberOfQuizzes.length - 1) {
         displayEndResult(userCorrectCount)
         return
     }
-    if (quizIndex >= quizzes[levelIndex].length) {
+    if (quizIndex >= numberOfQuizzes[levelIndex]) {
         progressValue = initializeVariable(progressValue);
         setProgressValue();
 
         quizIndex = initializeVariable(quizIndex);
         levelIndex = incrementCount(levelIndex);
 
-        progressMaxValue = quizzes[levelIndex].length;
+        progressMaxValue = numberOfQuizzes[levelIndex];
     }
     quizController(quizIndex);
     document.querySelector("#result").style.display = "none";
@@ -167,17 +177,13 @@ document.getElementById('next-btn').onclick = function goNextQuestion() {
 /**
  * 最終結果画面の生成
  * @pram
- * @return
  */
 function displayEndResult(userCorrectCount) {
     document.querySelector("#result").style.display = "none";
     document.querySelector("#progress").style.display = "none";
     document.querySelector("#end-result").style.display = "block";
 
-    let amount = 0;
-    for (let i = 0; i < quizzes.length; i++) {
-        amount += quizObject["quizzes"][i].length;
-    }
+    let amount = numberOfQuizzes.reduce((prev, current) => prev + current, 0);
 
     displayEndResultCircle(userCorrectCount, amount);
 
@@ -229,7 +235,6 @@ function initializeVariable(value) {
 /**
  * HTMLのprogressのvalue値の変更
  * @param
- * @returns 
  */
 function setProgressValue() {
     document.getElementById("quiz-progress").value = progressValue;
@@ -238,7 +243,6 @@ function setProgressValue() {
 /**
  * HTMLのprogressのmax値の変更
  * @param {number} maxValue
- * @return
  */
 function setProgressMaxValue(maxValue) {
     document.querySelector("#quiz-progress").setAttribute('max', maxValue);
@@ -257,7 +261,6 @@ function isSmartPhone() {
 /**
  * 比較機能（ボタン押下時）
  * @params
- * @return
  */
 const eventStart = isSmartPhone() ? 'touchstart' : 'mousedown';
 document.getElementById("compare").addEventListener(eventStart, e => {
@@ -269,7 +272,6 @@ document.getElementById("compare").addEventListener(eventStart, e => {
 /**
  * 比較機能（ボタン非押下時）
  * @params
- * @return
  */
 const eventEnd = isSmartPhone() ? 'touchend' : 'mouseup';
 document.getElementById("compare").addEventListener(eventEnd, e => {
@@ -281,7 +283,6 @@ document.getElementById("compare").addEventListener(eventEnd, e => {
 /**
  * compare時の正誤アイコン表示機能
  * @param
- * @return
  */
 function displaySign() {
     let signClassName = document.getElementById('result-sign').firstElementChild.className;
@@ -293,7 +294,6 @@ function displaySign() {
  * 最終結果画面の円グラフ
  * @param {number} correctCount
  * @param {number} amount
- * @return 
  */
 function displayEndResultCircle(correctCount, amount) {
     var endResultCircle = new ProgressBar.Circle('#end-result-circle', {
@@ -313,7 +313,6 @@ function displayEndResultCircle(correctCount, amount) {
 /**
  * 紙吹雪機能
  * @pram
- * @return
  */
 function doConfetti() {
     confetti({
@@ -326,7 +325,6 @@ function doConfetti() {
 /**
  * modal表示機能
  * @param 
- * @return
  */
 function showModal() {
     var modal = document.querySelector("#modal");
@@ -337,7 +335,6 @@ function showModal() {
 /**
  * modal非表示機能
  * @param 
- * @return
  */
 document.querySelector("#close-button").onclick = function closeModal() {
     var modal = document.querySelector("#modal");
